@@ -52,13 +52,17 @@ additional_links:
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/Ibwwnh8n_400x400.jpg
 about_content: | # this will include new lines to allow paragraphs
-  Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
+  Hi, I'm Kyriakos. I like building things. I am PhD student in <mark>Biomedical Informatics</mark> at the University of Zurich.
+  My areas of interest cover Bioinformatics, Deep Learning and Computational Pharmacology.
+  I have a curious spirit, a solid programming background and I'm fluent in a variety of languages.
+  
+#  Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
 
-  You can even add paragraphs by using empty lines like this and add anything else [markdown](https://www.markdownguide.org/getting-started#what-is-markdown) supports such as
-    - Lists
-    - Tables
-    - <a href="google.com">Links</a>
-    - Images ![alt text](/images/landscape-trees.jpg "Trees")
+#  You can even add paragraphs by using empty lines like this and add anything else [markdown](https://www.markdownguide.org/getting-started#what-is-markdown) supports such as
+#    - Lists
+#    - Tables
+#    - <a href="google.com">Links</a>
+#    - Images ![alt text](/images/landscape-trees.jpg "Trees")
 
 #content:
 #  - title: Projects # Title for the section
@@ -112,7 +116,7 @@ about_content: | # this will include new lines to allow paragraphs
 #      Or you could title it **Skills** and write a bit more about things that make you more desirable, like *leadership* or *teamwork*
 
 # Footer
-footer_show_references: false
+# footer_show_references: false
 # references_title: References on request (Override references text)
 
 # Build settings
