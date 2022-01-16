@@ -52,9 +52,11 @@ additional_links:
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/Ibwwnh8n_400x400.jpg
 about_content: | # this will include new lines to allow paragraphs
-  Hi, I'm Kyriakos. I like building things. I am PhD student in <mark>Biomedical Informatics</mark> at the University of Zurich.
-  My areas of interest cover Bioinformatics, Deep Learning and Computational Pharmacology.
+  Hi, I'm Kyriakos. I like building things. I am a PhD student in <mark>Biomedical Informatics</mark> at the University of Zurich.
+  My areas of interest cover <mark>Bioinformatics</mark>, <mark>Deep Learning</mark> and <mark>Computational Pharmacology</mark>.
   I have a curious spirit, a solid programming background and I'm fluent in a variety of languages.
+  
+  Other interests include: <mark>Cat Memes</mark>, <mark>Chess</mark>, <mark>Deadlifts</mark>, <mark>Bouldering</mark> and <mark>Guitar</mark>.
   
 #  Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
 
