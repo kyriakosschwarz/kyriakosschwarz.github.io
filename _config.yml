@@ -67,7 +67,7 @@ content:
     layout: list # Type of content section (list/text)
     content:
       - layout: left
-        border: weak  # Value of `weak` will display a weak border below this item. # Any 
+        border:   # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
         title: "AttentionDDI: Siamese attention-based deep learning method for drug–drug interaction predictions"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
@@ -85,11 +85,33 @@ content:
           I developed a novel Deep Learning architecture - <mark>AttentionDDI</mark> - in <mark>PyTorch</mark> for the prediction of previously unknown medication side effects. The model is <mark>Transformer</mark>-based and through an <mark>Attention</mark> mechanism it provides explainability over which input data modality (chemical structures, side effects, targets, etc.) is weighted more for improved predictions.
           
           ![Transformer model](https://www.tensorflow.org/images/tutorials/transformer/multi_head_attention.png "Transformer model")
+  - title: Bioinformatics # Title for the section
+    layout: list # Type of content section (list/text)
+    content:
+      - layout: left
+        border:   # Value of `weak` will display a weak border below this item. # Any 
+                      # other value (or no value) means no border will be displayed
+        title: "Long non-coding RNA structure estimations for cancer genomics"
+#        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+#        link_text: Link Text
+        additional_links:
+#          - title:  Code
+#            icon: fab fa-github
+#            url: https://bitbucket.org/kyriakosschwarz/muehle/src/fb59a339d3655c9b8006caaa64b2a99fa5099e72/
+          - title:  Paper
+            icon: fas fa-graduation-cap
+            url: https://www.biorxiv.org/content/10.1101/2021.11.06.467555
+        quote: >
+          RNA secondary structure calculation for the identification of cancer driver lncRNAs.
+        description: | # this will include new lines to allow paragraphs
+          Computational methods that have aimed to predict cancer driver lncRNA genes have thus far relied on scores that do not specifically reflect the lncRNA biology. Therefore, Functional Impact scores, such as conservation scores or base pairing probabilties from RNA secondary structure can be included to improve those predictions. In this project I calculated lncRNA base pairing probabilities and correlated them with conservation scores to examine whether secondary structure is suggestive of gene function.
+          
+          ![Trans mod](images/rnafold.png "RNA secondary structure")
   - title: Web Development # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: left
-        border: weak  # Value of `weak` will display a weak border below this item. # Any 
+        border:   # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
         title: "Nine men's morris (Mühle) web game"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
