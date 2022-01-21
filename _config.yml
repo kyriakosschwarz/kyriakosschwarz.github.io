@@ -107,6 +107,25 @@ content:
           Computational methods that have aimed to predict cancer driver lncRNA genes have thus far relied on scores that do not specifically reflect the lncRNA biology. Therefore, Functional Impact scores, such as conservation scores or base pairing probabilties from RNA secondary structure can be included to improve those predictions. In this project I calculated lncRNA base pairing probabilities and correlated them with conservation scores to examine whether secondary structure is suggestive of gene function.
           
           ![Trans mod](images/rnafold.png "RNA secondary structure")
+      - layout: left
+        border:   # Value of `weak` will display a weak border below this item. # Any 
+                      # other value (or no value) means no border will be displayed
+        title: "EM algorithm for genomic methylation profiles"
+#        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+#        link_text: Link Text
+        additional_links:
+          - title:  Code
+            icon: fab fa-github
+            url: https://bitbucket.org/jennifer_semple/emclassifier/src/master/
+#          - title:  Paper
+#            icon: fas fa-graduation-cap
+#            url: https://www.biorxiv.org/content/10.1101/2021.11.06.467555
+        quote: >
+          Implementation of an Expectation-Maximization algorithm for the delineation of promoter states in C. elegans.
+        description: | # this will include new lines to allow paragraphs
+          In C. elegans the expression of X-linked genes is downregulated by half by modifying transcription initiation. Here, a EM algorithm was applied to a dataset containing the positions and the methylation status of Cytonsines around the TSS of various genes.
+          
+          ![TSS methylation](images/EM.png "TSS methylation")
   - title: Web Development # Title for the section
     layout: list # Type of content section (list/text)
     content:
