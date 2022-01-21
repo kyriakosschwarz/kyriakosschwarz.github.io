@@ -113,6 +113,25 @@ content:
       - layout: left
         border:   # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
+        title: "Professional company websites"
+#        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+#        link_text: Link Text
+        additional_links:
+          - title:  Code
+            icon: fab fa-github
+            url: https://bitbucket.org/kyriakosschwarz/muehle/src/fb59a339d3655c9b8006caaa64b2a99fa5099e72/
+#          - title:  Paper
+#            icon: fas fa-graduation-cap
+#            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
+        quote: >
+          A simple and fun web game written in pure JS.
+        description: | # this will include new lines to allow paragraphs
+          A toy project where I implemented the nine men's morris game (Mühle) with pure <mark>HTML/CSS/JS</mark>.
+          
+          ![Muehle Game](images/muehle.png "Muehle Game")
+      - layout: left
+        border:   # Value of `weak` will display a weak border below this item. # Any 
+                      # other value (or no value) means no border will be displayed
         title: "Nine men's morris (Mühle) web game"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
 #        link_text: Link Text
