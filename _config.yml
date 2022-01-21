@@ -117,7 +117,7 @@ content:
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
 #        link_text: Link Text
         additional_links:
-          - title:  Code
+          - title:  Link
             icon: fas fa-external-link-alt
             url: https://www.fastforward.ch/fastforward/references.html
 #          - title:  Paper
