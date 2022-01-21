@@ -111,7 +111,7 @@ content:
     layout: list # Type of content section (list/text)
     content:
       - layout: left
-        border:   # Value of `weak` will display a weak border below this item. # Any 
+        border: weak  # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
         title: "Professional company websites"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
@@ -130,6 +130,7 @@ content:
             - <a href="https://www.fastforward.ch/fastforward/references/sympany.html">Sympany</a>
             - <a href="https://www.fastforward.ch/fastforward/references/prosenectute.html">Pro Senectute</a>
             - <a href="https://www.fastforward.ch/fastforward/references/schweizmobilplus.html">SchweizMobil Plus</a>
+          
           My responsibilities included web development in <mark>HTML/CSS/JS</mark>, <mark>Magnolia</mark> CMS configuration, extension of CMS functionality in <mark>Java</mark>, setting up <mark>REST/SOAP</mark> services and planning <mark>Agile/Scrum</mark> tasks and sprints. 
       - layout: left
         border:   # Value of `weak` will display a weak border below this item. # Any 
