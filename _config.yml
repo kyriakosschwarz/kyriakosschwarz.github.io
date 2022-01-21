@@ -139,10 +139,10 @@ content:
         title: "Flurnamen Puzzle"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
 #        link_text: Link Text
-        additional_links:
-          - title:  Code
-            icon: fas fa-external-link-alt
-            url: https://www.fastforward.ch/fastforward/references.html
+#        additional_links:
+#          - title:  Code
+#            icon: fas fa-external-link-alt
+#            url: https://www.fastforward.ch/fastforward/references.html
 #          - title:  Paper
 #            icon: fas fa-graduation-cap
 #            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
