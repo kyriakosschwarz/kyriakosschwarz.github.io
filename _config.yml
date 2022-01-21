@@ -70,8 +70,8 @@ content:
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
         title: AttentionDDI
-        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-        link_text: Link Text
+#        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+#        link_text: Link Text
         additional_links:
           - title:  Code
             icon: fab fa-github
@@ -83,6 +83,8 @@ content:
           Improving drug-drug interaction predictions with a novel Transformer-based model.
         description: | # this will include new lines to allow paragraphs
           I developed a novel Deep Learning architecture (<mark>AttentionDDI</mark> in <mark>PyTorch</mark> for the prediction of previously unknown medication side effects. The model is <mark>Transformer</mark>-based and through an <mark>Attention</mark> mechanism it provides explainability over which input data modality (chemical structures, side effects, targets, etc.) is weighted more for improved predictions.
+          
+          ![Trans mod](https://www.tensorflow.org/images/tutorials/transformer/multi_head_attention.png "Transformer model")
 #  - title: Experience
 #    layout: list
 #    content:
