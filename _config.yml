@@ -128,7 +128,29 @@ content:
         description: | # this will include new lines to allow paragraphs
           A toy project where I implemented the nine men's morris game (Mühle) with pure <mark>HTML/CSS/JS</mark>.
           
-          ![Trans mod](images/muehle.png "Muehle Game")
+          ![Muehle Game](images/muehle.png "Muehle Game")
+  - title: "Computer Vision & Graphics" # Title for the section
+    layout: list # Type of content section (list/text)
+    content:
+      - layout: left
+        border:   # Value of `weak` will display a weak border below this item. # Any 
+                      # other value (or no value) means no border will be displayed
+        title: "Pidgeon Detection"
+#        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+#        link_text: Link Text
+        additional_links:
+          - title:  Code
+            icon: fab fa-github
+            url: https://bitbucket.org/kyriakosschwarz/taubenabwehr/src/master/Taubenabwehr/
+#          - title:  Paper
+#            icon: fas fa-graduation-cap
+#            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
+        quote: >
+          Video analysis algorithm for the detection and positioning of pidgeons.
+        description: | # this will include new lines to allow paragraphs
+          A video analysis algorithm that is based on basic computer vision principles. Based on pidgeon characteristics (shape, size, movement, etc.) their position is determined within a video input stream. Written in <mark>Python/OpenCV/QT</mark>. The video input can be opened in a QT window and areas of interest (detection) can be selected (drawing polygons). Within these areas the positions of detected pidgeons are reported.
+          
+          ![Pidgeon Detection](https://hackster.imgix.net/uploads/attachments/929293/picture_oKHxX5hcUc.PNG?auto=compress%2Cformat&w=900&h=675&fit=min "Pidgeon Detection")
 #  - title: Experience
 #    layout: list
 #    content:
