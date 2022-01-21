@@ -100,8 +100,9 @@ hr {
 
 img,
 picture {
-  margin: 0;
-  max-width: 100%; }
+  margin: auto;
+  max-width: 100%;
+  display: block; }
 
 html {
   box-sizing: border-box; }
