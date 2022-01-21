@@ -132,6 +132,26 @@ content:
             - <a href="https://www.fastforward.ch/fastforward/references/schweizmobilplus.html">SchweizMobil Plus</a>
           
           My responsibilities included web development in <mark>HTML/CSS/JS</mark>, <mark>Magnolia</mark> CMS configuration, extension of CMS functionality in <mark>Java</mark>, setting up <mark>REST/SOAP</mark> services and planning <mark>Agile/Scrum</mark> tasks and sprints. 
+
+      - layout: left
+        border: weak  # Value of `weak` will display a weak border below this item. # Any 
+                      # other value (or no value) means no border will be displayed
+        title: "Flurnamen Puzzle"
+#        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+#        link_text: Link Text
+        additional_links:
+          - title:  Code
+            icon: fas fa-external-link-alt
+            url: https://www.fastforward.ch/fastforward/references.html
+#          - title:  Paper
+#            icon: fas fa-graduation-cap
+#            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
+        quote: >
+          Web-based puzzle game for primary school students.
+        description: | # this will include new lines to allow paragraphs
+          An interactive and educational game where local map regions act as puzzle pieces. The primary school students of Läufelfingen can use it to better learn their region in a fun way by piecing together these puzzle pieces. The game was developed with <mark>Processing.js</mark>.
+          
+          ![Puzzle Game](images/flurnamen.png "Puzzle Game")
       - layout: left
         border:   # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
