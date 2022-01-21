@@ -118,17 +118,19 @@ content:
 #        link_text: Link Text
         additional_links:
           - title:  Code
-            icon: fab fa-github
-            url: https://bitbucket.org/kyriakosschwarz/muehle/src/fb59a339d3655c9b8006caaa64b2a99fa5099e72/
+            icon: fas fa-external-link-alt
+            url: https://www.fastforward.ch/fastforward/references.html
 #          - title:  Paper
 #            icon: fas fa-graduation-cap
 #            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
         quote: >
-          A simple and fun web game written in pure JS.
+          Professional development of major Swiss company websites.
         description: | # this will include new lines to allow paragraphs
-          A toy project where I implemented the nine men's morris game (Mühle) with pure <mark>HTML/CSS/JS</mark>.
-          
-          ![Muehle Game](images/muehle.png "Muehle Game")
+          While working as a software / web developer at <a href="https://www.fastforward.ch/fastforward.html">fastforward websolutions</a> I was involved in the implementation and maintenance of professional company websites. Some notable examples include:
+            - <a href="https://www.fastforward.ch/fastforward/references/sympany.html">Sympany</a>
+            - <a href="https://www.fastforward.ch/fastforward/references/prosenectute.html">Pro Senectute</a>
+            - <a href="https://www.fastforward.ch/fastforward/references/schweizmobilplus.html">SchweizMobil Plus</a>
+          My responsibilities included web development in <mark>HTML/CSS/JS</mark>, <mark>Magnolia</mark> CMS configuration, extension of CMS functionality in <mark>Java</mark>, setting up <mark>REST/SOAP</mark> services and planning <mark>Agile/Scrum</mark> tasks and sprints. 
       - layout: left
         border:   # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
