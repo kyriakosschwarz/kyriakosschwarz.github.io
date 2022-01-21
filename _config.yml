@@ -189,7 +189,7 @@ content:
         description: | # this will include new lines to allow paragraphs
           A toy project where I implemented the nine men's morris game (Mühle) with pure <mark>HTML/CSS/JS</mark>.
           
-          ![Muehle Game](images/muehle.png "Muehle Game")
+          ![Muehle Game](images/muehle2.png "Muehle Game")
   - title: "Computer Vision & Graphics" # Title for the section
     layout: list # Type of content section (list/text)
     content:
