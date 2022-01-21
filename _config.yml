@@ -49,7 +49,7 @@ additional_links:
 # google_analytics: "UA-00000000-0"
 
 # About Section
-about_title: About
+#about_title: About
 about_profile_image: images/Ibwwnh8n_400x400.jpg
 about_content: | # this will include new lines to allow paragraphs
   Hi, I'm Kyriakos. I like building things. I have a curious spirit, a solid programming background and I'm fluent in a variety of languages. I am a PhD student in Biomedical Informatics at the University of Zurich. My areas of research cover <mark>Bioinformatics</mark>, <mark>Deep Learning</mark> and <mark>Computational Pharmacology</mark>. In my free time I like to engage myself with Chess, Bouldering and Guitar.
