@@ -123,7 +123,7 @@ content:
         quote: >
           Implementation of an Expectation-Maximization algorithm for the delineation of promoter states in C. elegans.
         description: | # this will include new lines to allow paragraphs
-          In C. elegans the expression of X-linked genes is downregulated by half by modifying transcription initiation. Here, a EM algorithm was applied to a dataset containing the positions and the methylation status of Cytonsines around the TSS of various genes.
+          In C. elegans the expression of X-linked genes is downregulated by half by modifying transcription initiation. Here, a EM algorithm was applied to a dataset containing the positions and the methylation status of Cytonsines around the TSS of various genes. The algorithm is written in <mark>R</mark>.
           
           ![TSS methylation](images/EM.png "TSS methylation")
   - title: Web Development # Title for the section
