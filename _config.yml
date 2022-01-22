@@ -146,9 +146,9 @@ content:
           Four molecular biology experiments for the effects of the TTL gene.
         description: | # this will include new lines to allow paragraphs
           The alpha-tubulin (α-tubulin) protein is a major structural component of microtubules which in turn are one of the three main filaments of the eukaryotic cytoskeleton. Microtubules are associated with important cellular functions, such as mitosis and meiosis, intracellular transport, cell motility, maintenance of the cell shape and others. The tubulin-tyrosine ligase (<i>TTL</i>) protein functions by ligating a tyrosine molecule at the detyrosinated C-terminal of α-tubulin. This process can have an effect on microtubule stability and subsequently on the cellular functions which are depended on the microtubule dynamics. In this work four experiments were performed which try to elucidate the consequences of engineered <i>TTL</i> genes in Drosophila melanogaster. The experiments include:
-            - Measuring viability and fertility of Drosophila flies.
-            - Confocal microscopy.
-            - Western blot
+            - Measuring viability and fertility of Drosophila flies
+            - Confocal microscopy of Drosophila ovaries
+            - Western blot of tyrosinated α-tubulin
             - TTL-GFP fusion gene cloning
           
           ![Confocal microscopy](images/confocal.png "Confocal microscopy")
