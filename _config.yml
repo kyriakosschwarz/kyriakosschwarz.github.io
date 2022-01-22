@@ -84,7 +84,7 @@ content:
         description: | # this will include new lines to allow paragraphs
           I developed a novel Deep Learning architecture - <mark>AttentionDDI</mark> - in <mark>PyTorch</mark> for the prediction of previously unknown medication side effects. The model is <mark>Transformer</mark>-based and through an <mark>Attention</mark> mechanism it provides explainability over which input data modality (chemical structures, side effects, targets, etc.) is weighted more for improved predictions.
           
-          ![Transformer model](https://www.tensorflow.org/images/tutorials/transformer/multi_head_attention.png "Transformer model")
+          ![Transformer model](images/ddi.png "Transformer model")
   - title: Bioinformatics # Title for the section
     layout: list # Type of content section (list/text)
     content:
