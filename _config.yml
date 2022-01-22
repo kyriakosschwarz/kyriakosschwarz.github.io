@@ -236,7 +236,7 @@ content:
         quote: >
           Video analysis algorithm for the detection and positioning of pidgeons.
         description: | # this will include new lines to allow paragraphs
-          A video analysis algorithm that is based on basic computer vision principles. Based on pidgeon characteristics (shape, size, movement, etc.) their position is determined within a video input stream. Written in <mark>Python/OpenCV/QT</mark>. The video input can be opened in a QT window and areas of interest (detection) can be selected (drawing polygons). Within these areas the positions of detected pidgeons are reported.
+          In this project a video analysis algorithm was developed that utilizes basic computer vision principles. Based on pidgeon characteristics (shape, size, movement, etc.) their position is determined within a video input stream. Written in <mark>Python/OpenCV/QT</mark>. The video input can be opened in a <a href="https://www.qt.io/">QT</a> window and areas of interest (detection) can be selected (by drawing polygons). Within these areas the positions of detected pidgeons are reported.
           
           ![Pidgeon Detection](https://hackster.imgix.net/uploads/attachments/929293/picture_oKHxX5hcUc.PNG?auto=compress%2Cformat&w=900&h=675&fit=min "Pidgeon Detection")
       - layout: left
