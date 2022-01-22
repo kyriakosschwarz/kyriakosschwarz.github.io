@@ -123,7 +123,7 @@ content:
         quote: >
           Implementation of an Expectation-Maximization algorithm for promoter states in C. elegans.
         description: | # this will include new lines to allow paragraphs
-          In <i>C. elegans</i> the expression of X-linked genes is downregulated by half by modifying transcription initiation. Here, a EM algorithm was applied to a dataset containing the positions and the methylation status of Cytosines around the TSS of various genes. The algorithm is written in <mark>R</mark>.
+          In <a href="https://en.wikipedia.org/wiki/Caenorhabditis_elegans"><i>C. elegans</i></a> the expression of X-linked genes is downregulated by half by modifying transcription initiation. Here, an <a href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm">EM</a> algorithm was applied to a dataset containing the positions and the methylation status of Cytosines around the TSS of various genes. The algorithm is written in <mark>R</mark>.
           
           ![TSS methylation](images/EM.png "TSS methylation")
   - title: Molecular Biology # Title for the section
@@ -177,7 +177,8 @@ content:
             - <a href="https://www.fastforward.ch/fastforward/references/schweizmobilplus.html">SchweizMobil Plus</a>
           
           My responsibilities included web development in <mark>HTML/CSS/JS</mark>, <mark>Magnolia</mark> CMS configuration, extension of CMS functionality in <mark>Java</mark>, setting up <mark>REST/SOAP</mark> services and planning <mark>Agile/Scrum</mark> tasks and sprints. 
-
+          
+          ![HTML code](https://en.number13.de/content/images/2021/08/photo-1542831371-29b0f74f9713-5.jpg "HTML code")
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
