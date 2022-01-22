@@ -195,7 +195,7 @@ content:
         quote: >
           Web-based puzzle game for primary school students.
         description: | # this will include new lines to allow paragraphs
-          An interactive and educational game where local map regions act as puzzle pieces. The primary school students of Läufelfingen can use it to better learn their region in a fun way by piecing together these puzzle pieces. The game was developed with <mark>Processing.js</mark>.
+          An interactive and educational game where local map regions act as puzzle pieces. The primary school students of <a href="https://www.schulelaeufelfingen.ch/">Läufelfingen</a> can use it to better learn their region in a fun way by piecing together these puzzle pieces. The game was developed with <mark>Processing.js</mark>.
           
           ![Puzzle Game](images/flurnamen.png "Puzzle Game")
       - layout: left
@@ -214,7 +214,7 @@ content:
         quote: >
           A simple and fun web game written in pure JS.
         description: | # this will include new lines to allow paragraphs
-          A toy project where I implemented the nine men's morris game (Mühle) with pure <mark>HTML/CSS/JS</mark>.
+          A toy project where I implemented the nine men's morris game (<a href="https://en.wikipedia.org/wiki/Nine_men%27s_morris">Mühle</a>) with pure <mark>HTML/CSS/JS</mark>.
           
           ![Muehle Game](images/muehle2.png "Muehle Game")
   - title: "Computer Vision & Graphics" # Title for the section
