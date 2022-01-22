@@ -104,7 +104,7 @@ content:
         quote: >
           RNA secondary structure calculation for the identification of cancer driver lncRNAs.
         description: | # this will include new lines to allow paragraphs
-          Computational methods that have aimed to predict cancer driver lncRNA genes have thus far relied on scores that do not specifically reflect the lncRNA biology. Therefore, Functional Impact scores, such as conservation scores or base pairing probabilties from RNA secondary structure can be included to improve those predictions. In this project I calculated lncRNA base pairing probabilities and correlated them with conservation scores to examine whether secondary structure is suggestive of gene function. Tools used for this project: <mark>Bash (awk, bedtools, bwtool, etc.)</mark>, <mark>Python (Snakemake)</mark>, <mark>R</mark>, <mark>RNAfold/RNAsnp</mark>
+          Computational methods that have aimed to predict cancer driver lncRNA genes have thus far relied on scores that do not specifically reflect the <a href="https://en.wikipedia.org/wiki/Long_non-coding_RNA">lncRNA</a> biology. Therefore, Functional Impact scores, such as conservation scores or base pairing probabilties from RNA secondary structure can be included to improve those predictions. In this project I calculated lncRNA base pairing probabilities and correlated them with conservation scores to examine whether secondary structure is suggestive of gene function. Tools used for this project: <mark>Bash (awk, bedtools, bwtool, etc.)</mark>, <mark>Python (Snakemake)</mark>, <mark>R</mark>, <mark>RNAfold/RNAsnp</mark>
           
           ![Trans mod](images/rnafold.png "RNA secondary structure")
       - layout: left
