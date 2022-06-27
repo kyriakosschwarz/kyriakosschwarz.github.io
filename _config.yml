@@ -67,7 +67,7 @@ content:
     layout: list # Type of content section (list/text)
     content:
       - layout: left
-        border:   # Value of `weak` will display a weak border below this item. # Any 
+        border: weak  # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
         title: "1. AttentionDDI: Siamese attention-based deep learning method for drug–drug interaction predictions"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
@@ -85,7 +85,6 @@ content:
           I developed a novel Deep Learning architecture - <mark>AttentionDDI</mark> - in <mark>PyTorch</mark> for the prediction of previously unknown medication side effects. The model is <mark>Transformer</mark>-based and through an <mark>Attention</mark> mechanism it provides explainability over which input data modality (chemical structures, side effects, targets, etc.) is weighted more for improved predictions.
           
           ![Transformer model](images/ddi.png "Transformer model")
-    
       - layout: left
         border:   # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
