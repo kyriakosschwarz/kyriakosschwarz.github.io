@@ -63,7 +63,7 @@ about_content: | # this will include new lines to allow paragraphs
 #    - Images ![alt text](/images/landscape-trees.jpg "Trees")
 
 content:
-  - title: Computational Pharmacology # Title for the section
+  - title: Projects in Computational Pharmacology # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: left
@@ -105,7 +105,7 @@ content:
           
           ![Graph Neural Network model](images/gnn_molecule.png "Graph Neural Network model")          
           
-  - title: Bioinformatics # Title for the section
+  - title: Projects in Bioinformatics # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: left
@@ -146,7 +146,7 @@ content:
           In <i><a href="https://en.wikipedia.org/wiki/Caenorhabditis_elegans">C. elegans</a></i> the expression of X-linked genes is downregulated by half by modifying transcription initiation. Here, an <a href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm">EM</a> algorithm was applied to a dataset containing the positions and the methylation status of Cytosines around the transcription start site (<i>TSS</i>) of various genes. The algorithm is written in <mark>R</mark>.
           
           ![TSS methylation](images/EM.png "TSS methylation")
-  - title: Molecular Biology # Title for the section
+  - title: Projects in Molecular Biology # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: left
@@ -172,7 +172,7 @@ content:
             - TTL-GFP fusion gene cloning
           
           ![Confocal microscopy](images/confocal.png "Confocal microscopy")
-  - title: Web Development # Title for the section
+  - title: Projects in Web Development # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: left
@@ -237,7 +237,7 @@ content:
           A toy project where I implemented the nine men's morris game (<a href="https://en.wikipedia.org/wiki/Nine_men%27s_morris">Mühle</a>) with pure <mark>HTML/CSS/JS</mark>.
           
           ![Muehle Game](images/muehle2.png "Muehle Game")
-  - title: "Computer Vision & Graphics" # Title for the section
+  - title: "Projects in Computer Vision & Computer Graphics" # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: left
