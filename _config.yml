@@ -92,7 +92,7 @@ content:
       - layout: left
         border:   # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
-        title: "2. DDoS: Graph Neural Network based drug combination synergy prediction method"
+        title: "2. DDoS: Graph Neural Network based drug synergy prediction method"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
 #        link_text: Link Text
         additional_links:
