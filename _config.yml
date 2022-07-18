@@ -90,9 +90,29 @@ content:
           
           ![Transformer model](images/ddi.png "Transformer model")
       - layout: left
+        border: weak  # Value of `weak` will display a weak border below this item. # Any 
+                      # other value (or no value) means no border will be displayed
+        title: "2. Drug administration clusters in the UK Biobank: An assessment of drug-drug interactions and patient outcomes in a large patient cohort"
+#        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+#        link_text: Link Text
+        additional_links:
+#          - title:  Code
+#            icon: fab fa-github
+#            url: https://github.com/uzh-dqbm-cmi/side-effects/
+          - title:  Paper
+            icon: fas fa-graduation-cap
+            url: https://www.ukbiobank.ac.uk/
+        quote: >
+          Analysis of patient clusters and their DDIs in a large real-world dataset.
+        description: | # this will include new lines to allow paragraphs
+          I created patient clusters, according to their drug administration history.
+          
+          ![UK Biobank patient](images/ukbpatient.png "UK Biobank patient")
+
+      - layout: left
         border:   # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
-        title: "2. DDoS: Graph Neural Network based drug synergy prediction method"
+        title: "3. DDoS: Graph Neural Network based drug synergy prediction method"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
 #        link_text: Link Text
         additional_links:
