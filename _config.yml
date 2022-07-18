@@ -105,7 +105,7 @@ content:
         quote: >
           Analysis of patient clusters and their DDIs in a large real-world dataset.
         description: | # this will include new lines to allow paragraphs
-          I created patient clusters, according to their drug administration history.
+          I created patient clusters, according to their drug administration history, and analyzed the prevalence of DDIs in each cluster, which may influence their five-year mortality. The specific drug prescription patterns in polypharmacy have not been extensively studied in the UK Biobank. I examined whether specific drug combinations may lead to additional negative (or even positive) health effects in the UK Biobank participants. I performed a study across 328′185 UK Biobank participants in order to: 1) Identify clusters of patients with similar drug prescriptions (i.e., discover "drug constellations") and 2) study these drug constellations with regard to patient outcomes. I mapped UK Biobank drug information into "Meta-Drugs", categories that provide a semantically harmonized view of the participants’ drug prescriptions.
           
           ![UK Biobank patient](images/ukbpatient.png "UK Biobank patient")
 
