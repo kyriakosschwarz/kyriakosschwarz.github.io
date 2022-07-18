@@ -105,7 +105,7 @@ content:
         quote: >
           Analysis of patient clusters and their DDIs in a large real-world dataset.
         description: | # this will include new lines to allow paragraphs
-          I created patient clusters, according to their drug administration history, and analyzed the prevalence of DDIs in each cluster, which may influence their five-year mortality. I examined whether specific drug combinations may lead to additional health effects in the UK Biobank participants. For this project I employed the <mark>Scikit</mark>, <mark>RapidsAI</mark>, <mark>Scipy</mark> and <mark>statsmodels</mark> data science libraries.
+          I created patient clusters, according to their drug administration history, and analyzed the prevalence of DDIs in each cluster, which may influence their five-year mortality. I examined whether specific drug combinations may lead to additional health effects in the UK Biobank participants. For this project I employed the <mark>Scikit-Learn</mark>, <mark>RapidsAI</mark>, <mark>Scipy</mark> and <mark>statsmodels</mark> data science libraries.
           
           ![UK Biobank patient](images/ukbpatient.png "UK Biobank patient")
 
@@ -229,7 +229,7 @@ content:
         title: "2. Flurnamen Puzzle"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
 #        link_text: Link Text
-#        additional_links:
+        additional_links:
           - title:  Link
             icon: fas fa-external-link-alt
             url: https://flurnamenpuzzle.ch/
