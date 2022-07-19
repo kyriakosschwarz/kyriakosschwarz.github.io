@@ -101,7 +101,7 @@ content:
 #            url: https://github.com/uzh-dqbm-cmi/side-effects/
           - title:  Paper
             icon: fas fa-graduation-cap
-            url: https://www.ukbiobank.ac.uk/
+            url: https://arxiv.org/abs/2207.08665
         quote: >
           Analysis of patient clusters and their DDIs in a large real-world dataset.
         description: | # this will include new lines to allow paragraphs
