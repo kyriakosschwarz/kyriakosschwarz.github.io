@@ -92,7 +92,7 @@ content:
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
-        title: "2. Drug administration clusters in the UK Biobank: An assessment of drug-drug interactions and patient outcomes in a large patient cohort"
+        title: "2. Drug prescription clusters in the UK Biobank: An assessment of drug-drug interactions and patient outcomes in a large patient cohort"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
 #        link_text: Link Text
         additional_links:
@@ -105,7 +105,7 @@ content:
         quote: >
           Analysis of patient clusters and their DDIs in a large real-world dataset.
         description: | # this will include new lines to allow paragraphs
-          I created patient clusters, according to their drug administration history, and analyzed the prevalence of DDIs in each cluster, which may influence their five-year mortality. I examined whether specific drug combinations may lead to additional health effects in the UK Biobank participants. For this project I employed the <mark>Scikit-Learn</mark>, <mark>RapidsAI</mark>, <mark>Scipy</mark> and <mark>statsmodels</mark> data science libraries.
+          I created patient clusters, according to their drug prescription history, and analyzed the prevalence of DDIs in each cluster, which may influence their five-year mortality. I examined whether specific drug combinations may lead to additional health effects in the <a href="https://www.ukbiobank.ac.uk/">UK Biobank</a> participants. For this project I employed the <mark>Scikit-Learn</mark>, <mark>RapidsAI</mark>, <mark>Scipy</mark> and <mark>statsmodels</mark> data science libraries.
           
           ![UK Biobank patient](images/ukbpatient.png "UK Biobank patient")
 
