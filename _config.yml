@@ -116,12 +116,12 @@ content:
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
 #        link_text: Link Text
         additional_links:
-#          - title:  Code
-#            icon: fab fa-github
-#            url: https://github.com/uzh-dqbm-cmi/side-effects/
-#          - title:  Paper
-#            icon: fas fa-graduation-cap
-#            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
+          - title:  Code
+            icon: fab fa-github
+            url: https://github.com/uzh-dqbm-cmi/graphnn
+          - title:  Paper
+            icon: fas fa-graduation-cap
+            url: https://arxiv.org/abs/2210.00802
         quote: >
           A novel drug-drug-cell line synergy prediction model based on Graph Neural Networks.
         description: | # this will include new lines to allow paragraphs
