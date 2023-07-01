@@ -52,9 +52,11 @@ additional_links:
 #about_title: About
 about_profile_image: images/Ibwwnh8n_400x400.jpg
 about_content: | # this will include new lines to allow paragraphs
-  Hi, I'm Kyriakos, a medical data scientist. My ambition is to derive clinically-useful knowledge from data that impacts healthcare.  
+  Hi, I'm Kyriakos, a data scientist. My ambition is to leverage the power of the data through data driven transformations.
   
-  I am a PhD student at the <a href="https://www.uzh.ch/en.html">University of Zurich</a>, affiliated with the <a href="https://www.usz.ch/en/">University Hospital Zurich</a> and the <a href="https://ai.ethz.ch/">ETH AI center</a>. My area of research covers novel methods for <mark>Medical Artificial Intelligence</mark>.
+  My experience ranges from biomedical data analysis in research to production level data science applications with financial data in industry. 
+  
+  I completed my PhD degree at the <a href="https://www.uzh.ch/en.html">University of Zurich</a>, affiliated with the <a href="https://www.usz.ch/en/">University Hospital Zurich</a> and the <a href="https://ai.ethz.ch/">ETH AI center</a>. My area of research covers novel methods for <mark>Medical Artificial Intelligence</mark>.
   
   I have a curious spirit, a solid programming background and I'm fluent in a variety of languages. In my free time I like to engage myself with Chess, Sports and Guitar.
   
