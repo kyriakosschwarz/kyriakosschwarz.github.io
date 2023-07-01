@@ -146,7 +146,7 @@ content:
 #            url: https://bitbucket.org/kyriakosschwarz/muehle/src/fb59a339d3655c9b8006caaa64b2a99fa5099e72/
           - title:  Paper
             icon: fas fa-graduation-cap
-            url: https://www.biorxiv.org/content/10.1101/2021.11.06.467555
+            url: https://www.nature.com/articles/s41467-023-39160-7
         quote: >
           RNA secondary structure calculation for the identification of cancer driver lncRNAs.
         description: | # this will include new lines to allow paragraphs
