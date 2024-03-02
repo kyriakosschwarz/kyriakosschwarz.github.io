@@ -76,6 +76,11 @@ a i {
   padding-right: 10px;
 }
 
+a span {
+  position: absolute;
+  transform: translate3d(-200%, 400%, 0);
+}
+
 mark {
   padding: 2px 4px;
   font-size: 90%;
