@@ -15,7 +15,7 @@
         {% for link in item.additional_links %}
           {% include a.html href=link.url class="" %}
             <i class="{{ link.icon }}" title="{{ link.title | escape }}"></i>
-            <span class="icontitle">link.title</span>
+            <span class="icontitle">"{{ link.title | escape }}"</span>
           </a>
         {% endfor %}
       </p>
