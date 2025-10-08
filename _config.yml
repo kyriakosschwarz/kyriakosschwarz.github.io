@@ -54,9 +54,11 @@ about_profile_image: images/Ibwwnh8n_400x400.jpg
 about_content: | # this will include new lines to allow paragraphs
   Hi, I'm Kyriakos and my passion is turning <mark>data into value</mark>.
   
-  With over six years of professional experience I specialize in converting complex data into clear solutions, blending my software engineering background with deep expertise in data science and AI. From biomedical research to big data in the cloud, I've tackled diverse challenges, making me a versatile asset who can bridge technology and strategy to drive innovation and results.
+# With over six years of professional experience I specialize in converting complex data into clear solutions, blending my software engineering background with deep expertise in data science and AI. From biomedical research to big data in the cloud, I've tackled diverse challenges, making me a versatile asset who can bridge technology and strategy to drive innovation and results.
+
+I bridge the gap between software engineering and drug discovery, translating complex cheminformatics data into practical, data-driven solutions. My experience involves building high-impact tools to tackle complex cheminformatics challenges, like compound selection and reaction prediction. I am a proactive and detail-oriented team player, dedicated to solving scientific problems through collaboration. As a lifelong learner, I am motivated to continuously expand my skills to advance therapeutic development.
   
-  I have obtained my Ph.D. degree in <mark>Medical Artificial Intelligence</mark> from the <a href="https://www.uzh.ch/en.html">University of Zurich</a>, affiliated with the <a href="https://www.usz.ch/en/">University Hospital Zurich</a> and the <a href="https://ai.ethz.ch/">ETH AI center</a>. 
+  I have obtained my Ph.D. degree in <mark>Medical Artificial Intelligence</mark> from the <a href="https://www.uzh.ch/en.html">University of Zurich</a>, affiliated with the <a href="https://www.usz.ch/en/">University Hospital Zurich</a> and the <a href="https://ai.ethz.ch/">ETH AI center</a>. Currently doing a PostDoc at ETH Zurich and Roche in Basel.
 #  Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
 
 #  You can even add paragraphs by using empty lines like this and add anything else [markdown](https://www.markdownguide.org/getting-started#what-is-markdown) supports such as
@@ -66,30 +68,6 @@ about_content: | # this will include new lines to allow paragraphs
 #    - Images ![alt text](/images/landscape-trees.jpg "Trees")
 
 content:
-  - title: Projects in the Cloud - Big Data Analytics # Title for the section
-    layout: list # Type of content section (list/text)
-    content:
-      - layout: left
-        border: weak  # Value of `weak` will display a weak border below this item. # Any 
-                      # other value (or no value) means no border will be displayed
-        title: "1. From traditional Data Warehouse to modern cloud-based Big Data Analytics"
-#        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-#        link_text: Link Text
-        additional_links:
-#          - title:  Code
-#            icon: fab fa-github
-#            url: https://github.com/uzh-dqbm-cmi/side-effects/
-#          - title:  Paper
-#            icon: fas fa-graduation-cap
-#            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
-        quote: >
-          Transitioning to a modern and scalable cloud solution to enable Big Data Analytics.
-        description: | # this will include new lines to allow paragraphs
-          I empowered my team to transition from a in-house DWH solution to a scalable cloud solution, <mark>Azure Databricks</mark>. This enabled us to develop modern <mark>ETL</mark> piplines, and scalable Machine Learning applications.
-          
-          ![Databricks](images/databricks.png "Databricks")
-
-
   - title: Projects in Computational Pharmacology # Title for the section
     layout: list # Type of content section (list/text)
     content:
@@ -219,6 +197,29 @@ content:
             - TTL-GFP fusion gene cloning
           
           ![Confocal microscopy](images/confocal.png "Confocal microscopy")
+  
+  - title: Projects in the Cloud - Big Data Analytics # Title for the section
+    layout: list # Type of content section (list/text)
+    content:
+      - layout: left
+        border: weak  # Value of `weak` will display a weak border below this item. # Any 
+                      # other value (or no value) means no border will be displayed
+        title: "1. From traditional Data Warehouse to modern cloud-based Big Data Analytics"
+#        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+#        link_text: Link Text
+        additional_links:
+#          - title:  Code
+#            icon: fab fa-github
+#            url: https://github.com/uzh-dqbm-cmi/side-effects/
+#          - title:  Paper
+#            icon: fas fa-graduation-cap
+#            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
+        quote: >
+          Transitioning to a modern and scalable cloud solution to enable Big Data Analytics.
+        description: | # this will include new lines to allow paragraphs
+          I empowered my team to transition from a in-house DWH solution to a scalable cloud solution, <mark>Azure Databricks</mark>. This enabled us to develop modern <mark>ETL</mark> piplines, and scalable Machine Learning applications.
+          
+          ![Databricks](images/databricks.png "Databricks")
   - title: Projects in Web Development # Title for the section
     layout: list # Type of content section (list/text)
     content:
