@@ -66,30 +66,6 @@ about_content: | # this will include new lines to allow paragraphs
 #    - Images ![alt text](/images/landscape-trees.jpg "Trees")
 
 content:
-  - title: Projects in the Cloud - Big Data Analytics # Title for the section
-    layout: list # Type of content section (list/text)
-    content:
-      - layout: left
-        border: weak  # Value of `weak` will display a weak border below this item. # Any 
-                      # other value (or no value) means no border will be displayed
-        title: "1. From traditional Data Warehouse to modern cloud-based Big Data Analytics"
-#        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-#        link_text: Link Text
-        additional_links:
-#          - title:  Code
-#            icon: fab fa-github
-#            url: https://github.com/uzh-dqbm-cmi/side-effects/
-#          - title:  Paper
-#            icon: fas fa-graduation-cap
-#            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
-        quote: >
-          Transitioning to a modern and scalable cloud solution to enable Big Data Analytics.
-        description: | # this will include new lines to allow paragraphs
-          I empowered my team to transition from a in-house DWH solution to a scalable cloud solution, <mark>Azure Databricks</mark>. This enabled us to develop modern <mark>ETL</mark> piplines, and scalable Machine Learning applications.
-          
-          ![Databricks](images/databricks.png "Databricks")
-
-
   - title: Projects in Computational Pharmacology # Title for the section
     layout: list # Type of content section (list/text)
     content:
@@ -219,6 +195,29 @@ content:
             - TTL-GFP fusion gene cloning
           
           ![Confocal microscopy](images/confocal.png "Confocal microscopy")
+  - title: Projects in the Cloud - Big Data Analytics # Title for the section
+    layout: list # Type of content section (list/text)
+    content:
+      - layout: left
+        border: weak  # Value of `weak` will display a weak border below this item. # Any 
+                      # other value (or no value) means no border will be displayed
+        title: "1. From traditional Data Warehouse to modern cloud-based Big Data Analytics"
+#        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+#        link_text: Link Text
+        additional_links:
+#          - title:  Code
+#            icon: fab fa-github
+#            url: https://github.com/uzh-dqbm-cmi/side-effects/
+#          - title:  Paper
+#            icon: fas fa-graduation-cap
+#            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
+        quote: >
+          Transitioning to a modern and scalable cloud solution to enable Big Data Analytics.
+        description: | # this will include new lines to allow paragraphs
+          I empowered my team to transition from a in-house DWH solution to a scalable cloud solution, <mark>Azure Databricks</mark>. This enabled us to develop modern <mark>ETL</mark> piplines, and scalable Machine Learning applications.
+          
+          ![Databricks](images/databricks.png "Databricks")
+
   - title: Projects in Web Development # Title for the section
     layout: list # Type of content section (list/text)
     content:
