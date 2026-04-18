@@ -70,63 +70,63 @@ content:
     layout: list # Type of content section (list/text)
     content:
       - layout: left
-        border: weak  # Value of `weak` will display a weak border below this item. # Any 
-                      # other value (or no value) means no border will be displayed
-        title: "1. AttentionDDI: Siamese attention-based deep learning method for drug–drug interaction predictions"
-#        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-#        link_text: Link Text
+        border: weak
+        title: "1. Database of Unified Chemical Knowledge — Analysis of 15 years of Roche ELN data"
         additional_links:
-          - title:  Code
+          - title: Paper
+            icon: fas fa-graduation-cap
+            url: https://chemrxiv.org/doi/full/10.26434/chemrxiv.15002055/v1
+        quote: >
+          Leveraging "failed" reactions and negative data from industrial ELNs to improve predictive chemistry.
+        description: |
+          I worked on the <mark>Database of Unified Chemical Knowledge (DUCK)</mark> project, transforming 15 years of Roche Electronic Lab Notebook (ELN) data into a robust engine for chemical AI. By incorporating synthetic failures (negative data) alongside successes, we reduced bias in Machine Learning models and improved the reliability of chemical yield predictions. This research mapped the industrial repertoire, highlighting heavy reliance on C-N and C-C bond formations.
+          
+          ![DUCK Sunburst Plot](images/duck_sunburst.png "Industrial reaction classes")
+      - layout: left
+        border: weak
+        title: "2. AttentionDDI: Siamese attention-based deep learning method for drug–drug interaction predictions"
+        additional_links:
+          - title: Code
             icon: fab fa-github
             url: https://github.com/uzh-dqbm-cmi/side-effects/
-          - title:  Paper
+          - title: Paper
             icon: fas fa-graduation-cap
             url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
         quote: >
           Improving drug-drug interaction predictions with a novel Transformer-based model.
-        description: | # this will include new lines to allow paragraphs
+        description: |
           I developed a novel Deep Learning architecture - <mark>AttentionDDI</mark> - in <mark>PyTorch</mark> for the prediction of previously unknown medication side effects. The model is <mark>Transformer</mark>-based and through an <mark>Attention</mark> mechanism it provides explainability over which input data modality (chemical structures, side effects, targets, etc.) is weighted more for improved predictions.
           
           ![Transformer model](images/ddi.png "Transformer model")
       - layout: left
-        border: weak  # Value of `weak` will display a weak border below this item. # Any 
-                      # other value (or no value) means no border will be displayed
-        title: "2. Drug prescription clusters in the UK Biobank: An assessment of drug-drug interactions and patient outcomes in a large patient cohort"
-#        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-#        link_text: Link Text
+        border: weak
+        title: "3. Drug prescription clusters in the UK Biobank: An assessment of drug-drug interactions and patient outcomes in a large patient cohort"
         additional_links:
-#          - title:  Code
-#            icon: fab fa-github
-#            url: https://github.com/uzh-dqbm-cmi/side-effects/
-          - title:  Paper
+          - title: Paper
             icon: fas fa-graduation-cap
             url: https://arxiv.org/abs/2207.08665
         quote: >
           Analysis of patient clusters and their DDIs in a large real-world dataset.
-        description: | # this will include new lines to allow paragraphs
+        description: |
           I created patient clusters, according to their drug prescription history, and analyzed the prevalence of DDIs in each cluster, which may influence their five-year mortality. I examined whether specific drug combinations may lead to additional health effects in the <a href="https://www.ukbiobank.ac.uk/">UK Biobank</a> participants. For this project I employed the <mark>Scikit-Learn</mark>, <mark>RapidsAI</mark>, <mark>Scipy</mark> and <mark>statsmodels</mark> data science libraries.
           
           ![UK Biobank patient](images/ukbpatient.png "UK Biobank patient")
-
       - layout: left
-        border:   # Value of `weak` will display a weak border below this item. # Any 
-                      # other value (or no value) means no border will be displayed
-        title: "3. DDoS: Graph Neural Network based drug synergy prediction method"
-#        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-#        link_text: Link Text
+        border: 
+        title: "4. DDoS: Graph Neural Network based drug synergy prediction method"
         additional_links:
-          - title:  Code
+          - title: Code
             icon: fab fa-github
             url: https://github.com/uzh-dqbm-cmi/graphnn
-          - title:  Paper
+          - title: Paper
             icon: fas fa-graduation-cap
             url: https://arxiv.org/abs/2210.00802
         quote: >
           A novel drug-drug-cell line synergy prediction model based on Graph Neural Networks.
-        description: | # this will include new lines to allow paragraphs
+        description: |
           A novel Graph Deep Learning architecture - <mark>DDoS</mark> - in <mark>PyTorch</mark> for the prediction of synergistic effects of drugs in specific cell lines. The model learns task-specific representations of molecules (drug chemical structures) through a Graph Neural Network and takes advantage of gene expression features of cell lines in order to improve drug combination synergy predictions.
           
-          ![Graph Neural Network model](images/gnn_molecule.png "Graph Neural Network model")          
+          ![Graph Neural Network model](images/gnn_molecule.png "Graph Neural Network model")         
           
   - title: Projects in Bioinformatics # Title for the section
     layout: list # Type of content section (list/text)
