@@ -1,5 +1,4 @@
 <div class="container header-container">
-  {% assign featured_section = site.featured_anchor | default: site.content.first.title %}
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 header-left">
       <p class="hero-eyebrow">Portfolio / scientific software</p>
@@ -10,8 +9,13 @@
         {%- if site.github_username -%}
           <a class="hero-action hero-action-primary" target="_blank" href="https://github.com/{{ site.github_username | cgi_escape | escape }}">View GitHub <span aria-hidden="true">↗</span></a>
         {%- endif -%}
-        {%- if featured_section -%}
-          <a class="hero-action" href="#{{ featured_section | slugify }}">Explore selected work <span aria-hidden="true">↓</span></a>
+        {%- if page.projects_only == true -%}
+          {% assign featured_section = site.featured_anchor | default: site.content.first.title %}
+          {%- if featured_section -%}
+            <a class="hero-action" href="#{{ featured_section | slugify }}">Explore selected work <span aria-hidden="true">↓</span></a>
+          {%- endif -%}
+        {%- else -%}
+          <a class="hero-action" href="{{ '/projects/' | relative_url }}">Explore selected work <span aria-hidden="true">↗</span></a>
         {%- endif -%}
       </div>
       <nav class="site-nav no-print" aria-label="Primary navigation">
