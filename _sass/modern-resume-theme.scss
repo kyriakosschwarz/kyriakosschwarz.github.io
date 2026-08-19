@@ -195,3 +195,230 @@ p.quote {
     margin-top: 1rem;
   }
 }
+
+// Portfolio layer: keeps the theme's data model while giving the page a clearer editorial hierarchy.
+:root {
+  --ink: #17232d;
+  --muted: #65727d;
+  --paper: #f5f7f4;
+  --surface: #ffffff;
+  --line: #d9e1dc;
+  --accent: #d45f3c;
+  --accent-dark: #a9442b;
+  --serif: "Iowan Old Style", "Baskerville", Georgia, serif;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Manrope", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.page-content {
+  padding-bottom: 5rem;
+}
+
+.header-container {
+  margin-top: 0;
+  padding-top: clamp(4rem, 10vw, 8rem);
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-left {
+  margin-top: 0;
+}
+
+.hero-eyebrow {
+  color: var(--accent);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.header-left h1 {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(4rem, 9vw, 8.5rem);
+  font-weight: 400;
+  letter-spacing: -.04em;
+  line-height: .95;
+  margin: 0;
+}
+
+.header-left h2 {
+  color: var(--muted);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 2rem 0 1.5rem;
+  max-width: 680px;
+}
+
+.hero-intro {
+  color: var(--muted);
+  font-size: 1.7rem;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 640px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.hero-action {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  display: inline-flex;
+  font-size: 1.3rem;
+  font-weight: 700;
+  gap: .8rem;
+  padding: .9rem 1.5rem;
+  transition: background-color .2s ease, color .2s ease, transform .2s ease;
+}
+
+.hero-action:hover,
+.hero-action:focus {
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+
+.hero-action-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.hero-action-primary:hover,
+.hero-action-primary:focus {
+  background: var(--accent-dark);
+  color: #fff;
+}
+
+.header-right {
+  padding-top: 3rem;
+}
+
+.container {
+  margin-top: 5rem;
+}
+
+.list-container h3,
+.container h3 {
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0 0 2rem;
+  padding-bottom: 1.2rem;
+}
+
+.layout {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1.2rem;
+  margin-top: 1.5rem;
+  padding: 2rem;
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+
+.layout:hover {
+  box-shadow: 0 1.5rem 3rem rgba(23, 35, 45, .08);
+  transform: translateY(-2px);
+}
+
+.border-weak {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2rem;
+}
+
+.layout .details h4 {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 2.1rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.layout .details p,
+.layout .details .link {
+  color: var(--muted);
+}
+
+.layout .content {
+  color: #34424d;
+  font-size: 1.5rem;
+}
+
+.layout .content img {
+  border-radius: .7rem;
+  margin-top: 2rem;
+}
+
+p.quote {
+  color: var(--accent-dark);
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  padding: 0 0 1.5rem;
+  text-align: left;
+}
+
+mark {
+  background: #f8dfb8;
+  color: inherit;
+  padding: 0 .2em;
+}
+
+.dark {
+  --ink: #f4f1e9;
+  --muted: #aab5b7;
+  --paper: #152127;
+  --surface: #1c2b31;
+  --line: #34464b;
+  --accent: #f08a62;
+  --accent-dark: #ffad8d;
+}
+
+.dark .header-left h1,
+.dark .header-left h2,
+.dark .container h3,
+.dark .layout .details h4 {
+  color: var(--ink);
+}
+
+.dark .layout .content {
+  color: #d8dfdc;
+}
+
+@media screen and (max-width: 768px) {
+  .header-container {
+    padding-top: 3rem;
+  }
+
+  .header-left h1 {
+    font-size: clamp(3.5rem, 16vw, 6rem);
+  }
+
+  .hero-intro {
+    font-size: 1.5rem;
+  }
+
+  .header-right {
+    padding-top: 2rem;
+  }
+
+  .layout {
+    padding: 1.5rem;
+  }
+}

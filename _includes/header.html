@@ -1,8 +1,16 @@
 <div class="container header-container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 header-left">
+      <p class="hero-eyebrow">Portfolio / scientific software</p>
       <h1>{{ site.name | escape }}</h1>
       <h2>{{ site.title | escape }}</h2>
+      <p class="hero-intro">I build machine-learning systems for scientific discovery, translating complex chemical and biological data into useful software.</p>
+      <div class="hero-actions no-print">
+        {%- if site.github_username -%}
+          <a class="hero-action hero-action-primary" target="_blank" href="https://github.com/{{ site.github_username | cgi_escape | escape }}">View GitHub <span aria-hidden="true">↗</span></a>
+        {%- endif -%}
+        <a class="hero-action" href="#{{ site.featured_anchor | default: 'projects-in-computational-pharmacology' | slugify }}">Explore selected work <span aria-hidden="true">↓</span></a>
+      </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 header-right">
       <ul class="icons no-print">

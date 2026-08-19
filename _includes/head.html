@@ -3,9 +3,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- <title>{{ site.name }} | {{ site.title }}</title> -->
-  <title>kyri.ch</title>
+  <title>{{ site.name }}{% if site.title %} | {{ site.title }}{% endif %}</title>
   {%- seo title=false -%}
+
+  <meta name="description" content="{{ site.description | default: site.about_content | strip_html | strip_newlines | truncate: 160 | escape }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ site.name }}{% if site.title %} | {{ site.title }}{% endif %}">
+  <meta property="og:description" content="{{ site.description | default: site.about_content | strip_html | strip_newlines | truncate: 160 | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  {%- if site.og_image -%}
+    <meta property="og:image" content="{{ site.og_image | absolute_url }}">
+  {%- endif -%}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
   <link rel="shortcut icon" type="image/x-icon" href="{{ site.favicon | default: '/assets/favicon.ico' | relative_url }}">

@@ -7,7 +7,10 @@ version: 2
 
 # Personal info
 name: Kyriakos Schwarz
-title: 
+title: Scientific software engineer & medical AI researcher
+description: Scientific software engineer and medical AI researcher building machine-learning systems for drug discovery.
+og_image: images/Ibwwnh8n_400x400.jpg
+featured_anchor: Projects in Computational Pharmacology
 #email: 
 # email_title: Email (Email title override)
 #phone: 
@@ -325,35 +328,42 @@ content:
           
           ![L-System](images/Lsystem.png "L-System")
 
-#  - title: Experience
-#    layout: list
-#    content:
-#      - layout: right
-#        title: Company name
-#        sub_title: Job title
-#        caption: Date Range (eg. November 2016 - present)
-#        link: Link to company (optional)
-#        quote: >
-#          Short description of the company (optional)
-#        description: | # this will include new lines to allow paragraphs
-#          Description of role
-#  - title: Education
-#    layout: list
-#    content:
-#      - layout: top-right
-#        title: Institution name
-#        sub_title: Qualifications (eg. BA Performing Arts)
-#        caption: Date Range (eg. 2016 - 2019)
-#        quote: >
-#          Short institution or course description (optional)
-#        description: | # this will include new lines to allow paragraphs
-#          Description of qualification
-#  - title: A Little More About Me
-#    layout: text
-#    content: | # this will include new lines to allow paragraphs
-#      This is where you can write a little more about yourself. You could title this section **Interests** and include some of your other interests.
-#
-#      Or you could title it **Skills** and write a bit more about things that make you more desirable, like *leadership* or *teamwork*
+  - title: Work Experience
+    layout: list
+    content:
+      - layout: right
+        title: ETH Zurich & Roche
+        sub_title: Postdoctoral researcher
+        caption: Basel / Zurich
+        quote: Translating machine learning research into practical tools for therapeutic development.
+        description: |
+          I work at the intersection of software engineering, cheminformatics, and drug discovery, developing data-driven methods for compound selection and reaction prediction.
+      - layout: right
+        title: University of Zurich
+        sub_title: Ph.D. researcher in Medical Artificial Intelligence
+        caption: Zurich
+        quote: Deep learning research for drug-drug interaction and drug synergy prediction.
+        description: |
+          I developed explainable deep learning methods using multimodal biomedical data, including the AttentionDDI and DDoS projects described above.
+  - title: Technical Toolkit
+    layout: text
+    content: |
+      **Machine learning:** PyTorch, Transformers, graph neural networks, attention models
+
+      **Scientific computing:** Python, Scikit-Learn, SciPy, statsmodels, cheminformatics
+
+      **Data and infrastructure:** Azure Databricks, ETL pipelines, SQL, Big Data Analytics
+
+      **Web and software:** HTML/CSS/JavaScript, Java, REST/SOAP, Magnolia, Agile/Scrum
+  - title: Education
+    layout: list
+    content:
+      - layout: top-right
+        title: University of Zurich
+        sub_title: Ph.D. in Medical Artificial Intelligence
+        caption: Zurich
+        description: |
+          Research affiliated with the University Hospital Zurich and the ETH AI Center.
 
 # Footer
 # footer_show_references: false
