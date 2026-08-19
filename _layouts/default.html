@@ -17,7 +17,8 @@
       {%- include about.html -%}
 
       {%- if site.version == 2 -%}
-        {% for section in site.content %}
+        {% assign ordered_content = site.content | sort: "order" %}
+        {% for section in ordered_content %}
           {% if page.projects_only == true %}
             {% if section.title contains 'Projects' %}
               <div class="container {{ section.layout }}-container">
