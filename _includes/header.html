@@ -12,6 +12,16 @@
         <a class="hero-action{% if is_cv_page %} hero-action-primary{% endif %}" href="{{ '/cv/' | relative_url }}"{% if is_cv_page %} aria-current="page"{% endif %}>CV</a>
         <a class="hero-action{% if is_projects_page %} hero-action-primary{% endif %}" href="{{ '/projects/' | relative_url }}"{% if is_projects_page %} aria-current="page"{% endif %}>Projects</a>
       </div>
+      {% if is_home_page %}
+        <div class="hero-about">
+          {%- if site.about_profile_image -%}
+            <span class="profile-img hero-profile" style="background-image: url({{ site.about_profile_image | relative_url }})"></span>
+          {%- endif -%}
+          <div class="hero-about-text">
+            {{ site.about_content | strip | markdownify }}
+          </div>
+        </div>
+      {% endif %}
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 header-right">
       <div class="header-controls no-print">

@@ -27,23 +27,33 @@
   }
 }
 
-.about-statement {
+.hero-about {
   align-items: center;
   display: flex;
-  min-height: 200px;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
 }
 
-.about-statement p {
-  font-size: clamp(2rem, 3.4vw, 3.6rem);
+.hero-about-text p {
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
   font-weight: 500;
   line-height: 1.15;
   margin: 0;
   text-align: left;
 }
 
+.hero-about-text p + p {
+  margin-top: .35rem;
+}
+
 @media screen and (max-width: 768px) {
-  .about-statement {
-    min-height: 0;
+  .hero-about {
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .hero-about-text p {
+    font-size: 1.6rem;
   }
 }
 
@@ -60,6 +70,20 @@
   -moz-box-shadow: inset 0 0 20px #636161;
   -webkit-box-shadow: inset 0 0 20px #636161;
   box-shadow: inset 0 0 20px #636161;
+}
+
+.hero-profile {
+  flex-shrink: 0;
+  height: 120px;
+  margin: 0;
+  width: 120px;
+}
+
+@media screen and (max-width: 768px) {
+  .hero-profile {
+    height: 84px;
+    width: 84px;
+  }
 }
 
 .into-text-1 {
@@ -534,9 +558,33 @@ a:focus {
 }
 
 .pd-orbit {
-  animation: pd-orbit 14s linear infinite;
+  animation: pd-orbit 16s linear infinite;
   transform-box: view-box;
   transform-origin: 300px 160px;
+}
+
+.pd-halo {
+  animation: pd-halo 2.6s ease-in-out infinite;
+  fill: var(--accent);
+  opacity: .15;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.pd-core {
+  animation: pd-core 2.8s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.pd-moon {
+  animation: pd-moon 4s linear infinite;
+  transform-box: view-box;
+  transform-origin: 300px 55px;
+}
+
+.pd-spark {
+  fill: var(--accent);
 }
 
 .forming-bond {
@@ -674,6 +722,64 @@ a:focus {
 }
 
 @keyframes pd-orbit {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  16% {
+    transform: rotate(72deg);
+  }
+
+  31% {
+    transform: rotate(105deg);
+  }
+
+  47% {
+    transform: rotate(198deg);
+  }
+
+  62% {
+    transform: rotate(238deg);
+  }
+
+  79% {
+    transform: rotate(332deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pd-halo {
+  0%,
+  100% {
+    opacity: .1;
+    transform: scale(.8);
+  }
+
+  50% {
+    opacity: .3;
+    transform: scale(1.4);
+  }
+}
+
+@keyframes pd-core {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.12);
+  }
+
+  70% {
+    transform: scale(.94);
+  }
+}
+
+@keyframes pd-moon {
   to {
     transform: rotate(360deg);
   }

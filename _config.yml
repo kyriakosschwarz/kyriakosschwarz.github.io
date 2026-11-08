@@ -49,7 +49,9 @@ googlescholar_username: KTWPFIEAAAAJ
 #about_title: About
 about_profile_image: images/Ibwwnh8n_400x400.jpg
 about_content: | # this will include new lines to allow paragraphs
-  Hej, I'm Kyriakos. I build computational tools for drug discovery.
+  Hej, I'm Kyriakos.
+
+  I build computational tools for drug discovery.
 
 cv_content: |
   Hej, I'm Kyriakos. I combine chemistry, biology, and computation to help bring better medicines to patients, focusing on <mark>cheminformatics</mark>, <mark>machine learning</mark>, and <mark>software engineering</mark>. I build scalable pipelines, predictive models, and scientist-friendly software for compound selection and reaction prediction.

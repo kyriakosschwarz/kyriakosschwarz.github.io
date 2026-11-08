@@ -22,10 +22,6 @@
         {%- include gtm_body.html -%}
       {%- endif -%}
 
-      {%- if page.projects_only != true and page.cv_only != true -%}
-        {%- include about.html -%}
-      {%- endif -%}
-
       {%- if site.version == 2 -%}
         {% assign ordered_content = site.content | sort: "order" %}
         {% if page.projects_only == true %}
