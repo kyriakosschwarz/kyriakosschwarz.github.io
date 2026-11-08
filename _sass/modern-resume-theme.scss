@@ -506,6 +506,11 @@ a:focus {
   margin-top: 0;
 }
 
+.hero-identity {
+  display: inline-block;
+  max-width: 100%;
+}
+
 .header-left h1 {
   color: var(--ink);
   font-family: var(--display);
@@ -1088,7 +1093,8 @@ a:focus {
 .hero-socials {
   align-items: center;
   display: flex;
-  gap: .25rem;
+  gap: .6rem;
+  justify-content: center;
   margin: .65rem 0 0;
   padding: 0;
   text-align: left;
@@ -1115,6 +1121,7 @@ a:focus {
 
 .hero-socials i {
   color: inherit;
+  display: block;
   font-size: 16px;
   line-height: 1;
 }
@@ -1433,7 +1440,12 @@ mark {
     padding-top: 3rem;
   }
 
-  .header-left h1 {
+  .hero-identity {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.header-left h1 {
     font-size: clamp(2.2rem, 8vw, 3.2rem);
   }
 
