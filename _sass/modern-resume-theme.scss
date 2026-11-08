@@ -161,10 +161,9 @@
   opacity: 0;
 }
 
-.terminal-typed-static {
-  animation: none;
-  overflow: visible;
-  width: auto;
+.terminal-line-anim {
+  animation: terminal-appear 0s linear var(--line-delay, 0s) forwards;
+  opacity: 0;
 }
 
 .terminal-backslash {
@@ -175,9 +174,14 @@
   color: var(--muted);
 }
 
-.terminal-cursor-static {
-  animation: terminal-blink 1s step-end infinite;
-  opacity: 1;
+.terminal-cursor-dynamic {
+  opacity: 0;
+}
+
+@keyframes terminal-appear {
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes terminal-type {
@@ -661,9 +665,14 @@ a:focus {
   min-height: 560px;
   overflow: hidden;
   padding-bottom: clamp(2.5rem, 4vw, 3.5rem);
-  padding-top: clamp(1.75rem, 3.5vw, 2.75rem);
+  padding-top: clamp(1rem, 2.5vw, 1.75rem);
   border-bottom: 1px solid var(--line);
   position: relative;
+}
+
+.header-container.header-container--compact {
+  min-height: 0;
+  padding-bottom: clamp(1.25rem, 2vw, 1.75rem);
 }
 
 .header-container::before {
@@ -696,7 +705,7 @@ a:focus {
   inset: 0;
   left: 16%;
   mask-image: radial-gradient(ellipse at 65% 50%, #000 0%, transparent 78%);
-  opacity: .24;
+  opacity: .35;
   pointer-events: none;
   position: absolute;
   z-index: 0;
@@ -1423,6 +1432,15 @@ a:focus {
   width: min(100% - 64px, 1360px);
 }
 
+.container.header-container {
+  margin-top: 0;
+}
+
+.cv-intro-container,
+.projects-page .page-content .container {
+  margin-top: 2.25rem;
+}
+
 @media screen and (max-width: 1100px) {
   .container {
     width: min(100% - 40px, 900px);
@@ -1654,7 +1672,12 @@ mark {
   .header-container {
     min-height: 420px;
     padding-bottom: 2.5rem;
-    padding-top: 2.25rem;
+    padding-top: 1.25rem;
+  }
+
+  .header-container.header-container--compact {
+    min-height: 0;
+    padding-bottom: 1.5rem;
   }
 
   .header-container .hero-intro-col {
@@ -1663,7 +1686,7 @@ mark {
 
   .hero-animation-col {
     left: 0;
-    opacity: .16;
+    opacity: .24;
   }
 
   .hero-identity {

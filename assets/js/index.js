@@ -46,6 +46,7 @@
     var originalTerminal = terminalBody ? terminalBody.innerHTML : "";
     var terminalSources = [];
     var terminalWrapped = false;
+    var lastTerminalMarkup = "";
     var measuring = document.createElement("span");
 
     measuring.setAttribute("aria-hidden", "true");
@@ -125,12 +126,17 @@
       var html = "";
       var text = "";
 
+      function pushLine() {
+        var trimmed = text.replace(/\s+$/, "");
+        lines.push({ html: html.replace(/\s+$/, ""), chars: trimmed.length });
+      }
+
       for (var i = 0; i < tokens.length; i++) {
         var token = tokens[i];
         var tokenHtml = token.html || escapeHtml(token.text);
 
         if (text && !token.space && measureSegment(html + tokenHtml) > width) {
-          lines.push(html.replace(/\s+$/, ""));
+          pushLine();
           html = "";
           text = "";
         }
@@ -140,7 +146,7 @@
       }
 
       if (text.replace(/\s/g, "")) {
-        lines.push(html.replace(/\s+$/, ""));
+        pushLine();
       }
 
       return lines;
@@ -158,32 +164,66 @@
 
       if (total <= terminalSources.length) return "";
 
-      var markup = "";
+      var timing = [];
+      var start = 0.4;
 
       for (var g = 0; g < groups.length; g++) {
         var group = groups[g];
 
         for (var l = 0; l < group.length; l++) {
-          var isLast = g === groups.length - 1 && l === group.length - 1;
-          var continuation = l > 0;
-          var className = "terminal-line terminal-line-wrapped" + (continuation ? " terminal-line-cont" : "");
+          var chars = group[l].chars + (l < group.length - 1 ? 2 : 0);
+          var duration = Math.max(0.4, chars * 0.055);
 
-          markup += '<div class="' + className + '">';
-          markup += '<span class="terminal-prompt">' + (continuation ? "&gt;" : "$") + "</span>";
-          markup += '<span class="terminal-typed terminal-typed-static">' + group[l];
+          timing.push({
+            group: g,
+            index: l,
+            isLastInGroup: l === group.length - 1,
+            isLast: g === groups.length - 1 && l === group.length - 1,
+            chars: chars,
+            start: start,
+            duration: duration
+          });
 
-          if (l < group.length - 1) {
-            markup += ' <span class="terminal-backslash">\\</span>';
+          start += duration + 0.06;
+
+          if (l === group.length - 1 && g < groups.length - 1) {
+            start += g === 0 ? 0.9 : 0.35;
           }
-
-          markup += "</span>";
-
-          if (isLast) {
-            markup += '<span class="terminal-cursor terminal-cursor-static" aria-hidden="true"></span>';
-          }
-
-          markup += "</div>";
         }
+      }
+
+      var markup = "";
+
+      for (var t = 0; t < timing.length; t++) {
+        var item = timing[t];
+        var segment = groups[item.group][item.index];
+        var continuation = item.index > 0;
+        var lineDelay = item.start.toFixed(2) + "s";
+        var className = "terminal-line terminal-line-wrapped" +
+          (continuation ? " terminal-line-cont terminal-line-anim" : "");
+        var lineStyle = continuation ? ' style="--line-delay:' + lineDelay + '"' : "";
+
+        markup += '<div class="' + className + '"' + lineStyle + '>';
+        markup += '<span class="terminal-prompt">' + (continuation ? "&gt;" : "$") + "</span>";
+        markup += '<span class="terminal-typed" style="--chars:' + item.chars +
+          ";animation-delay:" + lineDelay + ";animation-duration:" + item.duration.toFixed(2) + 's">' +
+          segment.html;
+
+        if (!item.isLastInGroup) {
+          markup += ' <span class="terminal-backslash">\\</span>';
+        }
+
+        markup += "</span>";
+
+        var cursorAnimation = "terminal-blink 1s step-end infinite " + lineDelay + " forwards";
+
+        if (!item.isLast) {
+          cursorAnimation += ", terminal-hide 0s " + timing[t + 1].start.toFixed(2) + "s forwards";
+        }
+
+        markup += '<span class="terminal-cursor terminal-cursor-dynamic" style="animation:' +
+          cursorAnimation + '" aria-hidden="true"></span>';
+        markup += "</div>";
       }
 
       return markup;
@@ -200,10 +240,15 @@
       var markup = wrappedTerminalMarkup(width);
 
       if (markup) {
-        terminalBody.innerHTML = markup;
+        if (markup !== lastTerminalMarkup) {
+          terminalBody.innerHTML = markup;
+          lastTerminalMarkup = markup;
+        }
+
         terminalWrapped = true;
       } else if (terminalWrapped) {
         terminalBody.innerHTML = originalTerminal;
+        lastTerminalMarkup = "";
         terminalWrapped = false;
       }
     }
