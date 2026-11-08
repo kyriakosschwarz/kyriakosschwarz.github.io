@@ -350,6 +350,70 @@ body {
   padding-top: 3rem;
 }
 
+.theme-toggle-wrap {
+  margin-bottom: 1.5rem;
+  text-align: right;
+}
+
+.theme-toggle {
+  align-items: center;
+  background: none;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  gap: .7rem;
+  letter-spacing: .08em;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.theme-toggle:hover .theme-toggle-track,
+.theme-toggle:focus-visible .theme-toggle-track {
+  border-color: var(--accent);
+}
+
+.theme-toggle-track {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  display: inline-block;
+  height: 2.4rem;
+  position: relative;
+  transition: background-color .2s ease, border-color .2s ease;
+  width: 4.4rem;
+}
+
+.theme-toggle-thumb {
+  background: var(--accent);
+  border-radius: 50%;
+  height: 1.6rem;
+  left: .35rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform .2s ease, background-color .2s ease;
+  width: 1.6rem;
+}
+
+.dark .theme-toggle-thumb {
+  transform: translate(2rem, -50%);
+}
+
+.theme-toggle-label {
+  min-width: 3.6rem;
+  text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+  .theme-toggle-wrap {
+    text-align: left;
+  }
+}
+
 .container {
   margin-top: 5rem;
 }

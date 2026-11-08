@@ -5,6 +5,14 @@
 
 <body class="{% if site.darkmode == true and site.darkmode != 'never' %}dark{% endif %}">
 
+  <script>
+    try {
+      if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.remove('dark');
+      }
+    } catch (e) {}
+  </script>
+
   {%- include header.html -%}
 
   <main class="page-content" aria-label="Content">
@@ -46,9 +54,7 @@
   </main>
 
   <!-- {%- include footer.html -%} -->
-  {% if site.darkmode == false %}
-    <script src="{{ '/assets/js/index.js' | relative_url }}"></script>
-  {% endif %}
+  <script src="{{ '/assets/js/index.js' | relative_url }}"></script>
 </body>
 
 </html>
