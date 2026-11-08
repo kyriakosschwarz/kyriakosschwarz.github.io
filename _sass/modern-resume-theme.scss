@@ -399,85 +399,345 @@ body {
   width: 100%;
 }
 
-.molecule-float {
-  animation: molecule-float 9s ease-in-out infinite;
-  transform-box: view-box;
-  transform-origin: 150px 90px;
-}
-
-.bond {
-  stroke: var(--line);
-  stroke-width: 1.5;
-}
-
-.bond--double {
-  opacity: .7;
-  stroke: var(--accent);
-}
-
-.aromatic-ring {
-  animation: ring-dash 12s linear infinite;
-  fill: none;
-  opacity: .55;
-  stroke: var(--accent);
-  stroke-dasharray: 3 4;
-  stroke-width: 1.2;
-}
-
-.atom {
-  fill: var(--accent);
-}
-
-.atom--hetero {
-  fill: var(--surface);
-  stroke: var(--accent);
-  stroke-width: 1.5;
-}
-
-.atom-label {
-  fill: var(--button-ink);
+.suzuki-animation {
+  color: var(--ink);
   font-family: var(--mono);
-  font-size: 9px;
+  width: 100%;
+}
+
+.suzuki-animation .reaction-header,
+.suzuki-animation .reaction-footer {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.suzuki-animation .reaction-header {
+  color: var(--muted);
+  font-size: .85rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.suzuki-animation .reaction-live {
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.suzuki-animation .reaction-live i {
+  animation: suzuki-live-pulse 1.5s infinite;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+  height: 6px;
+  margin-right: 5px;
+  width: 6px;
+}
+
+.suzuki-animation svg {
+  display: block;
+  margin: 12px 0;
+  overflow: visible;
+  width: 100%;
+}
+
+.suzuki-animation .ring polygon {
+  fill: none;
+  stroke: var(--muted);
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.suzuki-animation .bond {
+  stroke: var(--muted);
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.suzuki-animation .hetero {
+  fill: var(--accent);
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.suzuki-animation .pd {
+  fill: #c9a227;
+  stroke: #e6c766;
+  stroke-width: 1.5;
+}
+
+.suzuki-animation .pd-label {
+  fill: #17212a;
+  font-family: var(--mono);
+  font-size: 12px;
   font-weight: 600;
   text-anchor: middle;
 }
 
-.atom-label--hetero {
-  fill: var(--accent);
+.suzuki-animation .byproduct {
+  fill: var(--muted);
 }
 
-.hero-visual-caption {
-  color: var(--muted);
-  display: flex;
+.suzuki-animation .mol-label {
+  fill: var(--muted);
   font-family: var(--mono);
-  font-size: .95rem;
-  justify-content: space-between;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-anchor: middle;
+}
+
+.suzuki-animation .small-label {
+  fill: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  text-anchor: middle;
+}
+
+.suzuki-animation .plus {
+  fill: var(--muted);
+  font-family: var(--mono);
+  font-size: 26px;
+  text-anchor: middle;
+}
+
+.suzuki-animation .phase {
+  animation-duration: 16s;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+
+.suzuki-animation .phase-1 {
+  animation-name: suzuki-phase-one;
+}
+
+.suzuki-animation .phase-2 {
+  animation-name: suzuki-phase-two;
+}
+
+.suzuki-animation .phase-3 {
+  animation-name: suzuki-phase-three;
+}
+
+.suzuki-animation .phase-4 {
+  animation-name: suzuki-phase-four;
+}
+
+.suzuki-animation .product-ring polygon {
+  stroke: var(--accent);
+}
+
+.suzuki-animation .new-bond {
+  stroke: var(--accent);
+  stroke-width: 4;
+}
+
+.suzuki-animation .reaction-stage {
+  color: var(--accent);
+  flex: 1;
+  font-size: .85rem;
+  height: 14px;
   letter-spacing: .08em;
-  margin-top: .8rem;
+  position: relative;
   text-transform: uppercase;
 }
 
-@keyframes molecule-float {
+.suzuki-animation .stage {
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.suzuki-animation .stage-1 {
+  animation: suzuki-label-one 16s infinite;
+}
+
+.suzuki-animation .stage-2 {
+  animation: suzuki-label-two 16s infinite;
+}
+
+.suzuki-animation .stage-3 {
+  animation: suzuki-label-three 16s infinite;
+}
+
+.suzuki-animation .stage-4 {
+  animation: suzuki-label-four 16s infinite;
+}
+
+.suzuki-animation .reaction-progress {
+  background: var(--line);
+  height: 2px;
+  overflow: hidden;
+  width: 65px;
+}
+
+.suzuki-animation .reaction-progress span {
+  animation: suzuki-progress 16s linear infinite;
+  background: var(--accent);
+  display: block;
+  height: 100%;
+  width: 0;
+}
+
+@keyframes suzuki-phase-one {
   0%,
-  100% {
-    transform: translate(0, 0) rotate(-2deg);
+  22% {
+    opacity: 1;
   }
 
-  50% {
-    transform: translate(5px, -5px) rotate(2deg);
+  25%,
+  100% {
+    opacity: 0;
   }
 }
 
-@keyframes ring-dash {
+@keyframes suzuki-phase-two {
+  0%,
+  24% {
+    opacity: 0;
+  }
+
+  28%,
+  47% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes suzuki-phase-three {
+  0%,
+  49% {
+    opacity: 0;
+  }
+
+  53%,
+  72% {
+    opacity: 1;
+  }
+
+  75%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes suzuki-phase-four {
+  0%,
+  74% {
+    opacity: 0;
+  }
+
+  78%,
+  97% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes suzuki-label-one {
+  0%,
+  22% {
+    opacity: 1;
+  }
+
+  25%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes suzuki-label-two {
+  0%,
+  24% {
+    opacity: 0;
+  }
+
+  28%,
+  47% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes suzuki-label-three {
+  0%,
+  49% {
+    opacity: 0;
+  }
+
+  53%,
+  72% {
+    opacity: 1;
+  }
+
+  75%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes suzuki-label-four {
+  0%,
+  74% {
+    opacity: 0;
+  }
+
+  78%,
+  97% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes suzuki-progress {
+  from {
+    width: 0;
+  }
+
   to {
-    stroke-dashoffset: -28;
+    width: 100%;
+  }
+}
+
+@keyframes suzuki-live-pulse {
+  50% {
+    opacity: .3;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .molecule-float,
-  .aromatic-ring {
-    animation: none;
+  .suzuki-animation *,
+  .suzuki-animation *::before {
+    animation: none !important;
+  }
+
+  .suzuki-animation .phase-1 {
+    opacity: 1;
+  }
+
+  .suzuki-animation .stage-1 {
+    opacity: 1;
+  }
+
+  .suzuki-animation .reaction-progress span {
+    width: 100%;
   }
 }
 
