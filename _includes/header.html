@@ -1,10 +1,8 @@
 <div class="container header-container">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 header-left">
-      <p class="hero-eyebrow">Computational drug discovery</p>
       <h1>{{ site.name | escape }}</h1>
       <h2>{{ site.title | escape }}</h2>
-      <p class="hero-intro">I turn research questions into practical tools for drug discovery.</p>
       {%- assign is_projects_page = page.projects_only | default: false -%}
       {%- assign is_cv_page = page.cv_only | default: false -%}
       {%- assign is_home_page = false -%}

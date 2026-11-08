@@ -39,6 +39,13 @@
             {% endif %}
           {% endfor %}
         {% elsif page.cv_only == true %}
+          <div class="container cv-intro-container">
+            <div class="row clearfix">
+              <div class="col-md-12">
+                {{ site.cv_content | strip | markdownify }}
+              </div>
+            </div>
+          </div>
           {% for section in ordered_content %}
             {% unless section.projects == true %}
               <div class="container {{ section.layout }}-container">
@@ -47,18 +54,6 @@
                 {% include {{ section.layout | prepend: "section-" | append: ".html" }} content=section.content %}
               </div>
             {% endunless %}
-          {% endfor %}
-        {% else %}
-          {% for section in ordered_content %}
-            {% if section.home_preview == true %}
-              <div class="container preview-container">
-                <h3 class="preview-title">Selected projects</h3>
-                {% include section-project-preview.html content=section.content %}
-                <div class="preview-action">
-                  <a class="hero-action hero-action-primary" href="{{ '/projects/' | relative_url }}">View all projects</a>
-                </div>
-              </div>
-            {% endif %}
           {% endfor %}
         {% endif %}
       {% else %}
