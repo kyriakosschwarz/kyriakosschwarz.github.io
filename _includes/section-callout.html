@@ -1,0 +1,12 @@
+{% if include.callout %}
+  <div class="section-callout">
+    <div class="section-callout-text">
+      {{ include.callout | markdownify }}
+    </div>
+    {% if include.cta_url %}
+      <a class="hero-action hero-action-primary" href="{{ include.cta_url | relative_url }}">
+        {{ include.cta_label | default: "Explore projects" }} <span aria-hidden="true">&rarr;</span>
+      </a>
+    {% endif %}
+  </div>
+{% endif %}

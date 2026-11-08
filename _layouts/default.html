@@ -23,6 +23,7 @@
             {% if section.title contains 'Projects' %}
               <div class="container {{ section.layout }}-container">
                 <h3 id="{{ section.title | slugify }}">{{ section.title }}</h3>
+                {% include section-callout.html callout=section.callout cta_url=section.cta_url cta_label=section.cta_label %}
                 {% include {{ section.layout | prepend: "section-" | append: ".html" }} content=section.content %}
               </div>
             {% endif %}
@@ -30,6 +31,7 @@
             {% unless section.title contains 'Projects' %}
               <div class="container {{ section.layout }}-container">
                 <h3 id="{{ section.title | slugify }}">{{ section.title }}</h3>
+                {% include section-callout.html callout=section.callout cta_url=section.cta_url cta_label=section.cta_label %}
                 {% include {{ section.layout | prepend: "section-" | append: ".html" }} content=section.content %}
               </div>
             {% endunless %}

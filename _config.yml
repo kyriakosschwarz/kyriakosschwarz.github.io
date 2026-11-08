@@ -7,10 +7,10 @@ version: 2
 
 # Personal info
 name: Kyriakos Schwarz
-title: Cheminformatics & AI Scientist
-description: In machina drug discovery
+title: Computational Chemistry & AI Scientist
+description: Cheminformatics, computational chemistry, AI, and software engineering for drug discovery.
 og_image: images/Ibwwnh8n_400x400.jpg
-featured_anchor: Projects in Computational Pharmacology
+featured_anchor: Projects in Cheminformatics & Drug Discovery
 #email: 
 # email_title: Email (Email title override)
 #phone: 
@@ -55,11 +55,11 @@ additional_links:
 #about_title: About
 about_profile_image: images/Ibwwnh8n_400x400.jpg
 about_content: | # this will include new lines to allow paragraphs
-  Hi, I'm Kyriakos and my passion is turning <mark>data into value</mark>.
+  Hi, I'm Kyriakos. I am passionate about translating complex biological and chemical data into actionable insights that help bring better medicines to patients.
 
-  I bridge the gap between software engineering and drug discovery, translating complex cheminformatics data into practical, data-driven solutions. My experience involves building high-impact tools to tackle complex cheminformatics challenges, like compound selection and reaction prediction. I am a proactive and detail-oriented team player, dedicated to solving scientific problems through collaboration. As a lifelong learner, I am motivated to continuously expand my skills to advance therapeutic development.
-  
-  I have obtained my Ph.D. degree in <mark>Medical Artificial Intelligence</mark> from the <a href="https://www.uzh.ch/en.html">University of Zurich</a>, affiliated with the <a href="https://www.usz.ch/en/">University Hospital Zurich</a> and the <a href="https://ai.ethz.ch/">ETH AI center</a>. I am currently doing a PostDoc at ETH Zurich and Roche in Basel. 
+  Working at the intersection of life sciences and technology, I bridge <mark>cheminformatics</mark>, <mark>machine learning</mark>, and <mark>software engineering</mark>. I specialize in building practical tools and scalable data pipelines that transform messy experimental data into reliable decisions, ranging from compound selection and reaction prediction to predictive models for therapeutic development. I care deeply about clean data, reproducible science, and software that scientists actually enjoy using.
+
+  I hold a Ph.D. in <mark>Medical Artificial Intelligence</mark> from the <a href="https://www.uzh.ch/en.html">University of Zurich</a>, affiliated with the <a href="https://www.usz.ch/en/">University Hospital Zurich</a> and the <a href="https://ai.ethz.ch/">ETH AI Center</a>. Currently, I am a Postdoctoral Researcher bridging ETH Zurich and Roche in Basel. Driven by hard scientific problems, I thrive in collaborative environments focused on leveraging data to improve human health.
 #  Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
 
 #  You can even add paragraphs by using empty lines like this and add anything else [markdown](https://www.markdownguide.org/getting-started#what-is-markdown) supports such as
@@ -69,7 +69,7 @@ about_content: | # this will include new lines to allow paragraphs
 #    - Images ![alt text](/images/landscape-trees.jpg "Trees")
 
 content:
-  - title: Projects in Computational Pharmacology # Title for the section
+  - title: Projects in Cheminformatics & Drug Discovery # Title for the section
     order: 100
     layout: list # Type of content section (list/text)
     content:
@@ -334,9 +334,13 @@ content:
           
           ![L-System](/images/Lsystem.png "L-System")
 
-  - title: Work Experience
+  - title: Experience
     order: 1
     layout: list
+    callout: |
+      The roles below are only part of the story. Hit the button to explore the specific projects, tools, and models behind this work.
+    cta_label: Explore specific projects
+    cta_url: /projects/
     content:
       - layout: right
         title: Roche & ETH Zurich
@@ -386,7 +390,7 @@ content:
         sub_title: BSc Computer and Data Science
         caption: September 2011 - September 2015 | Brugg, Switzerland
         level: BSc
-  - title: Skills
+  - title: Skills & Expertise
     order: 3
     layout: text
     content: |
@@ -428,9 +432,7 @@ content:
     order: 8
     layout: text
     content: |
-      - Chess
-      - Fitness
-      - Guitar
+      Away from the keyboard, you'll usually find me playing <mark>chess</mark> or keeping up with <mark>fitness</mark>. I also love <mark>playing with my two cats</mark>, who supervise all of the above, plus <mark>hiking</mark> and <mark>learning languages</mark>, because apparently three is not enough.
   - title: Publications
     order: 5
     layout: list
