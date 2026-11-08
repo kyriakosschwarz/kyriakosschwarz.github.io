@@ -435,10 +435,6 @@ content:
         title: Roche Best Advanced Analytics Poster Award
         sub_title: Roche Advanced Analytics Network
         caption: 2025
-        additional_links:
-          - title: Roche Advanced Analytics
-            icon: fas fa-external-link-alt
-            url: https://www.roche.com/innovation/partnering/areas-of-interest/digital-and-data
 
 # Footer
 # footer_show_references: false
