@@ -336,19 +336,19 @@ content:
     layout: education
     content:
       - title: University of Zurich
-        sub_title: Ph.D. in Medical Artificial Intelligence
+        sub_title: Medical Artificial Intelligence
         caption: April 2019 - November 2022 | Zurich, Switzerland
         level: PhD
       - title: University of Bern / University of Fribourg
-        sub_title: MSc Bioinformatics and Computational Biology
+        sub_title: Bioinformatics and Computational Biology
         caption: September 2017 - March 2019
         level: MSc
       - title: University of Bern
-        sub_title: Biology, Immunology, and Oncology complementary studies
+        sub_title: Biology, Immunology, and Oncology
         caption: September 2015 - September 2017
         level: Complementary
       - title: University of Applied Sciences FHNW
-        sub_title: BSc Computer and Data Science
+        sub_title: Computer and Data Science
         caption: September 2011 - September 2015 | Brugg, Switzerland
         level: BSc
   - title: Skills & Expertise
