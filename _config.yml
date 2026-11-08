@@ -310,25 +310,25 @@ content:
       - layout: left
         title: Roche & ETH Zurich
         sub_title: Postdoctoral Researcher - AI for Drug Discovery
-        caption: February 2025 - Present<br>Basel, Switzerland
+        caption: "February 2025 - Present\nBasel, Switzerland"
         description: |
           I work with medicinal chemistry and CADD teams on <mark>cheminformatics</mark> and <mark>AI for drug discovery</mark>, including reaction data curation, an ML-guided compound selection tool, and a curated building-block set.
       - layout: left
         title: Luzerner Kantonalbank AG
         sub_title: Machine Learning Scientist
-        caption: February 2023 - December 2024<br>Luzern, Switzerland
+        caption: "February 2023 - December 2024\nLuzern, Switzerland"
         description: |
           I built production ML models and data pipelines and helped move the team from an Oracle data warehouse to <mark>Databricks</mark> on Azure.
       - layout: left
         title: University of Zurich
         sub_title: Machine Learning Scientist / Medical Researcher
-        caption: April 2019 - January 2023<br>Zurich, Switzerland
+        caption: "April 2019 - January 2023\nZurich, Switzerland"
         description: |
           I built an explainable <mark>PyTorch</mark> Transformer for medication side-effect prediction and used UK Biobank data to study drug-disease relationships and drug synergy.
       - layout: left
         title: fastforward websolutions
         sub_title: Software Engineer
-        caption: February 2016 - July 2017<br>Bern, Switzerland
+        caption: "February 2016 - July 2017\nBern, Switzerland"
         description: |
           I built front-end applications with <mark>HTML/CSS/JS</mark>, extended <mark>Magnolia</mark> CMS in Java, and built REST/SOAP services.
   - title: Education
@@ -337,7 +337,7 @@ content:
     content:
       - title: University of Zurich
         sub_title: Medical Artificial Intelligence
-        caption: April 2019 - November 2022<br>Zurich, Switzerland
+        caption: "April 2019 - November 2022\nZurich, Switzerland"
         level: PhD
       - title: University of Bern / University of Fribourg
         sub_title: Bioinformatics and Computational Biology
@@ -349,7 +349,7 @@ content:
         level: Complementary
       - title: University of Applied Sciences FHNW
         sub_title: Computer and Data Science
-        caption: September 2011 - September 2015<br>Brugg, Switzerland
+        caption: "September 2011 - September 2015\nBrugg, Switzerland"
         level: BSc
   - title: Skills & Expertise
     order: 3

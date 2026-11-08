@@ -463,6 +463,10 @@ body {
   color: var(--muted);
 }
 
+.layout .details p.caption {
+  white-space: pre-line;
+}
+
 .layout .content {
   color: #34424d;
   font-size: 1.5rem;
