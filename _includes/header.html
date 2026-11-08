@@ -27,7 +27,6 @@
       <div class="hero-identity">
       <h1>{{ site.name | escape }}</h1>
       <h2>{{ site.title | escape }}</h2>
-      {% if is_home_page %}
         <ul class="icons no-print hero-socials">
         {%- if site.dribbble_username -%}
           <li>
@@ -129,7 +128,6 @@
           </li>
         {% endfor %}
       </ul>
-      {% endif %}
       </div>
 
       {% if is_home_page %}
