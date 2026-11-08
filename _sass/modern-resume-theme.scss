@@ -466,6 +466,12 @@ a:focus {
   stroke-width: 2;
 }
 
+.central-bond {
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-width: 2.5;
+}
+
 .core-molecule polygon {
   stroke: var(--accent);
 }
@@ -758,7 +764,7 @@ a:focus {
 @keyframes nucleophile-in {
   0%,
   10% {
-    opacity: .2;
+    opacity: .45;
     transform: translate(35px, -18px) scale(.9);
   }
 
@@ -769,7 +775,7 @@ a:focus {
   }
 
   100% {
-    opacity: .2;
+    opacity: .45;
     transform: translate(35px, -18px) scale(.9);
   }
 }
