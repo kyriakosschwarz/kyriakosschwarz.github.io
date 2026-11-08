@@ -79,7 +79,7 @@ content:
         additional_links:
           - title: Paper
             icon: fas fa-graduation-cap
-            url: https://chemrxiv.org/doi/full/10.26434/chemrxiv.15002055/v1
+            url: https://chemrxiv.org/doi/full/10.26434/chemrxiv.15002055/v2
         quote: >
           Leveraging "failed" reactions and negative data from industrial ELNs to improve predictive chemistry.
         description: |
@@ -368,24 +368,24 @@ content:
           I developed front-end applications with <mark>HTML</mark>, <mark>CSS</mark>, and <mark>JavaScript</mark>, configured Magnolia CMS, extended its functionality in Java, and built REST and SOAP services. I used Git, Maven, Tomcat, Jenkins, and Docker while applying CI/CD best practices.
   - title: Education
     order: 2
-    layout: list
+    layout: education
     content:
-      - layout: top-right
-        title: University of Zurich
+      - title: University of Zurich
         sub_title: Ph.D. in Medical Artificial Intelligence
         caption: April 2019 - November 2022 | Zurich, Switzerland
-      - layout: top-right
-        title: University of Bern / University of Fribourg
+        level: PhD
+      - title: University of Bern / University of Fribourg
         sub_title: MSc Bioinformatics and Computational Biology
         caption: September 2017 - March 2019
-      - layout: top-right
-        title: University of Bern
-        sub_title: Biology, Immunology, and Oncology prerequisites
+        level: MSc
+      - title: University of Bern
+        sub_title: Biology, Immunology, and Oncology complementary studies
         caption: September 2015 - September 2017
-      - layout: top-right
-        title: University of Applied Sciences FHNW
+        level: Complementary
+      - title: University of Applied Sciences FHNW
         sub_title: BSc Computer and Data Science
         caption: September 2011 - September 2015 | Brugg, Switzerland
+        level: BSc
   - title: Skills
     order: 3
     layout: text

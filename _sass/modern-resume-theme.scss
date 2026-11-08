@@ -150,6 +150,44 @@
   }
 }
 
+.education-item {
+  align-items: center;
+}
+
+.education-level {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.level-badge {
+  background: #f8dfb8;
+  border: 1px solid #eec892;
+  border-radius: 999px;
+  color: var(--accent-dark);
+  display: inline-block;
+  font-family: "Manrope", "Helvetica Neue", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  padding: 0.8rem 1.6rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.dark .level-badge {
+  background: rgba(240, 138, 98, 0.16);
+  border-color: rgba(240, 138, 98, 0.45);
+}
+
+@media screen and (max-width: 768px) {
+  .education-level {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+
 .footer-container {
   margin-top:100px;
 }
@@ -364,6 +402,58 @@ body {
 .layout .content img {
   border-radius: .7rem;
   margin-top: 2rem;
+}
+
+.aditional-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 1rem 0 0;
+}
+
+.aditional-links a {
+  align-items: center;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  display: inline-flex;
+  font-size: 1.3rem;
+  font-weight: 500;
+  gap: 0.6rem;
+  line-height: 1;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.aditional-links a:hover,
+.aditional-links a:focus {
+  background: var(--surface);
+  border-color: var(--accent);
+  color: var(--accent-dark);
+}
+
+.aditional-links a i {
+  color: var(--accent);
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 0;
+}
+
+.aditional-links .icontitle {
+  color: inherit;
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: 500;
+  position: static;
+  transform: none;
+}
+
+@media screen and (max-width: 768px) {
+  .aditional-links {
+    justify-content: center;
+  }
 }
 
 p.quote {
