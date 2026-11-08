@@ -50,11 +50,11 @@ googlescholar_username: KTWPFIEAAAAJ
 #about_title: About
 about_profile_image: images/Ibwwnh8n_400x400.jpg
 about_content: | # this will include new lines to allow paragraphs
-  Hi, I'm Kyriakos. I am passionate about translating complex biological and chemical data into actionable insights that help bring better medicines to patients.
+  Hi, I'm Kyriakos. I combine chemistry, biology, and computation to help bring better medicines to patients.
 
-  Working at the intersection of life sciences and technology, I bridge <mark>cheminformatics</mark>, <mark>machine learning</mark>, and <mark>software engineering</mark>. I specialize in building practical tools and scalable data pipelines that transform messy experimental data into reliable decisions, ranging from compound selection and reaction prediction to predictive models for therapeutic development. I care deeply about clean data, reproducible science, and software that scientists actually enjoy using.
+  My focus is <mark>cheminformatics</mark>, <mark>machine learning</mark>, and <mark>data engineering</mark>. I build scalable pipelines, predictive models, and scientist-friendly software for compound selection and reaction prediction.
 
-  I hold a Ph.D. in <mark>Medical Artificial Intelligence</mark> from the <a href="https://www.uzh.ch/en.html">University of Zurich</a>, affiliated with the <a href="https://www.usz.ch/en/">University Hospital Zurich</a> and the <a href="https://ai.ethz.ch/">ETH AI Center</a>. Currently, I am a Postdoctoral Researcher bridging ETH Zurich and Roche in Basel. Driven by hard scientific problems, I thrive in collaborative environments focused on leveraging data to improve human health.
+  I hold a Ph.D. in <mark>Medical Artificial Intelligence</mark> from the <a href="https://www.uzh.ch/en.html">University of Zurich</a>, affiliated with the <a href="https://www.usz.ch/en/">University Hospital Zurich</a> and the <a href="https://ai.ethz.ch/">ETH AI Center</a>. I am currently a Postdoctoral Researcher with ETH Zurich and Roche in Basel.
 #  Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
 
 #  You can even add paragraphs by using empty lines like this and add anything else [markdown](https://www.markdownguide.org/getting-started#what-is-markdown) supports such as
