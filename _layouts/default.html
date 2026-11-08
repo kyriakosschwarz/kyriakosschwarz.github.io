@@ -14,7 +14,9 @@
         {%- include gtm_body.html -%}
       {%- endif -%}
 
-      {%- include about.html -%}
+      {%- unless page.projects_only == true -%}
+        {%- include about.html -%}
+      {%- endunless -%}
 
       {%- if site.version == 2 -%}
         {% assign ordered_content = site.content | sort: "order" %}

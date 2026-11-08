@@ -4,7 +4,9 @@
       <p class="hero-eyebrow">Life sciences · Cheminformatics · AI</p>
       <h1>{{ site.name | escape }}</h1>
       <h2>{{ site.title | escape }}</h2>
-      <p class="hero-intro">I turn complex chemical and biological data into software, models, and insights that move drug discovery forward.</p>
+      {%- unless page.projects_only == true -%}
+        <p class="hero-intro">I turn complex chemical and biological data into software, models, and insights that move drug discovery forward.</p>
+      {%- endunless -%}
       {%- assign is_projects_page = page.projects_only | default: false -%}
       <div class="hero-actions no-print">
         <a class="hero-action{% unless is_projects_page %} hero-action-primary{% endunless %}" href="{{ '/' | relative_url }}"{% unless is_projects_page %} aria-current="page"{% endunless %}>About and experience</a>
