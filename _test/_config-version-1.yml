@@ -7,7 +7,7 @@ name: Your Name
 title: Your job title
 email: test@email.com
 phone: 07845248563
-website: sproogen.github.io/modern-resume-theme
+website: https://sproogen.github.io/modern-resume-theme
 
 # Social links
 twitter_username: jekyllrb
@@ -28,7 +28,7 @@ googlescholar_username: D847cGsAAAAJ
 additional_links:
 - title: Test link
   icon: fab fa-ello
-  url: sproogen.github.io/modern-resume-theme
+  url: https://sproogen.github.io/modern-resume-theme
 # - title: another link
 #   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&s=brands&m=free)
 #   url: Link url (eg. https://google.com)
@@ -37,7 +37,7 @@ additional_links:
 about_title: About me title (Use this to override about section title)
 about_profile_image: _test/images/travis.png
 about_content: > # this means to ignore newlines until the next config item.
-  Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
+  Write an awesome description about yourself here, this supports markdown, so you can add [links](https://foobar.com) and highlight things <mark>like this</mark>.
 
   You can even add paragraphs by using empty lines like this and add anything else markdown supports.
 

@@ -12,7 +12,7 @@ email: test@email.com
 email_title: Email
 phone: 07845248563
 phone_title: Phone
-website: sproogen.github.io/modern-resume-theme
+website: https://sproogen.github.io/modern-resume-theme
 website_title: Web
 
 # Dark Mode (true/false/never)
@@ -37,7 +37,7 @@ googlescholar_username: D847cGsAAAAJ
 additional_links:
 - title: Test link
   icon: fab fa-ello
-  url: sproogen.github.io/modern-resume-theme
+  url: https://sproogen.github.io/modern-resume-theme
 # - title: another link
 #   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&s=brands&m=free)
 #   url: Link url (eg. https://google.com)
@@ -46,7 +46,7 @@ additional_links:
 # about_title: About Me (Use this to override about section title)
 about_profile_image: _test/images/travis.png
 about_content: > # this means to ignore newlines until the next config item.
-  Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
+  Write an awesome description about yourself here, this supports markdown, so you can add [links](https://foobar.com) and highlight things <mark>like this</mark>.
 
   You can even add paragraphs by using empty lines like this and add anything else [markdown](https://www.markdownguide.org/getting-started#what-is-markdown) supports such as
     - Lists
@@ -65,7 +65,7 @@ content:
         additional_links:
           - title:  Github page for project
             icon: fab fa-github
-            url: sproogen.github.io/modern-resume-theme
+            url: https://sproogen.github.io/modern-resume-theme
         quote: >
           Short overview of the project
         description: >
