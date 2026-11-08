@@ -199,10 +199,10 @@
 
       var markup = wrappedTerminalMarkup(width);
 
-      if (markup && !terminalWrapped) {
+      if (markup) {
         terminalBody.innerHTML = markup;
         terminalWrapped = true;
-      } else if (!markup && terminalWrapped) {
+      } else if (terminalWrapped) {
         terminalBody.innerHTML = originalTerminal;
         terminalWrapped = false;
       }
@@ -210,10 +210,29 @@
 
     if (terminalSources.length) {
       var resizeTimer;
-      window.addEventListener("resize", function () {
+
+      function scheduleLayout() {
         window.clearTimeout(resizeTimer);
         resizeTimer = window.setTimeout(layoutTerminal, 150);
-      });
+      }
+
+      window.addEventListener("resize", scheduleLayout);
+      window.addEventListener("orientationchange", scheduleLayout);
+      window.addEventListener("load", layoutTerminal);
+
+      if (document.fonts) {
+        if (document.fonts.addEventListener) {
+          document.fonts.addEventListener("loadingdone", layoutTerminal);
+        }
+
+        if (document.fonts.ready && document.fonts.ready.then) {
+          document.fonts.ready.then(layoutTerminal);
+        }
+      }
+
+      window.setTimeout(layoutTerminal, 400);
+      window.setTimeout(layoutTerminal, 1200);
+      window.setTimeout(layoutTerminal, 2400);
       layoutTerminal();
     }
   }

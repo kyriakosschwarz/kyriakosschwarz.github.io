@@ -30,15 +30,17 @@
 .hero-about {
   align-items: center;
   display: flex;
-  gap: 1.25rem;
+  flex-direction: column;
+  gap: 1.5rem;
   justify-content: center;
   margin-top: 1.75rem;
   text-align: left;
 }
 
 .hero-about-text {
-  flex: 0 1 700px;
+  max-width: 640px;
   min-width: 0;
+  width: 100%;
 }
 
 .terminal-box {
@@ -46,7 +48,7 @@
   border: 1px solid var(--line);
   border-radius: .9rem;
   font-family: var(--mono);
-  max-width: 700px;
+  max-width: 640px;
   overflow: hidden;
   width: 100%;
 }
@@ -92,7 +94,7 @@
 .terminal-line {
   align-items: center;
   display: flex;
-  font-size: 2rem;
+  font-size: 1.5rem;
   gap: .6rem;
   line-height: 1.5;
   white-space: nowrap;
@@ -219,17 +221,17 @@
   }
 
   .terminal-line {
-    font-size: clamp(.72rem, 2.45vw, 1.3rem);
+    font-size: clamp(.75rem, 2.8vw, 1.5rem);
     gap: .3rem;
   }
 
   .terminal-enhanced .terminal-line {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
-  @media screen and (max-width: 349px) {
+  @media screen and (max-width: 359px) {
     .terminal-line {
-      font-size: .7rem;
+      font-size: .75rem;
     }
   }
 
@@ -608,6 +610,52 @@ a:focus {
   }
 }
 
+@media screen and (max-width: 359px) {
+  .topbar-inner {
+    gap: .5rem;
+    padding-bottom: .6rem;
+    padding-top: .6rem;
+  }
+
+  .topbar-logo {
+    font-size: 1.25rem;
+  }
+
+  .topbar-nav {
+    gap: .3rem;
+  }
+
+  .topbar-link {
+    font-size: .8rem;
+    padding: .35rem .5rem;
+  }
+
+  .theme-toggle {
+    font-size: .8rem;
+    gap: .3rem;
+  }
+
+  .theme-toggle-track {
+    height: 1.8rem;
+    width: 3.2rem;
+  }
+
+  .theme-toggle-thumb {
+    height: 1.2rem;
+    left: .25rem;
+    width: 1.2rem;
+  }
+
+  .dark .theme-toggle-thumb {
+    transform: translate(1.35rem, -50%);
+  }
+
+  .theme-toggle-label {
+    font-size: .8rem;
+    min-width: 2.4rem;
+  }
+}
+
 .header-container {
   margin-top: 0;
   min-height: 560px;
@@ -648,7 +696,7 @@ a:focus {
   inset: 0;
   left: 16%;
   mask-image: radial-gradient(ellipse at 65% 50%, #000 0%, transparent 78%);
-  opacity: .16;
+  opacity: .24;
   pointer-events: none;
   position: absolute;
   z-index: 0;
@@ -1615,7 +1663,7 @@ mark {
 
   .hero-animation-col {
     left: 0;
-    opacity: .1;
+    opacity: .16;
   }
 
   .hero-identity {

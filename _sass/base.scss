@@ -106,8 +106,13 @@ picture {
 
 html {
   box-sizing: border-box;
-  min-width: 500px;
-  scrollbar-gutter: stable; }
+  scrollbar-gutter: stable;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%; }
+
+@media (hover: hover) and (pointer: fine) {
+  html {
+    min-width: 500px; } }
 
 *,
 *::after,
