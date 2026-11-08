@@ -52,23 +52,14 @@
           {% for section in ordered_content %}
             {% if section.home_preview == true %}
               <div class="container preview-container">
-                <h3 id="{{ section.title | slugify }}">{{ section.title }}</h3>
+                <h3 class="preview-title">Selected projects</h3>
                 {% include section-project-preview.html content=section.content %}
+                <div class="preview-action">
+                  <a class="hero-action hero-action-primary" href="{{ '/projects/' | relative_url }}">View all projects</a>
+                </div>
               </div>
             {% endif %}
           {% endfor %}
-          <div class="container home-cta-container">
-            <div class="home-cta-grid">
-              <a class="home-cta-card" href="{{ '/cv/' | relative_url }}">
-                <span class="home-cta-label">CV</span>
-                <span class="home-cta-text">Roles, education, skills, publications, and awards.</span>
-              </a>
-              <a class="home-cta-card" href="{{ '/projects/' | relative_url }}">
-                <span class="home-cta-label">Projects</span>
-                <span class="home-cta-text">Cheminformatics, bioinformatics, and more.</span>
-              </a>
-            </div>
-          </div>
         {% endif %}
       {% else %}
         {%- include v1/default.html -%}

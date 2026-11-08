@@ -10,11 +10,11 @@ name: Kyriakos Schwarz
 title: Cheminformatics & AI Scientist
 description: Computational chemistry, data science, and software for drug discovery.
 og_image: images/Ibwwnh8n_400x400.jpg
-#email: 
+#email:
 # email_title: Email (Email title override)
-#phone: 
+#phone:
 # phone_title: Phone (Phone title override)
-#website: 
+#website:
 # website_title: Web (Website title override)
 
 # Dark Mode (true/false/never)
@@ -51,6 +51,7 @@ about_profile_image: images/Ibwwnh8n_400x400.jpg
 about_content: | # this will include new lines to allow paragraphs
   Hi, I'm Kyriakos. I combine chemistry, biology, and computation to help bring better medicines to patients, focusing on <mark>cheminformatics</mark>, <mark>machine learning</mark>, and <mark>software engineering</mark>. I build scalable pipelines, predictive models, and scientist-friendly software for compound selection and reaction prediction.
 
+cv_preview: |
   I hold a Ph.D. in <mark>Medical Artificial Intelligence</mark> from the <a href="https://www.uzh.ch/en.html">University of Zurich</a>, affiliated with the <a href="https://www.usz.ch/en/">University Hospital Zurich</a> and the <a href="https://ai.ethz.ch/">ETH AI Center</a>. I am currently a Postdoctoral Researcher with <a href="https://bsse.ethz.ch/">ETH Zurich (BSSE)</a> and <a href="https://www.roche.com/innovation/structure/rnd-locations/pharma-basel">Roche in Basel</a>.
 #  Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
 
@@ -76,8 +77,8 @@ content:
             icon: fas fa-graduation-cap
             url: https://chemrxiv.org/doi/full/10.26434/chemrxiv.15002055/v2
         description: |
-          I analyzed the <mark>Database of Unified Chemical Knowledge (DUCK)</mark>, containing 15 years of Roche ELN data, to highlight common reactions and their conditions.
-          
+          I worked on the <mark>Database of Unified Chemical Knowledge (DUCK)</mark> project, transforming 15 years of Roche Electronic Lab Notebook (ELN) data into a robust engine for chemical AI. By incorporating synthetic failures (negative data) alongside successes, we reduced bias in Machine Learning models and improved the reliability of chemical yield predictions. This research mapped the industrial repertoire, highlighting heavy reliance on C-N and C-C bond formations.
+
           ![DUCK Sunburst Plot](/images/duck_sunburst.png "Industrial reaction classes")
       - layout: left
         border: weak
@@ -91,8 +92,8 @@ content:
             icon: fas fa-graduation-cap
             url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
         description: |
-          I developed <mark>AttentionDDI</mark>, an explainable <mark>Transformer</mark> model in <mark>PyTorch</mark> that predicts medication side effects.
-          
+          I developed a novel Deep Learning architecture - <mark>AttentionDDI</mark> - in <mark>PyTorch</mark> for the prediction of previously unknown medication side effects. The model is <mark>Transformer</mark>-based and through an <mark>Attention</mark> mechanism it provides explainability over which input data modality (chemical structures, side effects, targets, etc.) is weighted more for improved predictions.
+
           ![Transformer model](/images/ddi.png "Transformer model")
       - layout: left
         border: weak
@@ -103,11 +104,11 @@ content:
             icon: fas fa-graduation-cap
             url: https://arxiv.org/abs/2207.08665
         description: |
-          I clustered patients by prescription history and analyzed drug-drug interactions and five-year mortality in the <a href="https://www.ukbiobank.ac.uk/">UK Biobank</a>.
-          
+          I created patient clusters, according to their drug prescription history, and analyzed the prevalence of DDIs in each cluster, which may influence their five-year mortality. I examined whether specific drug combinations may lead to additional health effects in the <a href="https://www.ukbiobank.ac.uk/">UK Biobank</a> participants. For this project I employed the <mark>Scikit-Learn</mark>, <mark>RapidsAI</mark>, <mark>Scipy</mark> and <mark>statsmodels</mark> data science libraries.
+
           ![UK Biobank patient](/images/ukbpatient.png "UK Biobank patient")
       - layout: left
-        border: 
+        border:
         title: "DDoS: Graph Neural Network for drug synergy prediction"
         image: images/gnn_molecule.png
         additional_links:
@@ -118,17 +119,17 @@ content:
             icon: fas fa-graduation-cap
             url: https://arxiv.org/abs/2210.00802
         description: |
-          I built <mark>DDoS</mark>, a <mark>PyTorch</mark> Graph Neural Network that predicts drug synergy in specific cell lines from molecular structures and gene expression.
-          
+          A novel Graph Deep Learning architecture - <mark>DDoS</mark> - in <mark>PyTorch</mark> for the prediction of synergistic effects of drugs in specific cell lines. The model learns task-specific representations of molecules (drug chemical structures) through a Graph Neural Network and takes advantage of gene expression features of cell lines in order to improve drug combination synergy predictions.
+
           ![Graph Neural Network model](/images/gnn_molecule.png "Graph Neural Network model")
-          
+
   - title: Bioinformatics # Title for the section
     projects: true
     order: 100
     layout: list # Type of content section (list/text)
     content:
       - layout: left
-        border: weak  # Value of `weak` will display a weak border below this item. # Any 
+        border: weak  # Value of `weak` will display a weak border below this item. # Any
                       # other value (or no value) means no border will be displayed
         title: "Long non-coding RNA structure estimation"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
@@ -141,11 +142,11 @@ content:
             icon: fas fa-graduation-cap
             url: https://www.nature.com/articles/s41467-023-39160-7
         description: | # this will include new lines to allow paragraphs
-          I calculated <a href="https://en.wikipedia.org/wiki/Long_non-coding_RNA">lncRNA</a> base-pairing probabilities and correlated them with conservation scores to test whether RNA secondary structure is linked to gene function.
-          
+          Computational methods that have aimed to predict cancer driver lncRNA genes have thus far relied on scores that do not specifically reflect the <a href="https://en.wikipedia.org/wiki/Long_non-coding_RNA">lncRNA</a> biology. Therefore, Functional Impact scores, such as conservation scores or base pairing probabilties from RNA secondary structure can be included to improve those predictions. In this project I calculated lncRNA base pairing probabilities and correlated them with conservation scores to examine whether secondary structure is suggestive of gene function. Tools used for this project: <mark>Bash (awk, bedtools, bwtool, etc.)</mark>, <mark>Python (Snakemake)</mark>, <mark>R</mark>, <mark>RNAfold/RNAsnp</mark>
+
           ![Trans mod](/images/rnafold.png "RNA secondary structure")
       - layout: left
-        border:   # Value of `weak` will display a weak border below this item. # Any 
+        border:   # Value of `weak` will display a weak border below this item. # Any
                       # other value (or no value) means no border will be displayed
         title: "EM algorithm for genomic methylation profiles"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
@@ -158,8 +159,8 @@ content:
 #            icon: fas fa-graduation-cap
 #            url: https://www.biorxiv.org/content/10.1101/2021.11.06.467555
         description: | # this will include new lines to allow paragraphs
-          I applied an <a href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm">EM</a> algorithm to <i><a href="https://en.wikipedia.org/wiki/Caenorhabditis_elegans">C. elegans</a></i> methylation data to model promoter states; the implementation is in <mark>R</mark>.
-          
+          In <i><a href="https://en.wikipedia.org/wiki/Caenorhabditis_elegans">C. elegans</a></i> the expression of X-linked genes is downregulated by half by modifying transcription initiation. Here, an <a href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm">EM</a> algorithm was applied to a dataset containing the positions and the methylation status of Cytosines around the transcription start site (<i>TSS</i>) of various genes. The algorithm is written in <mark>R</mark>.
+
           ![TSS methylation](/images/EM.png "TSS methylation")
   - title: Molecular Biology # Title for the section
     projects: true
@@ -167,7 +168,7 @@ content:
     layout: list # Type of content section (list/text)
     content:
       - layout: left
-        border:   # Value of `weak` will display a weak border below this item. # Any 
+        border:   # Value of `weak` will display a weak border below this item. # Any
                       # other value (or no value) means no border will be displayed
         title: "Effects of tubulin-tyrosine ligase on alpha-tubulin"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
@@ -180,8 +181,12 @@ content:
 #            icon: fas fa-graduation-cap
 #            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
         description: | # this will include new lines to allow paragraphs
-          I studied the effects of engineered <i>TTL</i> genes in <i><a href="https://en.wikipedia.org/wiki/Drosophila_melanogaster">Drosophila melanogaster</a></i> through viability and fertility assays, confocal microscopy, Western blots, and TTL-GFP cloning.
-          
+          The alpha-tubulin (α-tubulin) protein is a major structural component of microtubules which in turn are one of the three main filaments of the eukaryotic cytoskeleton. Microtubules are associated with important cellular functions, such as mitosis and meiosis, intracellular transport, cell motility, maintenance of the cell shape and others. The tubulin-tyrosine ligase (<i>TTL</i>) protein functions by ligating a tyrosine molecule at the detyrosinated C-terminal of α-tubulin. This process can have an effect on microtubule stability and subsequently on the cellular functions which are depended on the microtubule dynamics. In this work four experiments were performed which try to elucidate the consequences of engineered <i>TTL</i> genes in <i><a href="https://en.wikipedia.org/wiki/Drosophila_melanogaster">Drosophila melanogaster</a></i>. The experiments include:
+            - Measuring viability and fertility of Drosophila flies
+            - Confocal microscopy of Drosophila ovaries
+            - Western blot of tyrosinated α-tubulin
+            - TTL-GFP fusion gene cloning
+
           ![Confocal microscopy](/images/confocal.png "Confocal microscopy")
   - title: Cloud & Big Data Analytics # Title for the section
     projects: true
@@ -189,7 +194,7 @@ content:
     layout: list # Type of content section (list/text)
     content:
       - layout: left
-        border: weak  # Value of `weak` will display a weak border below this item. # Any 
+        border: weak  # Value of `weak` will display a weak border below this item. # Any
                       # other value (or no value) means no border will be displayed
         title: "From Data Warehouse to cloud analytics"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
@@ -202,8 +207,8 @@ content:
 #            icon: fas fa-graduation-cap
 #            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
         description: | # this will include new lines to allow paragraphs
-          I helped move the team from an in-house data warehouse to <mark>Azure Databricks</mark>, enabling modern ETL pipelines and scalable machine learning.
-          
+          I empowered my team to transition from a in-house DWH solution to a scalable cloud solution, <mark>Azure Databricks</mark>. This enabled us to develop modern <mark>ETL</mark> piplines, and scalable Machine Learning applications.
+
           ![Databricks](/images/databricks.png "Databricks")
 
   - title: Web Development # Title for the section
@@ -212,7 +217,7 @@ content:
     layout: list # Type of content section (list/text)
     content:
       - layout: left
-        border: weak  # Value of `weak` will display a weak border below this item. # Any 
+        border: weak  # Value of `weak` will display a weak border below this item. # Any
                       # other value (or no value) means no border will be displayed
         title: "Professional company websites"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
@@ -225,13 +230,16 @@ content:
 #            icon: fas fa-graduation-cap
 #            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
         description: | # this will include new lines to allow paragraphs
-          At <a href="https://www.fastforward.ch/internal.html">fastforward websolutions</a> I built and maintained company websites with <mark>HTML/CSS/JS</mark>, <mark>Magnolia</mark> CMS, <mark>Java</mark>, and <mark>REST/SOAP</mark> services.
+          While working as a software / web developer at <a href="https://www.fastforward.ch/internal.html">fastforward websolutions</a> I was involved in the implementation and maintenance of professional company websites. Some notable examples include:
+            - <a href="https://www.fastforward.ch/internal/projects/sympany.html">Sympany</a>
+            - <a href="https://www.fastforward.ch/internal/projects/prosenectute.html">Pro Senectute</a>
+            - <a href="https://www.fastforward.ch/internal/projects/schweizmobilplus.html">SchweizMobil Plus</a>
 
-          Examples: <a href="https://www.fastforward.ch/internal/projects/sympany.html">Sympany</a>, <a href="https://www.fastforward.ch/internal/projects/prosenectute.html">Pro Senectute</a>, <a href="https://www.fastforward.ch/internal/projects/schweizmobilplus.html">SchweizMobil Plus</a>.
-          
+          My responsibilities included web development in <mark>HTML/CSS/JS</mark>, <mark>Magnolia</mark> CMS configuration, extension of CMS functionality in <mark>Java</mark>, setting up <mark>REST/SOAP</mark> services and planning <mark>Agile/Scrum</mark> tasks and sprints.
+
           ![HTML code](/images/html_css.jpg "HTML code")
       - layout: left
-        border: weak  # Value of `weak` will display a weak border below this item. # Any 
+        border: weak  # Value of `weak` will display a weak border below this item. # Any
                       # other value (or no value) means no border will be displayed
         title: "Flurnamen Puzzle"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
@@ -244,11 +252,11 @@ content:
 #            icon: fas fa-graduation-cap
 #            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
         description: | # this will include new lines to allow paragraphs
-          I built a <mark>Processing.js</mark> puzzle game that helps primary school students in <a href="https://www.schulelaeufelfingen.ch/">Läufelfingen</a> learn their local region.
-          
+          An interactive and educational game where local map regions act as puzzle pieces. The primary school students of <a href="https://www.schulelaeufelfingen.ch/">Läufelfingen</a> can use it to better learn their region in a fun way by piecing together these puzzle pieces. The game was developed with <mark>Processing.js</mark>.
+
           ![Puzzle Game](/images/flurnamen.png "Puzzle Game")
       - layout: left
-        border:   # Value of `weak` will display a weak border below this item. # Any 
+        border:   # Value of `weak` will display a weak border below this item. # Any
                       # other value (or no value) means no border will be displayed
         title: "Nine men's morris (Mühle)"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
@@ -261,8 +269,8 @@ content:
 #            icon: fas fa-graduation-cap
 #            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
         description: | # this will include new lines to allow paragraphs
-          I built the nine men's morris game (<a href="https://en.wikipedia.org/wiki/Nine_men%27s_morris">Mühle</a>) in pure <mark>HTML/CSS/JS</mark>.
-          
+          A toy project where I implemented the nine men's morris game (<a href="https://en.wikipedia.org/wiki/Nine_men%27s_morris">Mühle</a>) with pure <mark>HTML/CSS/JS</mark>.
+
           ![Muehle Game](/images/muehle2.png "Muehle Game")
   - title: Computer Vision & Graphics # Title for the section
     projects: true
@@ -270,7 +278,7 @@ content:
     layout: list # Type of content section (list/text)
     content:
       - layout: left
-        border: weak  # Value of `weak` will display a weak border below this item. # Any 
+        border: weak  # Value of `weak` will display a weak border below this item. # Any
                       # other value (or no value) means no border will be displayed
         title: "Pigeon Detection"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
@@ -283,11 +291,11 @@ content:
 #            icon: fas fa-graduation-cap
 #            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
         description: | # this will include new lines to allow paragraphs
-          I built a <mark>Python/OpenCV/QT</mark> video tool that detects pigeons and reports their positions within user-defined regions.
-          
-          ![Pigeon Detection](https://hackster.imgix.net/uploads/attachments/929293/picture_oKHxX5hcUc.PNG?auto=compress%2Cformat&w=900&h=675&fit=min "Pigeon Detection")
+          In this project a video analysis algorithm was developed that utilizes basic computer vision principles. Based on pidgeon characteristics (shape, size, movement, etc.) their position is determined within a video input stream. Written in <mark>Python/OpenCV/QT</mark>. The video input can be opened in a <a href="https://www.qt.io/">QT</a> window and areas of interest (detection) can be selected (by drawing polygons). Within these areas the positions of detected pidgeons are reported.
+
+          ![Pidgeon Detection](https://hackster.imgix.net/uploads/attachments/929293/picture_oKHxX5hcUc.PNG?auto=compress%2Cformat&w=900&h=675&fit=min "Pidgeon Detection")
       - layout: left
-        border:   # Value of `weak` will display a weak border below this item. # Any 
+        border:   # Value of `weak` will display a weak border below this item. # Any
                       # other value (or no value) means no border will be displayed
         title: "L-Systems"
 #        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
@@ -300,8 +308,8 @@ content:
 #            icon: fas fa-graduation-cap
 #            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
         description: | # this will include new lines to allow paragraphs
-          I implemented <a href="https://en.wikipedia.org/wiki/L-system">L-Systems</a> and <a href="https://en.wikipedia.org/wiki/Turtle_graphics">turtle graphics</a> in <mark>Java</mark> and <mark>OpenGL</mark> to generate trees and fractals.
-          
+          <a href="https://en.wikipedia.org/wiki/L-system">L-Systems</a> are simple rule-based text generation systems. After the text is generated it can be utilized as instructions of <a href="https://en.wikipedia.org/wiki/Turtle_graphics">Turtle graphics</a>. These turtle graphics then were implemented in <mark>Java</mark> and <mark>OpenGL</mark> in order to draw trees and other fractals.
+
           ![L-System](/images/Lsystem.png "L-System")
 
   - title: Experience
