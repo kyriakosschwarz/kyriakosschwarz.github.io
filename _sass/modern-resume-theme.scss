@@ -1086,23 +1086,52 @@ a:focus {
 }
 
 .hero-socials {
-  margin: 1.5rem 0 0;
+  align-items: center;
+  display: flex;
+  gap: .25rem;
+  margin: .65rem 0 0;
   padding: 0;
   text-align: left;
 }
 
-.hero-socials li:first-child {
+.hero-socials li {
   padding-left: 0;
 }
 
 .hero-socials a.button--sacnite {
-  height: 56px;
-  width: 56px;
+  align-items: center;
+  background: none;
+  border: 0;
+  color: var(--muted);
+  display: inline-flex;
+  height: 30px;
+  justify-content: center;
+  width: 30px;
+}
+
+.hero-socials a.button--sacnite::before {
+  display: none;
 }
 
 .hero-socials i {
-  font-size: 26px;
-  line-height: 56px;
+  color: inherit;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.hero-socials a.button--sacnite:hover,
+.hero-socials a.button--sacnite:focus {
+  background: none;
+  color: var(--accent);
+}
+
+.dark .hero-socials a.button--sacnite {
+  color: var(--muted);
+}
+
+.dark .hero-socials a.button--sacnite:hover,
+.dark .hero-socials a.button--sacnite:focus {
+  color: var(--accent);
 }
 
 .theme-toggle {
@@ -1402,16 +1431,6 @@ mark {
   .header-container {
     padding-bottom: 2.5rem;
     padding-top: 3rem;
-  }
-
-  .hero-socials a.button--sacnite {
-    height: 44px;
-    width: 44px;
-  }
-
-  .hero-socials i {
-    font-size: 22px;
-    line-height: 44px;
   }
 
   .header-left h1 {

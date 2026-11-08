@@ -14,38 +14,7 @@
       {%- assign is_cv_page = page.cv_only | default: false -%}
       {%- assign is_home_page = false -%}
       {%- unless is_projects_page or is_cv_page -%}{%- assign is_home_page = true -%}{%- endunless -%}
-      <div class="hero-actions no-print">
-        <a class="hero-action{% if is_home_page %} hero-action-primary{% endif %}" href="{{ '/' | relative_url }}"{% if is_home_page %} aria-current="page"{% endif %}>Home</a>
-        <a class="hero-action{% if is_cv_page %} hero-action-primary{% endif %}" href="{{ '/cv/' | relative_url }}"{% if is_cv_page %} aria-current="page"{% endif %}>CV</a>
-        <a class="hero-action{% if is_projects_page %} hero-action-primary{% endif %}" href="{{ '/projects/' | relative_url }}"{% if is_projects_page %} aria-current="page"{% endif %}>Projects</a>
-      </div>
       {% if is_home_page %}
-        <div class="hero-about">
-          {%- if site.about_profile_image -%}
-            <span class="profile-img hero-profile" style="background-image: url({{ site.about_profile_image | relative_url }})"></span>
-          {%- endif -%}
-          <div class="hero-about-text">
-            <div class="terminal-box">
-              <div class="terminal-header">
-                <span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="terminal-title">bash — ~/kyriakos</span>
-              </div>
-              <div class="terminal-body">
-                <div class="terminal-line terminal-line-1">
-                  <span class="terminal-prompt">$</span>
-                  <span class="terminal-typed" style="--chars: {{ site.about_terminal_lines[0] | size }}">{{ site.about_terminal_lines[0] }}</span>
-                  <span class="terminal-cursor" aria-hidden="true"></span>
-                </div>
-                <div class="terminal-line terminal-line-2">
-                  <span class="terminal-prompt">$</span>
-                  <span class="terminal-typed" style="--chars: {{ site.about_terminal_lines[1] | size }}">{{ site.about_terminal_lines[1] }}</span>
-                  <span class="terminal-cursor" aria-hidden="true"></span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
         <ul class="icons no-print hero-socials">
         {%- if site.dribbble_username -%}
           <li>
@@ -147,6 +116,40 @@
           </li>
         {% endfor %}
       </ul>
+      {% endif %}
+      <div class="hero-actions no-print">
+        <a class="hero-action{% if is_home_page %} hero-action-primary{% endif %}" href="{{ '/' | relative_url }}"{% if is_home_page %} aria-current="page"{% endif %}>Home</a>
+        <a class="hero-action{% if is_cv_page %} hero-action-primary{% endif %}" href="{{ '/cv/' | relative_url }}"{% if is_cv_page %} aria-current="page"{% endif %}>CV</a>
+        <a class="hero-action{% if is_projects_page %} hero-action-primary{% endif %}" href="{{ '/projects/' | relative_url }}"{% if is_projects_page %} aria-current="page"{% endif %}>Projects</a>
+      </div>
+      {% if is_home_page %}
+        <div class="hero-about">
+          {%- if site.about_profile_image -%}
+            <span class="profile-img hero-profile" style="background-image: url({{ site.about_profile_image | relative_url }})"></span>
+          {%- endif -%}
+          <div class="hero-about-text">
+            <div class="terminal-box">
+              <div class="terminal-header">
+                <span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="terminal-title">bash — ~/kyriakos</span>
+              </div>
+              <div class="terminal-body">
+                <div class="terminal-line terminal-line-1">
+                  <span class="terminal-prompt">$</span>
+                  <span class="terminal-typed" style="--chars: {{ site.about_terminal_lines[0] | size }}">{{ site.about_terminal_lines[0] }}</span>
+                  <span class="terminal-cursor" aria-hidden="true"></span>
+                </div>
+                <div class="terminal-line terminal-line-2">
+                  <span class="terminal-prompt">$</span>
+                  <span class="terminal-typed" style="--chars: {{ site.about_terminal_lines[1] | size }}">{{ site.about_terminal_lines[1] }}</span>
+                  <span class="terminal-cursor" aria-hidden="true"></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       {% endif %}
     </div>
     <div class="hero-animation-col">
