@@ -370,11 +370,11 @@ content:
     order: 7
     layout: text
     content: |
-      - Databricks Data Analyst
-      - Databricks Data Engineer
-      - Databricks Generative AI
-      - Azure Cloud Fundamentals
-      - Neo4j Graph Data Science
+      - [Databricks Data Analyst](https://www.databricks.com/learn/certification/data-analyst-associate)
+      - [Databricks Data Engineer](https://www.databricks.com/learn/certification/data-engineer-associate)
+      - [Databricks Generative AI](https://www.databricks.com/learn/certification/genai-engineer-associate)
+      - [Azure Cloud Fundamentals](https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/)
+      - [Neo4j Graph Data Science](https://graphacademy.neo4j.com/certifications/gds-certification)
   - title: Languages
     order: 4
     layout: text
@@ -435,6 +435,10 @@ content:
         title: Roche Best Advanced Analytics Poster Award
         sub_title: Roche Advanced Analytics Network
         caption: 2025
+        additional_links:
+          - title: Roche Advanced Analytics
+            icon: fas fa-external-link-alt
+            url: https://www.roche.com/innovation/partnering/areas-of-interest/digital-and-data
 
 # Footer
 # footer_show_references: false
