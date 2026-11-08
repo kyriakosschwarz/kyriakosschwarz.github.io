@@ -159,6 +159,25 @@
   opacity: 0;
 }
 
+.terminal-typed-static {
+  animation: none;
+  overflow: visible;
+  width: auto;
+}
+
+.terminal-backslash {
+  color: var(--muted);
+}
+
+.terminal-line-cont .terminal-prompt {
+  color: var(--muted);
+}
+
+.terminal-cursor-static {
+  animation: terminal-blink 1s step-end infinite;
+  opacity: 1;
+}
+
 @keyframes terminal-type {
   to {
     width: calc(var(--chars) * 1ch);
@@ -202,6 +221,10 @@
   .terminal-line {
     font-size: clamp(.72rem, 2.45vw, 1.3rem);
     gap: .3rem;
+  }
+
+  .terminal-enhanced .terminal-line {
+    font-size: 2rem;
   }
 
   @media screen and (max-width: 349px) {
