@@ -420,7 +420,7 @@ content:
       - **Greek** <mark>C2</mark>
       - **Spanish** <mark>A2</mark>
   - title: Interests
-    order: 8
+    order: 0
     layout: text
     content: |
       Away from the keyboard, you'll usually find me playing <mark>chess</mark> or keeping up with <mark>fitness</mark>. I also love <mark>playing with my two cats</mark>, who supervise all of the above, plus <mark>hiking</mark> and <mark>learning languages</mark>, because apparently three is not enough.
