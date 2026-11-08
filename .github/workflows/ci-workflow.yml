@@ -19,7 +19,7 @@ jobs:
       with:
         ruby-version: '3.2.11'
         bundler-cache: true
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
     - name: Build test sites
       run: |
         bundle exec jekyll build --config _test/_config-version-1.yml --destination ./_test-site-1
@@ -65,7 +65,7 @@ jobs:
       with:
         ruby-version: '3.2.11'
         bundler-cache: true
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
     - name: Install gem-release
       run: gem install gem-release
     - name: Set git config
