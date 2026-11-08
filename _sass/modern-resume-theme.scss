@@ -399,34 +399,34 @@ body {
   width: 100%;
 }
 
-.suzuki-animation {
+.molecule-playground {
   color: var(--ink);
   font-family: var(--mono);
   width: 100%;
 }
 
-.suzuki-animation .reaction-header,
-.suzuki-animation .reaction-footer {
+.playground-header,
+.playground-footer {
   align-items: center;
   display: flex;
   gap: 12px;
   justify-content: space-between;
 }
 
-.suzuki-animation .reaction-header {
+.playground-header {
   color: var(--muted);
   font-size: .85rem;
   letter-spacing: .12em;
   text-transform: uppercase;
 }
 
-.suzuki-animation .reaction-live {
+.playground-live {
   color: var(--accent);
   white-space: nowrap;
 }
 
-.suzuki-animation .reaction-live i {
-  animation: suzuki-live-pulse 1.5s infinite;
+.playground-live i {
+  animation: playground-live 1.5s infinite;
   background: var(--accent);
   border-radius: 50%;
   display: inline-block;
@@ -435,40 +435,75 @@ body {
   width: 6px;
 }
 
-.suzuki-animation svg {
+.molecule-playground svg {
   display: block;
   margin: 12px 0;
   overflow: visible;
   width: 100%;
 }
 
-.suzuki-animation .ring polygon {
+.satellite polygon,
+.core-molecule polygon {
   fill: none;
   stroke: var(--muted);
   stroke-linejoin: round;
   stroke-width: 2;
 }
 
-.suzuki-animation .bond {
-  stroke: var(--muted);
-  stroke-linecap: round;
-  stroke-width: 2;
+.core-molecule polygon {
+  stroke: var(--accent);
 }
 
-.suzuki-animation .hetero {
+.satellite-left {
+  animation: satellite-drift-left 8s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.satellite-right {
+  animation: satellite-drift-right 9s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.core-molecule {
+  animation: core-wiggle 10s ease-in-out infinite;
+  transform-box: view-box;
+  transform-origin: 300px 158px;
+}
+
+.atom {
+  fill: var(--accent);
+}
+
+.atom--soft {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+
+.atom-label {
+  fill: var(--button-ink);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  text-anchor: middle;
+}
+
+.hetero {
   fill: var(--accent);
   font-family: var(--mono);
   font-size: 15px;
   font-weight: 600;
 }
 
-.suzuki-animation .pd {
+.pd {
   fill: #c9a227;
   stroke: #e6c766;
   stroke-width: 1.5;
 }
 
-.suzuki-animation .pd-label {
+.pd-label {
   fill: #17212a;
   font-family: var(--mono);
   font-size: 12px;
@@ -476,268 +511,159 @@ body {
   text-anchor: middle;
 }
 
-.suzuki-animation .byproduct {
-  fill: var(--muted);
+.pd-orbit {
+  animation: pd-orbit 14s linear infinite;
+  transform-box: view-box;
+  transform-origin: 300px 160px;
 }
 
-.suzuki-animation .mol-label {
-  fill: var(--muted);
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 1px;
-  text-anchor: middle;
+.forming-bond {
+  animation: bond-pulse 4s ease-in-out infinite;
+  stroke: var(--accent);
+  stroke-dasharray: 5 5;
+  stroke-linecap: round;
+  stroke-width: 2;
 }
 
-.suzuki-animation .small-label {
-  fill: var(--muted);
-  font-family: var(--mono);
-  font-size: 10px;
-  text-anchor: middle;
+.bond-right {
+  animation-delay: 2s;
 }
 
-.suzuki-animation .plus {
-  fill: var(--muted);
-  font-family: var(--mono);
-  font-size: 26px;
-  text-anchor: middle;
-}
-
-.suzuki-animation .phase {
-  animation-duration: 16s;
-  animation-iteration-count: infinite;
+.bond-flash {
+  animation: bond-flash 4s ease-in-out infinite;
+  fill: var(--accent);
   opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
-.suzuki-animation .phase-1 {
-  animation-name: suzuki-phase-one;
+.bond-flash-right {
+  animation-delay: 2s;
 }
 
-.suzuki-animation .phase-2 {
-  animation-name: suzuki-phase-two;
+.sparkle {
+  animation: sparkle 3.5s ease-in-out infinite;
+  fill: var(--accent);
+  opacity: .2;
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
-.suzuki-animation .phase-3 {
-  animation-name: suzuki-phase-three;
+.sparkle-2 {
+  animation-delay: .7s;
 }
 
-.suzuki-animation .phase-4 {
-  animation-name: suzuki-phase-four;
+.sparkle-3 {
+  animation-delay: 1.4s;
 }
 
-.suzuki-animation .product-ring polygon {
-  stroke: var(--accent);
+.sparkle-4 {
+  animation-delay: 2.1s;
 }
 
-.suzuki-animation .new-bond {
-  stroke: var(--accent);
-  stroke-width: 4;
+.sparkle-5 {
+  animation-delay: 2.8s;
 }
 
-.suzuki-animation .reaction-stage {
-  color: var(--accent);
-  flex: 1;
-  font-size: .85rem;
-  height: 14px;
-  letter-spacing: .08em;
-  position: relative;
+.sparkle-6 {
+  animation-delay: 3.5s;
+}
+
+.playground-footer {
+  color: var(--muted);
+  font-size: .8rem;
+  letter-spacing: .12em;
   text-transform: uppercase;
 }
 
-.suzuki-animation .stage {
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  white-space: nowrap;
-}
-
-.suzuki-animation .stage-1 {
-  animation: suzuki-label-one 16s infinite;
-}
-
-.suzuki-animation .stage-2 {
-  animation: suzuki-label-two 16s infinite;
-}
-
-.suzuki-animation .stage-3 {
-  animation: suzuki-label-three 16s infinite;
-}
-
-.suzuki-animation .stage-4 {
-  animation: suzuki-label-four 16s infinite;
-}
-
-.suzuki-animation .reaction-progress {
-  background: var(--line);
-  height: 2px;
-  overflow: hidden;
-  width: 65px;
-}
-
-.suzuki-animation .reaction-progress span {
-  animation: suzuki-progress 16s linear infinite;
-  background: var(--accent);
-  display: block;
-  height: 100%;
-  width: 0;
-}
-
-@keyframes suzuki-phase-one {
+@keyframes satellite-drift-left {
   0%,
-  22% {
-    opacity: 1;
+  100% {
+    transform: translate(0, 0) rotate(-2deg);
   }
 
-  25%,
-  100% {
-    opacity: 0;
+  50% {
+    transform: translate(6px, 4px) rotate(2deg);
   }
 }
 
-@keyframes suzuki-phase-two {
+@keyframes satellite-drift-right {
   0%,
-  24% {
-    opacity: 0;
-  }
-
-  28%,
-  47% {
-    opacity: 1;
-  }
-
-  50%,
   100% {
-    opacity: 0;
+    transform: translate(0, 0) rotate(2deg);
+  }
+
+  50% {
+    transform: translate(-6px, 4px) rotate(-2deg);
   }
 }
 
-@keyframes suzuki-phase-three {
+@keyframes core-wiggle {
   0%,
-  49% {
-    opacity: 0;
-  }
-
-  53%,
-  72% {
-    opacity: 1;
-  }
-
-  75%,
   100% {
-    opacity: 0;
+    transform: rotate(-2deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(2deg) scale(1.03);
   }
 }
 
-@keyframes suzuki-phase-four {
-  0%,
-  74% {
-    opacity: 0;
-  }
-
-  78%,
-  97% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes suzuki-label-one {
-  0%,
-  22% {
-    opacity: 1;
-  }
-
-  25%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes suzuki-label-two {
-  0%,
-  24% {
-    opacity: 0;
-  }
-
-  28%,
-  47% {
-    opacity: 1;
-  }
-
-  50%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes suzuki-label-three {
-  0%,
-  49% {
-    opacity: 0;
-  }
-
-  53%,
-  72% {
-    opacity: 1;
-  }
-
-  75%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes suzuki-label-four {
-  0%,
-  74% {
-    opacity: 0;
-  }
-
-  78%,
-  97% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes suzuki-progress {
-  from {
-    width: 0;
-  }
-
+@keyframes pd-orbit {
   to {
-    width: 100%;
+    transform: rotate(360deg);
   }
 }
 
-@keyframes suzuki-live-pulse {
+@keyframes bond-pulse {
+  0%,
+  100% {
+    opacity: .15;
+    stroke-width: 1.5;
+  }
+
+  50% {
+    opacity: 1;
+    stroke-width: 3;
+  }
+}
+
+@keyframes bond-flash {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(.4);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: .15;
+    transform: scale(.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes playground-live {
   50% {
     opacity: .3;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .suzuki-animation *,
-  .suzuki-animation *::before {
+  .molecule-playground *,
+  .molecule-playground *::before {
     animation: none !important;
-  }
-
-  .suzuki-animation .phase-1 {
-    opacity: 1;
-  }
-
-  .suzuki-animation .stage-1 {
-    opacity: 1;
-  }
-
-  .suzuki-animation .reaction-progress span {
-    width: 100%;
   }
 }
 
