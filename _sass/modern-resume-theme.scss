@@ -350,9 +350,16 @@ body {
   padding-top: 3rem;
 }
 
-.theme-toggle-wrap {
-  margin-bottom: 1.5rem;
-  text-align: right;
+.header-controls {
+  align-items: center;
+  display: flex;
+  gap: 1.25rem;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.header-controls .icons {
+  margin-bottom: 0;
 }
 
 .theme-toggle {
@@ -409,8 +416,9 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .theme-toggle-wrap {
-    text-align: left;
+  .header-controls {
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 }
 
