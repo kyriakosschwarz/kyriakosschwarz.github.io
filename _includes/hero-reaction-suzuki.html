@@ -1,0 +1,63 @@
+<div class="molecule-playground">
+  <div class="playground-header">
+    <span>Suzuki–Miyaura</span>
+    <span class="playground-live"><i></i> Pd C–C coupling</span>
+  </div>
+
+  <svg viewBox="0 0 600 280" role="img" aria-label="Playful Suzuki–Miyaura coupling animation">
+    <defs>
+      <filter id="suzuki-glow">
+        <feGaussianBlur stdDeviation="4" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
+    <g class="playground-scene">
+      <g class="satellite satellite-left">
+        <polygon points="110,60 136,75 136,105 110,120 84,105 84,75"/>
+        <text x="70" y="90" class="hetero">Br</text>
+      </g>
+
+      <g class="satellite satellite-right">
+        <polygon points="490,60 516,75 516,105 490,120 464,105 464,75"/>
+        <text x="530" y="90" class="hetero">B</text>
+      </g>
+
+      <line class="forming-bond bond-left" x1="136" y1="90" x2="240" y2="140"/>
+      <line class="forming-bond bond-right" x1="360" y1="140" x2="464" y2="90"/>
+      <circle class="bond-flash" cx="188" cy="115" r="5" filter="url(#suzuki-glow)"/>
+      <circle class="bond-flash bond-flash-right" cx="412" cy="115" r="5" filter="url(#suzuki-glow)"/>
+
+      <g class="core-molecule">
+        <polygon points="240,140 270,122 300,140 300,176 270,194 240,176"/>
+        <polygon points="300,140 330,122 360,140 360,176 330,194 300,176"/>
+        <circle class="atom" cx="240" cy="140" r="9"/>
+        <text class="atom-label" x="240" y="144">N</text>
+        <circle class="atom" cx="360" cy="176" r="9"/>
+        <text class="atom-label" x="360" y="180">O</text>
+        <circle class="atom atom--soft" cx="300" cy="122" r="7"/>
+        <circle class="atom atom--soft" cx="300" cy="194" r="7"/>
+      </g>
+
+      <g class="pd-orbit">
+        <circle class="pd" cx="300" cy="55" r="12"/>
+        <text class="pd-label" x="300" y="59">Pd</text>
+      </g>
+
+      <circle class="sparkle sparkle-1" cx="170" cy="60" r="2.5"/>
+      <circle class="sparkle sparkle-2" cx="430" cy="55" r="2"/>
+      <circle class="sparkle sparkle-3" cx="205" cy="210" r="2"/>
+      <circle class="sparkle sparkle-4" cx="400" cy="215" r="2.5"/>
+      <circle class="sparkle sparkle-5" cx="90" cy="170" r="2"/>
+      <circle class="sparkle sparkle-6" cx="510" cy="180" r="2"/>
+    </g>
+  </svg>
+
+  <div class="playground-footer">
+    <span>Ph–Br + Ph–B(OH)₂ → Ph–Ph</span>
+    <span>Small molecules · Big ideas</span>
+  </div>
+</div>

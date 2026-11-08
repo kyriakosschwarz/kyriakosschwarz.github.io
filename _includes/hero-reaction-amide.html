@@ -1,0 +1,59 @@
+<div class="molecule-playground">
+  <div class="playground-header">
+    <span>Amide coupling</span>
+    <span class="playground-live"><i></i> C–N bond formation</span>
+  </div>
+
+  <svg viewBox="0 0 600 280" role="img" aria-label="Playful amide coupling animation">
+    <defs>
+      <filter id="amide-glow">
+        <feGaussianBlur stdDeviation="4" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
+    <g class="playground-scene">
+      <g class="satellite satellite-left">
+        <polygon points="100,70 126,85 126,115 100,130 74,115 74,85"/>
+        <line class="bond" x1="126" y1="85" x2="150" y2="68"/>
+        <text x="156" y="66" class="hetero">O</text>
+      </g>
+
+      <g class="satellite satellite-right">
+        <polygon points="474,70 500,85 500,115 474,130 448,115 448,85"/>
+        <text x="516" y="100" class="hetero">N</text>
+      </g>
+
+      <line class="forming-bond bond-left" x1="126" y1="100" x2="257" y2="133"/>
+      <line class="forming-bond bond-right" x1="343" y1="133" x2="448" y2="100"/>
+      <circle class="bond-flash" cx="192" cy="117" r="5" filter="url(#amide-glow)"/>
+      <circle class="bond-flash bond-flash-right" cx="396" cy="117" r="5" filter="url(#amide-glow)"/>
+
+      <g class="core-molecule">
+        <polygon points="300,108 343,133 343,183 300,208 257,183 257,133"/>
+        <circle class="atom atom--soft" cx="300" cy="108" r="7"/>
+        <circle class="atom atom--soft" cx="300" cy="208" r="7"/>
+      </g>
+
+      <g class="water-drop">
+        <circle cx="300" cy="52" r="14"/>
+        <text x="300" y="56" class="water-label">H₂O</text>
+      </g>
+
+      <circle class="sparkle sparkle-1" cx="175" cy="55" r="2.5"/>
+      <circle class="sparkle sparkle-2" cx="425" cy="55" r="2"/>
+      <circle class="sparkle sparkle-3" cx="210" cy="215" r="2"/>
+      <circle class="sparkle sparkle-4" cx="390" cy="215" r="2.5"/>
+      <circle class="sparkle sparkle-5" cx="95" cy="170" r="2"/>
+      <circle class="sparkle sparkle-6" cx="505" cy="170" r="2"/>
+    </g>
+  </svg>
+
+  <div class="playground-footer">
+    <span>Acid + amine → amide + H₂O</span>
+    <span>Small molecules · Big ideas</span>
+  </div>
+</div>

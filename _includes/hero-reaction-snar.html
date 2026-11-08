@@ -1,0 +1,52 @@
+<div class="molecule-playground">
+  <div class="playground-header">
+    <span>S<sub>N</sub>Ar</span>
+    <span class="playground-live"><i></i> Aromatic substitution</span>
+  </div>
+
+  <svg viewBox="0 0 600 280" role="img" aria-label="Playful SNAr substitution animation">
+    <defs>
+      <filter id="snar-glow">
+        <feGaussianBlur stdDeviation="4" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
+    <g class="playground-scene">
+      <g class="core-molecule">
+        <polygon points="300,108 343,133 343,183 300,208 257,183 257,133"/>
+        <circle class="atom atom--soft" cx="300" cy="108" r="7"/>
+        <circle class="atom atom--soft" cx="300" cy="208" r="7"/>
+      </g>
+
+      <g class="leaving-group">
+        <line class="bond" x1="257" y1="133" x2="220" y2="110"/>
+        <circle class="hetero-circle" cx="210" cy="105" r="12"/>
+        <text x="210" y="109" class="atom-label atom-label--hetero">F</text>
+      </g>
+
+      <g class="nucleophile">
+        <circle class="hetero-circle" cx="420" cy="110" r="12"/>
+        <text x="420" y="114" class="atom-label atom-label--hetero">N</text>
+      </g>
+
+      <line class="forming-bond bond-right" x1="343" y1="133" x2="420" y2="110"/>
+      <circle class="bond-flash bond-flash-right" cx="382" cy="121" r="5" filter="url(#snar-glow)"/>
+
+      <circle class="sparkle sparkle-1" cx="180" cy="60" r="2.5"/>
+      <circle class="sparkle sparkle-2" cx="430" cy="55" r="2"/>
+      <circle class="sparkle sparkle-3" cx="205" cy="210" r="2"/>
+      <circle class="sparkle sparkle-4" cx="400" cy="215" r="2.5"/>
+      <circle class="sparkle sparkle-5" cx="90" cy="160" r="2"/>
+      <circle class="sparkle sparkle-6" cx="510" cy="165" r="2"/>
+    </g>
+  </svg>
+
+  <div class="playground-footer">
+    <span>Aryl halide + nucleophile → substituted arene</span>
+    <span>F leaves · N enters</span>
+  </div>
+</div>

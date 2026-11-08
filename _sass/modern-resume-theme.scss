@@ -450,6 +450,12 @@ body {
   stroke-width: 2;
 }
 
+.molecule-playground .bond {
+  stroke: var(--muted);
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
 .core-molecule polygon {
   stroke: var(--accent);
 }
@@ -569,6 +575,48 @@ body {
   animation-delay: 3.5s;
 }
 
+.atom-label--hetero {
+  fill: var(--accent);
+}
+
+.hetero-circle {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+
+.water-drop {
+  animation: water-float 6s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.water-drop circle {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+
+.water-label {
+  fill: var(--accent);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-anchor: middle;
+}
+
+.leaving-group {
+  animation: leaving-group 6s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.nucleophile {
+  animation: nucleophile-in 6s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
 .playground-footer {
   color: var(--muted);
   font-size: .8rem;
@@ -660,6 +708,62 @@ body {
   }
 }
 
+@keyframes water-float {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(.8);
+  }
+
+  25%,
+  60% {
+    opacity: 1;
+    transform: translate(12px, -18px) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(48px, -60px) scale(.8);
+  }
+}
+
+@keyframes leaving-group {
+  0%,
+  10% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  55%,
+  90% {
+    opacity: 0;
+    transform: translate(-45px, -35px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes nucleophile-in {
+  0%,
+  10% {
+    opacity: .2;
+    transform: translate(35px, -18px) scale(.9);
+  }
+
+  45%,
+  80% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    opacity: .2;
+    transform: translate(35px, -18px) scale(.9);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .molecule-playground *,
   .molecule-playground *::before {
@@ -669,7 +773,28 @@ body {
 
 @media screen and (max-width: 768px) {
   .hero-visual {
-    display: none;
+    margin-top: 1.5rem;
+    padding: .75rem;
+  }
+
+  .molecule-playground .playground-header,
+  .molecule-playground .playground-footer {
+    flex-wrap: wrap;
+    font-size: .7rem;
+    gap: .4rem;
+    letter-spacing: .06em;
+  }
+
+  .molecule-playground .hetero {
+    font-size: 20px;
+  }
+
+  .molecule-playground .atom-label {
+    font-size: 13px;
+  }
+
+  .molecule-playground .pd-label {
+    font-size: 16px;
   }
 }
 
