@@ -1,15 +1,11 @@
 .dark {
-  background-color: #0d1a27;
-  color: #e6e6e6;
+  background-color: var(--paper);
+  color: var(--ink);
 }
 
 .dark {
   mark {
-    color: #0d1a27;
-    background-color: #e6e6e6;
-  }
-
-  a {
-    color: #477dca;
+    color: var(--button-ink);
+    background-color: var(--accent);
   }
 }

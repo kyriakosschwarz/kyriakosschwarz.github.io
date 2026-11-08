@@ -1,6 +1,6 @@
 body {
   color: #333;
-  font-family: Roboto, sans-serif;
+  font-family: var(--display);
   font-feature-settings: "kern", "liga", "pnum";
   font-size: 1rem;
   line-height: 1.5;
@@ -16,7 +16,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Roboto, sans-serif;
+  font-family: var(--display);
   font-size: 1rem;
   line-height: 1.2;
   margin: 0 0 0.75rem;
@@ -26,13 +26,13 @@ p {
   margin: 0 0 0.75rem; }
 
 a {
-  color: #477dca;
+  color: var(--accent);
   transition: color 150ms ease;
 }
 a:active,
 a:focus,
 a:hover {
-color: #355e98;
+color: var(--accent-dark);
 }
 
 h1 {
