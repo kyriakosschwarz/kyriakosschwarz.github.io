@@ -24,6 +24,16 @@
 
       {%- if page.projects_only != true and page.cv_only != true -%}
         {%- include about.html -%}
+        <div class="container metrics-container">
+          <div class="metrics-strip">
+            {% for metric in site.metrics %}
+              <div class="metric">
+                <span class="metric-value">{{ metric.value }}</span>
+                <span class="metric-label">{{ metric.label }}</span>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
       {%- endif -%}
 
       {%- if site.version == 2 -%}

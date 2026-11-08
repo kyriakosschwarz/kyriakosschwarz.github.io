@@ -1,6 +1,7 @@
 <div class="container header-container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 header-left">
+      <p class="hero-eyebrow">Computational drug discovery · Basel</p>
       <h1>{{ site.name | escape }}</h1>
       <h2>{{ site.title | escape }}</h2>
       <p class="hero-intro">I turn research questions into practical tools for drug discovery.</p>
@@ -121,6 +122,37 @@
           <span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span>
           <span class="theme-toggle-label" id="theme-toggle-label">Dark</span>
         </button>
+      </div>
+
+      <div class="hero-visual no-print" aria-hidden="true">
+        <svg viewBox="0 0 320 180" role="presentation">
+          <g class="graph-edges">
+            <line class="graph-edge" x1="160" y1="90" x2="80" y2="50"></line>
+            <line class="graph-edge graph-edge--accent" x1="160" y1="90" x2="220" y2="40"></line>
+            <line class="graph-edge" x1="160" y1="90" x2="250" y2="110"></line>
+            <line class="graph-edge" x1="160" y1="90" x2="190" y2="140"></line>
+            <line class="graph-edge" x1="160" y1="90" x2="100" y2="130"></line>
+            <line class="graph-edge" x1="100" y1="130" x2="40" y2="95"></line>
+            <line class="graph-edge graph-edge--accent" x1="80" y1="50" x2="150" y2="30"></line>
+            <line class="graph-edge" x1="220" y1="40" x2="250" y2="110"></line>
+            <line class="graph-edge" x1="190" y1="140" x2="250" y2="110"></line>
+            <line class="graph-edge" x1="100" y1="130" x2="80" y2="50"></line>
+          </g>
+          <g class="graph-nodes">
+            <circle class="graph-node" cx="160" cy="90" r="11"></circle>
+            <circle class="graph-node graph-node--soft" cx="80" cy="50" r="7"></circle>
+            <circle class="graph-node" cx="220" cy="40" r="6"></circle>
+            <circle class="graph-node graph-node--soft" cx="250" cy="110" r="8"></circle>
+            <circle class="graph-node" cx="190" cy="140" r="6"></circle>
+            <circle class="graph-node graph-node--soft" cx="100" cy="130" r="7"></circle>
+            <circle class="graph-node" cx="40" cy="95" r="5"></circle>
+            <circle class="graph-node" cx="150" cy="30" r="4"></circle>
+          </g>
+        </svg>
+        <div class="hero-visual-caption">
+          <span>Graph learning</span>
+          <span>Reaction intelligence</span>
+        </div>
       </div>
 
       {%- if site.email -%}
