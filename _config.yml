@@ -233,17 +233,17 @@ content:
         additional_links:
           - title:  Link
             icon: fas fa-external-link-alt
-            url: https://www.fastforward.ch/fastforward/references.html
+            url: https://www.fastforward.ch/software/projects.html
 #          - title:  Paper
 #            icon: fas fa-graduation-cap
 #            url: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04325-y
         quote: >
           Professional development of major Swiss company websites.
         description: | # this will include new lines to allow paragraphs
-          While working as a software / web developer at <a href="https://www.fastforward.ch/fastforward.html">fastforward websolutions</a> I was involved in the implementation and maintenance of professional company websites. Some notable examples include:
-            - <a href="https://www.fastforward.ch/fastforward/references/sympany.html">Sympany</a>
-            - <a href="https://www.fastforward.ch/fastforward/references/prosenectute.html">Pro Senectute</a>
-            - <a href="https://www.fastforward.ch/fastforward/references/schweizmobilplus.html">SchweizMobil Plus</a>
+          While working as a software / web developer at <a href="https://www.fastforward.ch/internal.html">fastforward websolutions</a> I was involved in the implementation and maintenance of professional company websites. Some notable examples include:
+            - <a href="https://www.fastforward.ch/internal/projects/sympany.html">Sympany</a>
+            - <a href="https://www.fastforward.ch/internal/projects/prosenectute.html">Pro Senectute</a>
+            - <a href="https://www.fastforward.ch/internal/projects/schweizmobilplus.html">SchweizMobil Plus</a>
           
           My responsibilities included web development in <mark>HTML/CSS/JS</mark>, <mark>Magnolia</mark> CMS configuration, extension of CMS functionality in <mark>Java</mark>, setting up <mark>REST/SOAP</mark> services and planning <mark>Agile/Scrum</mark> tasks and sprints. 
           
