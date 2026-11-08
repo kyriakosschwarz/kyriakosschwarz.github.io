@@ -10,7 +10,7 @@ name: Kyriakos Schwarz
 title: Cheminformatics & AI Scientist
 description: Cheminformatics, computational chemistry, AI, and software engineering for drug discovery.
 og_image: images/Ibwwnh8n_400x400.jpg
-featured_anchor: Projects in Cheminformatics & Drug Discovery
+featured_anchor: Cheminformatics & Drug Discovery
 #email: 
 # email_title: Email (Email title override)
 #phone: 
@@ -64,7 +64,8 @@ about_content: | # this will include new lines to allow paragraphs
 #    - Images ![alt text](/images/landscape-trees.jpg "Trees")
 
 content:
-  - title: Projects in Cheminformatics & Drug Discovery # Title for the section
+  - title: Cheminformatics & Drug Discovery # Title for the section
+    projects: true
     order: 100
     layout: list # Type of content section (list/text)
     content:
@@ -127,7 +128,8 @@ content:
           
           ![Graph Neural Network model](/images/gnn_molecule.png "Graph Neural Network model")
           
-  - title: Projects in Bioinformatics # Title for the section
+  - title: Bioinformatics # Title for the section
+    projects: true
     order: 100
     layout: list # Type of content section (list/text)
     content:
@@ -169,7 +171,8 @@ content:
           In <i><a href="https://en.wikipedia.org/wiki/Caenorhabditis_elegans">C. elegans</a></i> the expression of X-linked genes is downregulated by half by modifying transcription initiation. Here, an <a href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm">EM</a> algorithm was applied to a dataset containing the positions and the methylation status of Cytosines around the transcription start site (<i>TSS</i>) of various genes. The algorithm is written in <mark>R</mark>.
           
           ![TSS methylation](/images/EM.png "TSS methylation")
-  - title: Projects in Molecular Biology # Title for the section
+  - title: Molecular Biology # Title for the section
+    projects: true
     order: 100
     layout: list # Type of content section (list/text)
     content:
@@ -196,7 +199,8 @@ content:
             - TTL-GFP fusion gene cloning
           
           ![Confocal microscopy](/images/confocal.png "Confocal microscopy")
-  - title: Projects in the Cloud - Big Data Analytics # Title for the section
+  - title: Cloud & Big Data Analytics # Title for the section
+    projects: true
     order: 100
     layout: list # Type of content section (list/text)
     content:
@@ -220,7 +224,8 @@ content:
           
           ![Databricks](/images/databricks.png "Databricks")
 
-  - title: Projects in Web Development # Title for the section
+  - title: Web Development # Title for the section
+    projects: true
     order: 100
     layout: list # Type of content section (list/text)
     content:
@@ -286,7 +291,8 @@ content:
           A toy project where I implemented the nine men's morris game (<a href="https://en.wikipedia.org/wiki/Nine_men%27s_morris">Mühle</a>) with pure <mark>HTML/CSS/JS</mark>.
           
           ![Muehle Game](/images/muehle2.png "Muehle Game")
-  - title: "Projects in Computer Vision & Computer Graphics" # Title for the section
+  - title: Computer Vision & Graphics # Title for the section
+    projects: true
     order: 100
     layout: list # Type of content section (list/text)
     content:
@@ -337,28 +343,28 @@ content:
     cta_label: Explore specific projects
     cta_url: /projects/
     content:
-      - layout: right
+      - layout: left
         title: Roche & ETH Zurich
         sub_title: Postdoctoral Researcher - AI for Drug Discovery
         caption: February 2025 - Present | Basel, Switzerland
         quote: Cheminformatics and machine learning for reaction intelligence and compound design.
         description: |
           I collaborate with medicinal chemistry, CADD, and Computational Sciences teams on <mark>cheminformatics</mark> and <mark>AI for drug discovery</mark>. My work includes machine learning for atom mapping and reaction class annotation, analysis of a new reaction database at Roche, an ML-guided compound selection tool with a user-friendly GUI, and a golden set of building blocks for accelerated drug discovery.
-      - layout: right
+      - layout: left
         title: Luzerner Kantonalbank AG
         sub_title: Machine Learning Scientist
         caption: February 2023 - December 2024 | Luzern, Switzerland
         quote: Production machine learning and data interoperability for customer analytics.
         description: |
           I worked across the full Big Data pipeline, from feature engineering in Oracle SQL to deploying and maintaining production AI models through MLOps processes. I also helped transition the team from a traditional Data Warehouse to a multi-cloud <mark>Databricks</mark> solution on Microsoft Azure.
-      - layout: right
+      - layout: left
         title: University of Zurich
         sub_title: Machine Learning Scientist / Medical Researcher
         caption: April 2019 - January 2023 | Zurich, Switzerland
         quote: Medical AI research in computational pharmacology and data interoperability.
         description: |
           I developed an explainable <mark>PyTorch</mark> Transformer model to predict medication side effects from diverse data, including chemical structures. I analyzed UK Biobank data to study drug-disease relationships and built a <mark>Graph Neural Network</mark> with PyTorch and <mark>RDKit</mark> for drug synergy prediction.
-      - layout: right
+      - layout: left
         title: fastforward websolutions
         sub_title: Software Engineer
         caption: February 2016 - July 2017 | Bern, Switzerland
@@ -389,23 +395,23 @@ content:
     order: 3
     layout: text
     content: |
-      **Expertise:** <mark>Cheminformatics</mark> <mark>Small Molecule Research</mark> <mark>Software Engineering</mark> <mark>Machine Learning</mark> <mark>SQL Data Analytics</mark>
+      **Expertise:** Cheminformatics · Small Molecule Research · Software Engineering · Machine Learning · SQL Data Analytics
 
-      **Cheminformatics:** <mark>RDKit</mark> <mark>CIx Pipelines</mark> <mark>Reaction Prediction</mark> <mark>Compound Logistics</mark> <mark>Enumeration</mark>
+      **Cheminformatics:** RDKit · CIx Pipelines · Reaction Prediction · Compound Logistics · Enumeration
 
-      **Project Management:** <mark>Agile</mark> <mark>Scrum</mark> <mark>Jira</mark> <mark>GitHub</mark> <mark>GitLab</mark>
+      **Project Management:** Agile · Scrum · Jira · GitHub · GitLab
 
-      **Research:** <mark>AI</mark> <mark>Drug Discovery</mark> <mark>Chemistry</mark>
+      **Research:** AI · Drug Discovery · Chemistry
 
-      **Data Pipelines:** <mark>SQL</mark> <mark>dbt</mark> <mark>Apache Spark</mark> <mark>Hadoop</mark> <mark>Snakemake</mark>
+      **Data Pipelines:** SQL · dbt · Apache Spark · Hadoop · Snakemake
 
-      **Software Development:** <mark>Python</mark> <mark>Java</mark> <mark>R</mark> <mark>JavaScript</mark>
+      **Software Development:** Python · Java · R · JavaScript
 
-      **Machine Learning:** <mark>PyTorch</mark> <mark>NLP</mark> <mark>GNN</mark> <mark>scikit-learn</mark>
+      **Machine Learning:** PyTorch · NLP · GNN · scikit-learn
 
-      **High Performance Computing:** <mark>Slurm</mark> <mark>Bash</mark> <mark>Docker</mark> <mark>Jenkins</mark>
+      **High Performance Computing:** Slurm · Bash · Docker · Jenkins
 
-      **Web Development:** <mark>JavaScript</mark> <mark>REST</mark> <mark>SOAP</mark>
+      **Web Development:** JavaScript · REST · SOAP
   - title: Certifications
     order: 7
     layout: text

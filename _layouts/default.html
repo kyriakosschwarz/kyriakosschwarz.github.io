@@ -22,7 +22,7 @@
         {% assign ordered_content = site.content | sort: "order" %}
         {% for section in ordered_content %}
           {% if page.projects_only == true %}
-            {% if section.title contains 'Projects' %}
+            {% if section.projects == true %}
               <div class="container {{ section.layout }}-container">
                 <h3 id="{{ section.title | slugify }}">{{ section.title }}</h3>
                 {% include section-callout.html callout=section.callout cta_url=section.cta_url cta_label=section.cta_label %}
@@ -30,7 +30,7 @@
               </div>
             {% endif %}
           {% else %}
-            {% unless section.title contains 'Projects' %}
+            {% unless section.projects == true %}
               <div class="container {{ section.layout }}-container">
                 <h3 id="{{ section.title | slugify }}">{{ section.title }}</h3>
                 {% include section-callout.html callout=section.callout cta_url=section.cta_url cta_label=section.cta_label %}

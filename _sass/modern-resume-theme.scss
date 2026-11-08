@@ -15,11 +15,11 @@
 
 @media screen and (max-width: 768px) {
   .header-container div{
-    text-align: center;
+    text-align: left;
   }
 
   .header-right p {
-    text-align: center;
+    text-align: left;
   }
 
   .header-left {
@@ -84,10 +84,10 @@
     }
 
     @media screen and (max-width: 768px) {
-      text-align: center!important;
+      text-align: left!important;
 
       p {
-        text-align: center!important;
+        text-align: left!important;
       }
     }
 
@@ -126,7 +126,7 @@
 
 .layout-right, .layout-top-right {
   .details {
-    text-align: right;
+    text-align: left;
   }
 }
 
@@ -146,7 +146,7 @@
 
 .layout-top-middle {
   .details {
-    text-align: center;
+    text-align: left;
   }
 }
 
@@ -243,6 +243,9 @@ p.quote {
   --line: #d9e1dc;
   --accent: #d45f3c;
   --accent-dark: #a9442b;
+  --button-bg: #b84b2b;
+  --button-bg-hover: #a9442b;
+  --button-ink: #ffffff;
   --serif: "Iowan Old Style", "Baskerville", Georgia, serif;
 }
 
@@ -331,15 +334,16 @@ body {
 }
 
 .hero-action-primary {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
+  background: var(--button-bg);
+  border-color: var(--button-bg);
+  color: var(--button-ink);
 }
 
 .hero-action-primary:hover,
 .hero-action-primary:focus {
-  background: var(--accent-dark);
-  color: #fff;
+  background: var(--button-bg-hover);
+  border-color: var(--button-bg-hover);
+  color: var(--button-ink);
 }
 
 .header-right {
@@ -360,6 +364,7 @@ body {
   line-height: 1.1;
   margin: 0 0 2rem;
   padding-bottom: 1.2rem;
+  text-align: left;
 }
 
 .layout {
@@ -514,6 +519,9 @@ mark {
   --line: #34464b;
   --accent: #f08a62;
   --accent-dark: #ffad8d;
+  --button-bg: #f08a62;
+  --button-bg-hover: #ffad8d;
+  --button-ink: #152127;
 }
 
 .dark .header-left h1,
