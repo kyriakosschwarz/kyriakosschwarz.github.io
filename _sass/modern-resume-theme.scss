@@ -920,16 +920,22 @@ a:focus {
   }
 }
 
-.header-controls {
-  align-items: center;
-  display: flex;
-  gap: 1.25rem;
-  justify-content: flex-end;
-  margin-bottom: 1rem;
+.theme-toggle-wrap {
+  position: absolute;
+  right: 15px;
+  text-align: right;
+  top: 2rem;
+  z-index: 3;
 }
 
-.header-controls .icons {
-  margin-bottom: 0;
+.hero-socials {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  text-align: left;
+}
+
+.hero-socials li:first-child {
+  padding-left: 0;
 }
 
 .theme-toggle {
@@ -986,9 +992,9 @@ a:focus {
 }
 
 @media screen and (max-width: 768px) {
-  .header-controls {
-    flex-wrap: wrap;
-    justify-content: flex-start;
+  .theme-toggle-wrap {
+    right: 1rem;
+    top: 1rem;
   }
 }
 

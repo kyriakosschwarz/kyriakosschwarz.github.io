@@ -36,6 +36,7 @@
           {% endfor %}
         {% elsif page.cv_only == true %}
           <div class="container cv-intro-container">
+            <h3 id="about-me">About Me</h3>
             <div class="row clearfix">
               <div class="col-md-12">
                 {{ site.cv_content | strip | markdownify }}
