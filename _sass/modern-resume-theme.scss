@@ -418,6 +418,10 @@ body {
   margin-top: 5rem;
 }
 
+.projects-page .list-container + .list-container {
+  margin-top: 7rem;
+}
+
 .list-container h3,
 .container h3 {
   border-bottom: 1px solid var(--line);
@@ -475,6 +479,7 @@ body {
 .layout .content img {
   border-radius: .7rem;
   margin-top: 2rem;
+  max-height: 300px;
 }
 
 .aditional-links {
