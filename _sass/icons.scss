@@ -55,6 +55,46 @@ ul.icons a {
   }
 }
 
+.icons a.button--sacnite::before {
+  display: none;
+}
+
+.icons a.button--sacnite {
+  background: var(--social-bg);
+  border: 1px solid var(--social-border);
+  color: var(--social-ink);
+}
+
+.icons a.button--sacnite i {
+  color: inherit;
+}
+
+.icons a.button--sacnite:hover,
+.icons a.button--sacnite:focus-visible {
+  background: var(--social-ink);
+  border-color: var(--social-ink);
+  color: var(--social-bg);
+}
+
+.icons a.button--sacnite:hover i,
+.icons a.button--sacnite:focus-visible i {
+  color: inherit;
+}
+
+.dark .icons a.button--sacnite {
+  color: var(--social-ink);
+}
+
+.dark .icons a.button--sacnite:hover,
+.dark .icons a.button--sacnite:focus-visible {
+  color: var(--social-bg);
+}
+
+.dark .icons a.button--sacnite:hover i,
+.dark .icons a.button--sacnite:focus-visible i {
+  color: var(--social-bg);
+}
+
 .fab {
   color: #1d9bf0;
 }
