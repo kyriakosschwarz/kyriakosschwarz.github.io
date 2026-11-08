@@ -63,12 +63,14 @@ about_content: | # this will include new lines to allow paragraphs
 content:
   - title: Cheminformatics & Drug Discovery # Title for the section
     projects: true
+    home_preview: true
     order: 100
     layout: list # Type of content section (list/text)
     content:
       - layout: left
         border: weak
         title: "Database of Unified Chemical Knowledge (DUCK)"
+        image: images/duck_sunburst.png
         additional_links:
           - title: Paper
             icon: fas fa-graduation-cap
@@ -80,6 +82,7 @@ content:
       - layout: left
         border: weak
         title: "AttentionDDI: Explainable drug–drug interaction prediction"
+        image: images/ddi.png
         additional_links:
           - title: Code
             icon: fab fa-github
@@ -94,6 +97,7 @@ content:
       - layout: left
         border: weak
         title: "Drug prescription clusters in the UK Biobank"
+        image: images/ukbpatient.png
         additional_links:
           - title: Paper
             icon: fas fa-graduation-cap
@@ -105,6 +109,7 @@ content:
       - layout: left
         border: 
         title: "DDoS: Graph Neural Network for drug synergy prediction"
+        image: images/gnn_molecule.png
         additional_links:
           - title: Code
             icon: fab fa-github

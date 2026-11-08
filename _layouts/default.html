@@ -22,14 +22,14 @@
         {%- include gtm_body.html -%}
       {%- endif -%}
 
-      {%- unless page.projects_only == true -%}
+      {%- if page.projects_only != true and page.cv_only != true -%}
         {%- include about.html -%}
-      {%- endunless -%}
+      {%- endif -%}
 
       {%- if site.version == 2 -%}
         {% assign ordered_content = site.content | sort: "order" %}
-        {% for section in ordered_content %}
-          {% if page.projects_only == true %}
+        {% if page.projects_only == true %}
+          {% for section in ordered_content %}
             {% if section.projects == true %}
               <div class="container {{ section.layout }}-container">
                 <h3 id="{{ section.title | slugify }}">{{ section.title }}</h3>
@@ -37,7 +37,9 @@
                 {% include {{ section.layout | prepend: "section-" | append: ".html" }} content=section.content %}
               </div>
             {% endif %}
-          {% else %}
+          {% endfor %}
+        {% elsif page.cv_only == true %}
+          {% for section in ordered_content %}
             {% unless section.projects == true %}
               <div class="container {{ section.layout }}-container">
                 <h3 id="{{ section.title | slugify }}">{{ section.title }}</h3>
@@ -45,8 +47,29 @@
                 {% include {{ section.layout | prepend: "section-" | append: ".html" }} content=section.content %}
               </div>
             {% endunless %}
-          {% endif %}
-        {% endfor %}
+          {% endfor %}
+        {% else %}
+          {% for section in ordered_content %}
+            {% if section.home_preview == true %}
+              <div class="container preview-container">
+                <h3 id="{{ section.title | slugify }}">{{ section.title }}</h3>
+                {% include section-project-preview.html content=section.content %}
+              </div>
+            {% endif %}
+          {% endfor %}
+          <div class="container home-cta-container">
+            <div class="home-cta-grid">
+              <a class="home-cta-card" href="{{ '/cv/' | relative_url }}">
+                <span class="home-cta-label">CV</span>
+                <span class="home-cta-text">Roles, education, skills, publications, and awards.</span>
+              </a>
+              <a class="home-cta-card" href="{{ '/projects/' | relative_url }}">
+                <span class="home-cta-label">Projects</span>
+                <span class="home-cta-text">Cheminformatics, bioinformatics, and more.</span>
+              </a>
+            </div>
+          </div>
+        {% endif %}
       {% else %}
         {%- include v1/default.html -%}
       {%- endif -%}

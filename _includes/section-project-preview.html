@@ -1,0 +1,10 @@
+<div class="project-preview-grid">
+  {% for item in include.content %}
+    <a class="project-preview-card" href="{{ '/projects/' | relative_url }}#{{ item.title | slugify }}">
+      {% if item.image %}
+        <img src="{{ item.image | relative_url }}" alt="" loading="lazy">
+      {% endif %}
+      <span class="project-preview-title">{{ item.title }}</span>
+    </a>
+  {% endfor %}
+</div>
