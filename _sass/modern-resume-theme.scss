@@ -114,7 +114,7 @@
 }
 
 .terminal-line-2 .terminal-typed {
-  animation-delay: 1.8s;
+  animation-delay: 2.8s;
   animation-duration: 2.1s;
 }
 
@@ -127,11 +127,11 @@
 }
 
 .terminal-line-1 .terminal-cursor {
-  animation: terminal-blink 1s step-end infinite, terminal-hide 0s 1.8s forwards;
+  animation: terminal-blink 1s step-end infinite, terminal-hide 0s 2.8s forwards;
 }
 
 .terminal-line-2 .terminal-cursor {
-  animation: terminal-blink 1s step-end infinite 1.8s forwards;
+  animation: terminal-blink 1s step-end infinite 2.8s forwards;
   opacity: 0;
 }
 
