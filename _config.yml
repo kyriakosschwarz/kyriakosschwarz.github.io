@@ -53,16 +53,6 @@ about_content: | # this will include new lines to allow paragraphs
 
 cv_preview: |
   I hold a Ph.D. in <mark>Medical Artificial Intelligence</mark> from the <a href="https://www.uzh.ch/en.html">University of Zurich</a>, affiliated with the <a href="https://www.usz.ch/en/">University Hospital Zurich</a> and the <a href="https://ai.ethz.ch/">ETH AI Center</a>. I am currently a Postdoctoral Researcher with <a href="https://bsse.ethz.ch/">ETH Zurich (BSSE)</a> and <a href="https://www.roche.com/innovation/structure/rnd-locations/pharma-basel">Roche in Basel</a>.
-
-metrics:
-  - value: "15"
-    label: "years of Roche ELN data"
-  - value: "4"
-    label: "drug-discovery projects"
-  - value: "5"
-    label: "publications"
-  - value: "5"
-    label: "certifications"
 #  Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
 
 #  You can even add paragraphs by using empty lines like this and add anything else [markdown](https://www.markdownguide.org/getting-started#what-is-markdown) supports such as

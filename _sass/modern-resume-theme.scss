@@ -539,33 +539,6 @@ body {
   margin-top: 7rem;
 }
 
-.metrics-strip {
-  border-bottom: 1px solid var(--line);
-  border-top: 1px solid var(--line);
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  padding: 2rem 0;
-}
-
-.metric-value {
-  color: var(--ink);
-  display: block;
-  font-family: var(--display);
-  font-size: clamp(2.8rem, 4vw, 4rem);
-  line-height: .9;
-}
-
-.metric-label {
-  color: var(--muted);
-  display: block;
-  font-family: var(--mono);
-  font-size: .95rem;
-  letter-spacing: .08em;
-  margin-top: .7rem;
-  text-transform: uppercase;
-}
-
 .project-preview-grid {
   display: grid;
   gap: 1.2rem;
@@ -652,10 +625,6 @@ body {
 }
 
 @media screen and (max-width: 900px) {
-  .metrics-strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .project-preview-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
