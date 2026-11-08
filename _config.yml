@@ -53,6 +53,10 @@ about_content: | # this will include new lines to allow paragraphs
 
   I build computational tools for drug discovery.
 
+about_terminal_lines:
+  - "Hej, I'm Kyriakos."
+  - "I build computational tools for drug discovery."
+
 cv_content: |
   I combine chemistry, biology, and computation to help bring better medicines to patients, focusing on <mark>cheminformatics</mark>, <mark>machine learning</mark>, and <mark>software engineering</mark>. I build scalable pipelines, predictive models, and scientist-friendly software for compound selection and reaction prediction.
 

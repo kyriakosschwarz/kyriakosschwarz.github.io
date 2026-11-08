@@ -25,8 +25,28 @@
             <span class="profile-img hero-profile" style="background-image: url({{ site.about_profile_image | relative_url }})"></span>
           {%- endif -%}
           <div class="hero-about-text">
-            {{ site.about_content | strip | markdownify }}
-            <ul class="icons no-print hero-socials">
+            <div class="terminal-box">
+              <div class="terminal-header">
+                <span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="terminal-title">bash — ~/kyriakos</span>
+              </div>
+              <div class="terminal-body">
+                <div class="terminal-line terminal-line-1">
+                  <span class="terminal-prompt">$</span>
+                  <span class="terminal-typed" style="--chars: {{ site.about_terminal_lines[0] | size }}">{{ site.about_terminal_lines[0] }}</span>
+                  <span class="terminal-cursor" aria-hidden="true"></span>
+                </div>
+                <div class="terminal-line terminal-line-2">
+                  <span class="terminal-prompt">$</span>
+                  <span class="terminal-typed" style="--chars: {{ site.about_terminal_lines[1] | size }}">{{ site.about_terminal_lines[1] }}</span>
+                  <span class="terminal-cursor" aria-hidden="true"></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <ul class="icons no-print hero-socials">
         {%- if site.dribbble_username -%}
           <li>
             <a target="_blank" href="https://dribbble.com/{{ site.dribbble_username| cgi_escape | escape }}" class="button button--sacnite button--round-l">
@@ -127,8 +147,6 @@
           </li>
         {% endfor %}
       </ul>
-          </div>
-        </div>
       {% endif %}
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 header-right">

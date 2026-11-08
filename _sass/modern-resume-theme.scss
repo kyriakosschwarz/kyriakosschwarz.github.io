@@ -34,26 +34,131 @@
   margin-top: 2.5rem;
 }
 
-.hero-about-text p {
-  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
-  font-weight: 500;
-  line-height: 1.15;
-  margin: 0;
-  text-align: left;
+.hero-about-text {
+  flex: 1;
+  min-width: 0;
 }
 
-.hero-about-text p + p {
+.terminal-box {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: .9rem;
+  font-family: var(--mono);
+  overflow: hidden;
+  width: 100%;
+}
+
+.terminal-header {
+  align-items: center;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: .8rem;
+  padding: .55rem .9rem;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: .35rem;
+}
+
+.terminal-dots i {
+  background: var(--muted);
+  border-radius: 50%;
+  display: block;
+  height: .5rem;
+  opacity: .55;
+  width: .5rem;
+}
+
+.terminal-dots i:first-child {
+  background: var(--accent);
+  opacity: .8;
+}
+
+.terminal-title {
+  color: var(--muted);
+  font-size: .8rem;
+  letter-spacing: .04em;
+}
+
+.terminal-body {
+  padding: 1rem 1.1rem;
+}
+
+.terminal-line {
+  align-items: center;
+  display: flex;
+  font-size: 1.3rem;
+  gap: .6rem;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.terminal-line + .terminal-line {
   margin-top: .35rem;
+}
+
+.terminal-prompt {
+  color: var(--accent);
+  flex: 0 0 auto;
+}
+
+.terminal-typed {
+  animation: terminal-type 1.4s steps(60) forwards;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+}
+
+.terminal-line-2 .terminal-typed {
+  animation-delay: 1.8s;
+  animation-duration: 2.4s;
+}
+
+.terminal-cursor {
+  animation: terminal-blink 1s step-end infinite;
+  background: var(--accent);
+  display: inline-block;
+  flex: 0 0 auto;
+  height: 1.2em;
+  width: .55em;
+}
+
+@keyframes terminal-type {
+  to {
+    width: calc(var(--chars) * 1ch);
+  }
+}
+
+@keyframes terminal-blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .hero-about {
     align-items: flex-start;
+    flex-direction: column;
     gap: 1rem;
   }
 
-  .hero-about-text p {
-    font-size: 1.6rem;
+  .hero-about-text {
+    width: 100%;
+  }
+
+  .terminal-body {
+    padding: .8rem .9rem;
+  }
+
+  .terminal-line {
+    font-size: 1.1rem;
+  }
+
+  .terminal-title {
+    font-size: .7rem;
   }
 }
 
@@ -929,7 +1034,7 @@ a:focus {
 }
 
 .hero-socials {
-  margin: 1.25rem 0 0;
+  margin: 3rem 0 0;
   padding: 0;
   text-align: left;
 }
