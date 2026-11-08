@@ -35,7 +35,7 @@
 }
 
 .hero-about-text {
-  flex: 0 1 430px;
+  flex: 0 1 450px;
   min-width: 0;
 }
 
@@ -44,7 +44,7 @@
   border: 1px solid var(--line);
   border-radius: .9rem;
   font-family: var(--mono);
-  max-width: 430px;
+  max-width: 450px;
   overflow: hidden;
   width: 100%;
 }
@@ -90,7 +90,7 @@
 .terminal-line {
   align-items: center;
   display: flex;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   gap: .6rem;
   line-height: 1.5;
   white-space: nowrap;
@@ -176,7 +176,7 @@
   }
 
   .terminal-line {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   .terminal-title {
@@ -202,15 +202,15 @@
 
 .hero-profile {
   flex-shrink: 0;
-  height: 96px;
+  height: 120px;
   margin: 0;
-  width: 96px;
+  width: 120px;
 }
 
 @media screen and (max-width: 768px) {
   .hero-profile {
-    height: 80px;
-    width: 80px;
+    height: 88px;
+    width: 88px;
   }
 }
 
@@ -447,11 +447,112 @@ a:focus {
   padding-bottom: 5rem;
 }
 
+.topbar {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.topbar .container {
+  margin-top: 0;
+}
+
+.topbar-inner {
+  align-items: center;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  padding-bottom: .9rem;
+  padding-top: .9rem;
+}
+
+.topbar-logo {
+  color: var(--ink);
+  font-family: "JetBrains Mono", var(--mono);
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  text-decoration: none;
+}
+
+.topbar-logo:hover,
+.topbar-logo.is-active {
+  color: var(--accent);
+}
+
+.topbar-nav {
+  align-items: center;
+  display: flex;
+  gap: 1.2rem;
+  margin-left: auto;
+}
+
+.topbar-link {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  letter-spacing: .08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.topbar-link:hover,
+.topbar-link.is-active {
+  color: var(--accent);
+}
+
+@media screen and (max-width: 768px) {
+  .topbar-inner {
+    gap: .75rem;
+    padding-bottom: .7rem;
+    padding-top: .7rem;
+  }
+
+  .topbar-logo {
+    font-size: 1.5rem;
+  }
+
+  .topbar-nav {
+    gap: .7rem;
+  }
+
+  .topbar-link {
+    font-size: .95rem;
+  }
+
+  .theme-toggle {
+    font-size: .9rem;
+    gap: .45rem;
+  }
+
+  .theme-toggle-track {
+    height: 2.1rem;
+    width: 3.8rem;
+  }
+
+  .theme-toggle-thumb {
+    height: 1.4rem;
+    left: .3rem;
+    width: 1.4rem;
+  }
+
+  .dark .theme-toggle-thumb {
+    transform: translate(1.7rem, -50%);
+  }
+
+  .theme-toggle-label {
+    font-size: .9rem;
+    min-width: 3rem;
+  }
+}
+
 .header-container {
   margin-top: 0;
   overflow: hidden;
-  padding-top: clamp(4rem, 10vw, 8rem);
-  padding-bottom: clamp(3rem, 8vw, 6rem);
+  padding-bottom: clamp(3rem, 5vw, 4rem);
+  padding-top: clamp(3rem, 6vw, 5rem);
   border-bottom: 1px solid var(--line);
   position: relative;
 }
@@ -472,7 +573,7 @@ a:focus {
   align-items: center;
   display: grid;
   gap: clamp(2rem, 4vw, 4rem);
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   position: relative;
   z-index: 1;
 }
@@ -1083,11 +1184,9 @@ a:focus {
 }
 
 .theme-toggle-wrap {
-  position: absolute;
-  right: 15px;
-  text-align: right;
-  top: 2rem;
-  z-index: 3;
+  margin: 0;
+  position: static;
+  text-align: left;
 }
 
 .hero-socials {
@@ -1194,12 +1293,6 @@ a:focus {
   text-align: left;
 }
 
-@media screen and (max-width: 768px) {
-  .theme-toggle-wrap {
-    right: 1rem;
-    top: 1rem;
-  }
-}
 
 .container {
   margin-top: 5rem;

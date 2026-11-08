@@ -1,20 +1,32 @@
-<div class="container header-container">
+{%- assign is_projects_page = page.projects_only | default: false -%}
+{%- assign is_cv_page = page.cv_only | default: false -%}
+{%- assign is_home_page = false -%}
+{%- unless is_projects_page or is_cv_page -%}{%- assign is_home_page = true -%}{%- endunless -%}
+
+<div class="topbar">
+  <div class="container topbar-inner">
+    <a class="topbar-logo{% if is_home_page %} is-active{% endif %}" href="{{ '/' | relative_url }}"{% if is_home_page %} aria-current="page"{% endif %}>kyri.ch</a>
+    <nav class="topbar-nav" aria-label="Primary">
+      <a class="topbar-link{% if is_cv_page %} is-active{% endif %}" href="{{ '/cv/' | relative_url }}"{% if is_cv_page %} aria-current="page"{% endif %}>CV</a>
+      <a class="topbar-link{% if is_projects_page %} is-active{% endif %}" href="{{ '/projects/' | relative_url }}"{% if is_projects_page %} aria-current="page"{% endif %}>Projects</a>
       <div class="theme-toggle-wrap no-print">
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="true">
           <span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span>
           <span class="theme-toggle-label" id="theme-toggle-label">Dark</span>
         </button>
       </div>
+    </nav>
+  </div>
+</div>
+
+<div class="container header-container">
+
 
   <div class="hero-grid">
     <div class="hero-intro-col header-left">
       <div class="hero-identity">
       <h1>{{ site.name | escape }}</h1>
       <h2>{{ site.title | escape }}</h2>
-      {%- assign is_projects_page = page.projects_only | default: false -%}
-      {%- assign is_cv_page = page.cv_only | default: false -%}
-      {%- assign is_home_page = false -%}
-      {%- unless is_projects_page or is_cv_page -%}{%- assign is_home_page = true -%}{%- endunless -%}
       {% if is_home_page %}
         <ul class="icons no-print hero-socials">
         {%- if site.dribbble_username -%}
@@ -119,11 +131,7 @@
       </ul>
       {% endif %}
       </div>
-      <div class="hero-actions no-print">
-        <a class="hero-action{% if is_home_page %} hero-action-primary{% endif %}" href="{{ '/' | relative_url }}"{% if is_home_page %} aria-current="page"{% endif %}>Home</a>
-        <a class="hero-action{% if is_cv_page %} hero-action-primary{% endif %}" href="{{ '/cv/' | relative_url }}"{% if is_cv_page %} aria-current="page"{% endif %}>CV</a>
-        <a class="hero-action{% if is_projects_page %} hero-action-primary{% endif %}" href="{{ '/projects/' | relative_url }}"{% if is_projects_page %} aria-current="page"{% endif %}>Projects</a>
-      </div>
+
       {% if is_home_page %}
         <div class="hero-about">
           {%- if site.about_profile_image -%}
