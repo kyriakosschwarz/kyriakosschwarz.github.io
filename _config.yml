@@ -49,7 +49,7 @@ googlescholar_username: KTWPFIEAAAAJ
 #about_title: About
 about_profile_image: images/Ibwwnh8n_400x400.jpg
 about_content: | # this will include new lines to allow paragraphs
-  Hi, I'm Kyriakos. I combine chemistry, biology, and computation to help bring better medicines to patients, focusing on <mark>cheminformatics</mark>, <mark>machine learning</mark>, and <mark>data engineering</mark>. I build scalable pipelines, predictive models, and scientist-friendly software for compound selection and reaction prediction.
+  Hi, I'm Kyriakos. I combine chemistry, biology, and computation to help bring better medicines to patients, focusing on <mark>cheminformatics</mark>, <mark>machine learning</mark>, and <mark>software engineering</mark>. I build scalable pipelines, predictive models, and scientist-friendly software for compound selection and reaction prediction.
 
   I hold a Ph.D. in <mark>Medical Artificial Intelligence</mark> from the <a href="https://www.uzh.ch/en.html">University of Zurich</a>, affiliated with the <a href="https://www.usz.ch/en/">University Hospital Zurich</a> and the <a href="https://ai.ethz.ch/">ETH AI Center</a>. I am currently a Postdoctoral Researcher with <a href="https://bsse.ethz.ch/">ETH Zurich (BSSE)</a> and <a href="https://www.roche.com/innovation/structure/rnd-locations/pharma-basel">Roche in Basel</a>.
 #  Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
@@ -74,7 +74,7 @@ content:
             icon: fas fa-graduation-cap
             url: https://chemrxiv.org/doi/full/10.26434/chemrxiv.15002055/v2
         description: |
-          I built the <mark>Database of Unified Chemical Knowledge (DUCK)</mark> from 15 years of Roche ELN data, using failed reactions as negative data to improve yield prediction.
+          I analyzed the <mark>Database of Unified Chemical Knowledge (DUCK)</mark>, containing 15 years of Roche ELN data, to highlight common reactions and their conditions.
           
           ![DUCK Sunburst Plot](/images/duck_sunburst.png "Industrial reaction classes")
       - layout: left
