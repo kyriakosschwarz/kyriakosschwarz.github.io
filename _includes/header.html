@@ -6,8 +6,8 @@
         </button>
       </div>
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 header-left">
+  <div class="hero-grid">
+    <div class="hero-intro-col header-left">
       <h1>{{ site.name | escape }}</h1>
       <h2>{{ site.title | escape }}</h2>
       {%- assign is_projects_page = page.projects_only | default: false -%}
@@ -149,7 +149,7 @@
       </ul>
       {% endif %}
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 header-right">
+    <div class="hero-animation-col">
       <div class="hero-visual no-print">
         {% if page.projects_only == true %}
           {% include hero-reaction-snar.html %}

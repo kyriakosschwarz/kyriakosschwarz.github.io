@@ -30,12 +30,12 @@
 .hero-about {
   align-items: center;
   display: flex;
-  gap: 1.5rem;
-  margin-top: 2.5rem;
+  gap: 1.25rem;
+  margin-top: 1.75rem;
 }
 
 .hero-about-text {
-  flex: 1;
+  flex: 0 1 430px;
   min-width: 0;
 }
 
@@ -44,6 +44,7 @@
   border: 1px solid var(--line);
   border-radius: .9rem;
   font-family: var(--mono);
+  max-width: 430px;
   overflow: hidden;
   width: 100%;
 }
@@ -105,7 +106,7 @@
 }
 
 .terminal-typed {
-  animation: terminal-type 1.4s steps(60) forwards;
+  animation: terminal-type 1.4s steps(var(--chars)) .4s forwards;
   display: block;
   overflow: hidden;
   white-space: nowrap;
@@ -114,16 +115,24 @@
 
 .terminal-line-2 .terminal-typed {
   animation-delay: 1.8s;
-  animation-duration: 2.4s;
+  animation-duration: 2.1s;
 }
 
 .terminal-cursor {
-  animation: terminal-blink 1s step-end infinite;
   background: var(--accent);
   display: inline-block;
   flex: 0 0 auto;
   height: 1.2em;
   width: .55em;
+}
+
+.terminal-line-1 .terminal-cursor {
+  animation: terminal-blink 1s step-end infinite, terminal-hide 0s 1.8s forwards;
+}
+
+.terminal-line-2 .terminal-cursor {
+  animation: terminal-blink 1s step-end infinite 1.8s forwards;
+  opacity: 0;
 }
 
 @keyframes terminal-type {
@@ -133,7 +142,19 @@
 }
 
 @keyframes terminal-blink {
-  50% {
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes terminal-hide {
+  to {
     opacity: 0;
   }
 }
@@ -146,6 +167,7 @@
   }
 
   .hero-about-text {
+    flex: 0 1 auto;
     width: 100%;
   }
 
@@ -160,6 +182,7 @@
   .terminal-title {
     font-size: .7rem;
   }
+
 }
 
 .profile-img {
@@ -179,15 +202,15 @@
 
 .hero-profile {
   flex-shrink: 0;
-  height: 120px;
+  height: 96px;
   margin: 0;
-  width: 120px;
+  width: 96px;
 }
 
 @media screen and (max-width: 768px) {
   .hero-profile {
-    height: 84px;
-    width: 84px;
+    height: 80px;
+    width: 80px;
   }
 }
 
@@ -445,9 +468,38 @@ a:focus {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .55), transparent 85%);
 }
 
-.header-container > .row {
+.hero-grid {
+  align-items: center;
+  display: grid;
+  gap: clamp(2rem, 4vw, 4rem);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   position: relative;
   z-index: 1;
+}
+
+.hero-intro-col,
+.hero-animation-col {
+  min-width: 0;
+}
+
+.hero-animation-col .hero-visual {
+  margin-top: 0;
+}
+
+@media screen and (min-width: 1101px) {
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 420px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .hero-grid {
+    gap: 2.25rem;
+    grid-template-columns: 1fr;
+  }
 }
 
 .header-left {
@@ -471,7 +523,7 @@ a:focus {
   font-weight: 500;
   letter-spacing: .1em;
   line-height: 1.4;
-  margin: 1rem 0 0;
+  margin: .75rem 0 0;
   max-width: 680px;
   text-transform: uppercase;
 }
@@ -480,7 +532,7 @@ a:focus {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
 }
 
 .hero-action {
@@ -1034,13 +1086,23 @@ a:focus {
 }
 
 .hero-socials {
-  margin: 3rem 0 0;
+  margin: 1.5rem 0 0;
   padding: 0;
   text-align: left;
 }
 
 .hero-socials li:first-child {
   padding-left: 0;
+}
+
+.hero-socials a.button--sacnite {
+  height: 56px;
+  width: 56px;
+}
+
+.hero-socials i {
+  font-size: 26px;
+  line-height: 56px;
 }
 
 .theme-toggle {
@@ -1105,6 +1167,20 @@ a:focus {
 
 .container {
   margin-top: 5rem;
+  max-width: none;
+  width: min(100% - 64px, 1360px);
+}
+
+@media screen and (max-width: 1100px) {
+  .container {
+    width: min(100% - 40px, 900px);
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .container {
+    width: calc(100% - 40px);
+  }
 }
 
 .projects-page .list-container + .list-container {
@@ -1324,7 +1400,18 @@ mark {
 
 @media screen and (max-width: 768px) {
   .header-container {
+    padding-bottom: 2.5rem;
     padding-top: 3rem;
+  }
+
+  .hero-socials a.button--sacnite {
+    height: 44px;
+    width: 44px;
+  }
+
+  .hero-socials i {
+    font-size: 22px;
+    line-height: 44px;
   }
 
   .header-left h1 {
