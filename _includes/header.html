@@ -137,6 +137,10 @@
           {%- endif -%}
           <div class="hero-about-text">
             <div class="nvim-window">
+              <div class="nvim-titlebar">
+                <span class="nvim-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="nvim-title"><span class="nvim-logo" aria-hidden="true">N</span>nvim about.md</span>
+              </div>
               <div class="nvim-body">
                 <div class="nvim-line">
                   <span class="nvim-gutter" aria-hidden="true">1</span>
@@ -152,11 +156,13 @@
                 </div>
               </div>
               <div class="nvim-statusline">
-                <span class="nvim-mode">N</span>
+                <span class="nvim-mode">NORMAL</span>
+                <span class="nvim-branch"><span class="nvim-branch-label">git</span> master</span>
                 <span class="nvim-file">about.md</span>
                 <span class="nvim-status-right">
                   <span class="nvim-filetype">markdown</span>
                   <span class="nvim-position">3:39</span>
+                  <span class="nvim-clock" id="nvim-clock">--:--</span>
                 </span>
               </div>
             </div>
