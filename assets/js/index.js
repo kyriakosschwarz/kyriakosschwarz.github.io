@@ -260,21 +260,57 @@
       });
     });
 
+    var preloadProjectImage = function (src, priority) {
+      var image = new window.Image();
+
+      image.decoding = "async";
+
+      if (priority) {
+        image.fetchPriority = priority;
+      }
+
+      image.onload = function () {
+        if (image.decode) {
+          image.decode().catch(function () {});
+        }
+      };
+
+      image.src = src;
+    };
+
     var preloadProjectImages = function () {
       projectImageQueue.forEach(function (src) {
-        var image = new window.Image();
-
-        image.decoding = "async";
-        image.fetchPriority = "low";
-        image.src = src;
+        preloadProjectImage(src, "low");
       });
     };
 
-    if (window.requestIdleCallback) {
-      window.requestIdleCallback(preloadProjectImages, { timeout: 2000 });
-    } else {
-      window.setTimeout(preloadProjectImages, 1200);
-    }
+    window.setTimeout(preloadProjectImages, 80);
+
+    var preloadProjectCardImages = function (card) {
+      if (card.getAttribute("data-images-warmed") === "true") return;
+
+      card.setAttribute("data-images-warmed", "true");
+
+      var template = document.getElementById("project-detail-" + card.getAttribute("data-project-open"));
+
+      if (!template) return;
+
+      Array.prototype.forEach.call(template.content.querySelectorAll("img"), function (image) {
+        var src = image.getAttribute("src");
+
+        if (src) {
+          preloadProjectImage(src, "high");
+        }
+      });
+    };
+
+    projectCards.forEach(function (card) {
+      ["mouseenter", "focus", "pointerdown", "touchstart"].forEach(function (eventName) {
+        card.addEventListener(eventName, function () {
+          preloadProjectCardImages(card);
+        }, { passive: true });
+      });
+    });
 
     if (projectDialog && projectDialogContent) {
       var closeProjectDialog = function () {
@@ -297,6 +333,15 @@
           projectDialogContent.appendChild(template.content.cloneNode(true));
           projectTrigger = card;
           document.body.classList.add("dialog-open");
+
+          Array.prototype.forEach.call(projectDialogContent.querySelectorAll("img"), function (image) {
+            image.loading = "eager";
+            image.fetchPriority = "high";
+
+            if (image.decode) {
+              image.decode().catch(function () {});
+            }
+          });
 
           if (typeof projectDialog.showModal === "function") {
             projectDialog.showModal();

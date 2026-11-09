@@ -25,6 +25,12 @@
     {%- endif -%}
   {%- endunless -%}
 
+  {%- if page.projects_only -%}
+    {%- for image in site.data.project_images -%}
+      <link rel="preload" as="image" href="{{ image | relative_url }}" fetchpriority="low">
+    {%- endfor -%}
+  {%- endif -%}
+
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
   <link rel="shortcut icon" type="image/x-icon" href="{{ site.favicon | default: '/assets/favicon.ico' | relative_url }}">
 
