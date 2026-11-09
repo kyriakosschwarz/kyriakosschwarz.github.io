@@ -73,10 +73,6 @@
                     <div class="project-detail">
                       <p class="project-detail-cat">{{ section.title }}</p>
                       <h2 id="project-dialog-title">{{ item.title }}</h2>
-                      {% if item.tags %}
-                      <div class="tag-list">{% for tag in item.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>
-                      {% endif %}
-                      <div class="project-detail-body">{{ item.description | strip | markdownify }}</div>
                       {% if item.additional_links %}
                       <div class="project-detail-links">
                         {% for link in item.additional_links %}
@@ -87,6 +83,10 @@
                         {% endfor %}
                       </div>
                       {% endif %}
+                      {% if item.tags %}
+                      <div class="tag-list">{% for tag in item.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>
+                      {% endif %}
+                      <div class="project-detail-body">{{ item.description | strip | markdownify }}</div>
                     </div>
                   </template>
                 {% endfor %}
@@ -102,11 +102,6 @@
           </dialog>
         {% elsif page.cv_only == true %}
           <div class="container cv-page" data-cv>
-            <div class="cv-toolbar">
-              <button class="cv-step" type="button" data-cv-prev aria-label="Previous CV section"><span aria-hidden="true">←</span> Previous</button>
-              <p class="cv-progress" aria-live="polite"><span data-cv-progress>01 / 09</span></p>
-              <button class="cv-step" type="button" data-cv-next aria-label="Next CV section">Next <span aria-hidden="true">→</span></button>
-            </div>
             <div class="cv-tabs" role="tablist" aria-label="CV sections" data-cv-tabs>
               <button class="cv-tab is-active" type="button" role="tab" id="tab-about" aria-controls="panel-about" aria-selected="true" data-cv-tab data-cv-anchor="about-me" tabindex="0"><span class="cv-tab-index">00</span><span>About Me</span></button>
               {% for section in ordered_content %}{% unless section.projects %}
@@ -115,6 +110,11 @@
               {% endunless %}{% endfor %}
             </div>
             <div class="cv-panels" data-cv-panels>
+              <div class="cv-toolbar">
+                <button class="cv-step" type="button" data-cv-prev aria-label="Previous CV section"><span aria-hidden="true">←</span> Previous</button>
+                <p class="cv-progress" aria-live="polite"><span data-cv-progress>01 / 09</span></p>
+                <button class="cv-step" type="button" data-cv-next aria-label="Next CV section">Next <span aria-hidden="true">→</span></button>
+              </div>
               <section class="cv-panel is-active" id="panel-about" role="tabpanel" aria-labelledby="tab-about" data-cv-panel>
                 <h3 id="about-me">About Me</h3>
                 <div class="row clearfix">

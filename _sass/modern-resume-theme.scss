@@ -581,8 +581,8 @@
   align-items: center;
   display: none;
   gap: .75rem;
-  grid-column: 1 / -1;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 .cv-page.is-enhanced .cv-toolbar {
@@ -977,10 +977,13 @@
   color: var(--ink);
   cursor: pointer;
   display: flex;
-  font-size: 1.6rem;
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  font-weight: 400;
   height: 2.6rem;
   justify-content: center;
   line-height: 1;
+  padding: 0;
   position: absolute;
   right: 1rem;
   top: 1rem;
@@ -1027,13 +1030,13 @@
 .project-detail-links {
   display: flex;
   flex-wrap: wrap;
-  gap: .6rem;
-  margin-top: 1.5rem;
+  gap: .7rem;
+  margin: 0 0 1.25rem;
 }
 
 .project-detail-links i {
   color: var(--accent);
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   height: auto;
   line-height: 1;
   padding: 0;
@@ -1048,9 +1051,10 @@
   color: var(--ink);
   display: inline-flex;
   font-family: var(--mono);
-  font-size: 1.05rem;
-  gap: .5rem;
-  padding: .45rem .8rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  gap: .6rem;
+  padding: .65rem 1.05rem;
   text-decoration: none;
 }
 

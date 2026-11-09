@@ -248,6 +248,34 @@
       });
     });
 
+    var projectImageQueue = [];
+
+    Array.prototype.forEach.call(projectsHub.querySelectorAll("template"), function (template) {
+      Array.prototype.forEach.call(template.content.querySelectorAll("img"), function (image) {
+        var src = image.getAttribute("src");
+
+        if (src && projectImageQueue.indexOf(src) === -1) {
+          projectImageQueue.push(src);
+        }
+      });
+    });
+
+    var preloadProjectImages = function () {
+      projectImageQueue.forEach(function (src) {
+        var image = new window.Image();
+
+        image.decoding = "async";
+        image.fetchPriority = "low";
+        image.src = src;
+      });
+    };
+
+    if (window.requestIdleCallback) {
+      window.requestIdleCallback(preloadProjectImages, { timeout: 2000 });
+    } else {
+      window.setTimeout(preloadProjectImages, 1200);
+    }
+
     if (projectDialog && projectDialogContent) {
       var closeProjectDialog = function () {
         if (typeof projectDialog.close === "function" && projectDialog.open) {

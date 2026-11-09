@@ -78,7 +78,7 @@ content:
       - layout: left
         border: weak
         title: "Database of Unified Chemical Knowledge (DUCK)"
-        image: images/duck_sunburst.png
+        image: images/duck_sunburst.webp
         tags:
           - Cheminformatics
           - Reaction data
@@ -90,11 +90,11 @@ content:
         description: |
           I worked on the <mark>Database of Unified Chemical Knowledge (DUCK)</mark> project, transforming 15 years of Roche Electronic Lab Notebook (ELN) data into a robust engine for chemical AI. By incorporating synthetic failures (negative data) alongside successes, we reduced bias in Machine Learning models and improved the reliability of chemical yield predictions. This research mapped the industrial repertoire, highlighting heavy reliance on C-N and C-C bond formations.
 
-          ![DUCK Sunburst Plot](/images/duck_sunburst.png "Industrial reaction classes")
+          ![DUCK Sunburst Plot](/images/duck_sunburst.webp "Industrial reaction classes")
       - layout: left
         border: weak
         title: "AttentionDDI: Explainable drug–drug interaction prediction"
-        image: images/ddi.png
+        image: images/ddi.webp
         tags:
           - PyTorch
           - Transformer
@@ -109,11 +109,11 @@ content:
         description: |
           I developed a novel Deep Learning architecture - <mark>AttentionDDI</mark> - in <mark>PyTorch</mark> for the prediction of previously unknown medication side effects. The model is <mark>Transformer</mark>-based and through an <mark>Attention</mark> mechanism it provides explainability over which input data modality (chemical structures, side effects, targets, etc.) is weighted more for improved predictions.
 
-          ![Transformer model](/images/ddi.png "Transformer model")
+          ![Transformer model](/images/ddi.webp "Transformer model")
       - layout: left
         border: weak
         title: "Drug prescription clusters in the UK Biobank"
-        image: images/ukbpatient.png
+        image: images/ukbpatient.webp
         tags:
           - Data science
           - UK Biobank
@@ -125,11 +125,11 @@ content:
         description: |
           I created patient clusters, according to their drug prescription history, and analyzed the prevalence of DDIs in each cluster, which may influence their five-year mortality. I examined whether specific drug combinations may lead to additional health effects in the <a href="https://www.ukbiobank.ac.uk/">UK Biobank</a> participants. For this project I employed the <mark>Scikit-Learn</mark>, <mark>RapidsAI</mark>, <mark>Scipy</mark> and <mark>statsmodels</mark> data science libraries.
 
-          ![UK Biobank patient](/images/ukbpatient.png "UK Biobank patient")
+          ![UK Biobank patient](/images/ukbpatient.webp "UK Biobank patient")
       - layout: left
         border:
         title: "DDoS: Graph Neural Network for drug synergy prediction"
-        image: images/gnn_molecule.png
+        image: images/gnn_molecule.webp
         tags:
           - PyTorch
           - GNN
@@ -144,7 +144,7 @@ content:
         description: |
           A novel Graph Deep Learning architecture - <mark>DDoS</mark> - in <mark>PyTorch</mark> for the prediction of synergistic effects of drugs in specific cell lines. The model learns task-specific representations of molecules (drug chemical structures) through a Graph Neural Network and takes advantage of gene expression features of cell lines in order to improve drug combination synergy predictions.
 
-          ![Graph Neural Network model](/images/gnn_molecule.png "Graph Neural Network model")
+          ![Graph Neural Network model](/images/gnn_molecule.webp "Graph Neural Network model")
 
   - title: Bioinformatics # Title for the section
     projects: true
@@ -167,7 +167,7 @@ content:
         description: | # this will include new lines to allow paragraphs
           Computational methods that have aimed to predict cancer driver lncRNA genes have thus far relied on scores that do not specifically reflect the <a href="https://en.wikipedia.org/wiki/Long_non-coding_RNA">lncRNA</a> biology. Therefore, Functional Impact scores, such as conservation scores or base pairing probabilties from RNA secondary structure can be included to improve those predictions. In this project I calculated lncRNA base pairing probabilities and correlated them with conservation scores to examine whether secondary structure is suggestive of gene function. Tools used for this project: <mark>Bash (awk, bedtools, bwtool, etc.)</mark>, <mark>Python (Snakemake)</mark>, <mark>R</mark>, <mark>RNAfold/RNAsnp</mark>
 
-          ![Trans mod](/images/rnafold.png "RNA secondary structure")
+          ![Trans mod](/images/rnafold.webp "RNA secondary structure")
       - layout: left
         border:   # Value of `weak` will display a weak border below this item. # Any
                       # other value (or no value) means no border will be displayed
@@ -184,7 +184,7 @@ content:
         description: | # this will include new lines to allow paragraphs
           In <i><a href="https://en.wikipedia.org/wiki/Caenorhabditis_elegans">C. elegans</a></i> the expression of X-linked genes is downregulated by half by modifying transcription initiation. Here, an <a href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm">EM</a> algorithm was applied to a dataset containing the positions and the methylation status of Cytosines around the transcription start site (<i>TSS</i>) of various genes. The algorithm is written in <mark>R</mark>.
 
-          ![TSS methylation](/images/EM.png "TSS methylation")
+          ![TSS methylation](/images/EM.webp "TSS methylation")
   - title: Molecular Biology # Title for the section
     projects: true
     order: 100
@@ -210,7 +210,7 @@ content:
             - Western blot of tyrosinated α-tubulin
             - TTL-GFP fusion gene cloning
 
-          ![Confocal microscopy](/images/confocal.png "Confocal microscopy")
+          ![Confocal microscopy](/images/confocal.webp "Confocal microscopy")
   - title: Cloud & Big Data Analytics # Title for the section
     projects: true
     order: 100
@@ -232,7 +232,7 @@ content:
         description: | # this will include new lines to allow paragraphs
           I empowered my team to transition from a in-house DWH solution to a scalable cloud solution, <mark>Azure Databricks</mark>. This enabled us to develop modern <mark>ETL</mark> piplines, and scalable Machine Learning applications.
 
-          ![Databricks](/images/databricks.png "Databricks")
+          ![Databricks](/images/databricks.webp "Databricks")
 
   - title: Web Development # Title for the section
     projects: true
@@ -260,7 +260,7 @@ content:
 
           My responsibilities included web development in <mark>HTML/CSS/JS</mark>, <mark>Magnolia</mark> CMS configuration, extension of CMS functionality in <mark>Java</mark>, setting up <mark>REST/SOAP</mark> services and planning <mark>Agile/Scrum</mark> tasks and sprints.
 
-          ![HTML code](/images/html_css.jpg "HTML code")
+          ![HTML code](/images/html_css.webp "HTML code")
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any
                       # other value (or no value) means no border will be displayed
@@ -277,7 +277,7 @@ content:
         description: | # this will include new lines to allow paragraphs
           An interactive and educational game where local map regions act as puzzle pieces. The primary school students of <a href="https://www.schulelaeufelfingen.ch/">Läufelfingen</a> can use it to better learn their region in a fun way by piecing together these puzzle pieces. The game was developed with <mark>Processing.js</mark>.
 
-          ![Puzzle Game](/images/flurnamen.png "Puzzle Game")
+          ![Puzzle Game](/images/flurnamen.webp "Puzzle Game")
       - layout: left
         border:   # Value of `weak` will display a weak border below this item. # Any
                       # other value (or no value) means no border will be displayed
@@ -294,7 +294,7 @@ content:
         description: | # this will include new lines to allow paragraphs
           A toy project where I implemented the nine men's morris game (<a href="https://en.wikipedia.org/wiki/Nine_men%27s_morris">Mühle</a>) with pure <mark>HTML/CSS/JS</mark>.
 
-          ![Muehle Game](/images/muehle2.png "Muehle Game")
+          ![Muehle Game](/images/muehle2.webp "Muehle Game")
   - title: Computer Vision & Graphics # Title for the section
     projects: true
     order: 100
@@ -316,7 +316,7 @@ content:
         description: | # this will include new lines to allow paragraphs
           In this project a video analysis algorithm was developed that utilizes basic computer vision principles. Based on pidgeon characteristics (shape, size, movement, etc.) their position is determined within a video input stream. Written in <mark>Python/OpenCV/QT</mark>. The video input can be opened in a <a href="https://www.qt.io/">QT</a> window and areas of interest (detection) can be selected (by drawing polygons). Within these areas the positions of detected pidgeons are reported.
 
-          ![Pidgeon Detection](https://hackster.imgix.net/uploads/attachments/929293/picture_oKHxX5hcUc.PNG?auto=compress%2Cformat&w=900&h=675&fit=min "Pidgeon Detection")
+          ![Pidgeon Detection](/images/pigeon.webp "Pidgeon Detection")
       - layout: left
         border:   # Value of `weak` will display a weak border below this item. # Any
                       # other value (or no value) means no border will be displayed
@@ -333,7 +333,7 @@ content:
         description: | # this will include new lines to allow paragraphs
           <a href="https://en.wikipedia.org/wiki/L-system">L-Systems</a> are simple rule-based text generation systems. After the text is generated it can be utilized as instructions of <a href="https://en.wikipedia.org/wiki/Turtle_graphics">Turtle graphics</a>. These turtle graphics then were implemented in <mark>Java</mark> and <mark>OpenGL</mark> in order to draw trees and other fractals.
 
-          ![L-System](/images/Lsystem.png "L-System")
+          ![L-System](/images/Lsystem.webp "L-System")
 
   - title: Experience
     order: 1
