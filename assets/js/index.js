@@ -289,32 +289,144 @@
       });
     });
 
+    var visibleProjectCards = function () {
+      return projectCards.filter(function (card) {
+        return !card.hidden;
+      });
+    };
+
+    var moveProjectFocus = function (card, key) {
+      var visibleCards = visibleProjectCards();
+
+      if (!visibleCards.length) return false;
+
+      var rects = visibleCards.map(function (item) {
+        var rect = item.getBoundingClientRect();
+
+        return {
+          card: item,
+          top: Math.round(rect.top),
+          left: Math.round(rect.left)
+        };
+      });
+
+      var currentTop = Math.round(card.getBoundingClientRect().top);
+      var row = rects.filter(function (item) {
+        return Math.abs(item.top - currentTop) <= 2;
+      }).sort(function (a, b) {
+        return a.left - b.left;
+      });
+
+      var column = -1;
+
+      for (var i = 0; i < row.length; i++) {
+        if (row[i].card === card) {
+          column = i;
+          break;
+        }
+      }
+
+      if (column === -1) return false;
+
+      if (key === "ArrowLeft" || key === "ArrowRight") {
+        var nextColumn = column + (key === "ArrowRight" ? 1 : -1);
+
+        if (nextColumn < 0 || nextColumn >= row.length) return false;
+
+        row[nextColumn].card.focus();
+        return true;
+      }
+
+      var rows = [];
+
+      rects.forEach(function (item) {
+        if (rows.indexOf(item.top) === -1) {
+          rows.push(item.top);
+        }
+      });
+
+      rows.sort(function (a, b) {
+        return a - b;
+      });
+
+      var rowIndex = rows.indexOf(currentTop);
+      var nextRowIndex = rowIndex + (key === "ArrowDown" ? 1 : -1);
+
+      if (rowIndex === -1 || nextRowIndex < 0 || nextRowIndex >= rows.length) return false;
+
+      var nextRow = rects.filter(function (item) {
+        return item.top === rows[nextRowIndex];
+      }).sort(function (a, b) {
+        return a.left - b.left;
+      });
+
+      nextRow[Math.min(column, nextRow.length - 1)].card.focus();
+      return true;
+    };
+
     projectCards.forEach(function (card) {
       card.addEventListener("keydown", function (event) {
-        var visibleCards = projectCards.filter(function (item) {
-          return !item.hidden;
-        });
-        var index = visibleCards.indexOf(card);
+        if (event.key === "Home" || event.key === "End") {
+          var visibleCards = visibleProjectCards();
 
-        if (index === -1) return;
+          if (!visibleCards.length) return;
 
-        var next = null;
-
-        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-          next = (index + 1) % visibleCards.length;
-        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-          next = (index - 1 + visibleCards.length) % visibleCards.length;
-        } else if (event.key === "Home") {
-          next = 0;
-        } else if (event.key === "End") {
-          next = visibleCards.length - 1;
+          event.preventDefault();
+          visibleCards[event.key === "Home" ? 0 : visibleCards.length - 1].focus();
+          return;
         }
 
-        if (next === null) return;
+        if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].indexOf(event.key) === -1) return;
 
-        event.preventDefault();
-        visibleCards[next].focus();
+        if (moveProjectFocus(card, event.key)) {
+          event.preventDefault();
+        }
       });
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return;
+      if (document.querySelector("dialog[open]")) return;
+
+      var target = event.target;
+      var tagName = target && target.tagName ? target.tagName.toLowerCase() : "";
+
+      if (tagName === "input" || tagName === "textarea" || tagName === "select" ||
+          (target && target.isContentEditable)) {
+        return;
+      }
+
+      if (target && target.closest && target.closest("[data-project-open]")) return;
+
+      var visibleCards = visibleProjectCards();
+
+      if (!visibleCards.length) return;
+
+      if (event.key === "Enter" &&
+          (target === document.body || target === document.documentElement ||
+           (target && target.closest && target.closest("main")))) {
+        event.preventDefault();
+        visibleCards[0].click();
+        return;
+      }
+
+      if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End"].indexOf(event.key) === -1) return;
+
+      event.preventDefault();
+
+      var card;
+
+      if (event.key === "Home") {
+        card = visibleCards[0];
+      } else if (event.key === "End") {
+        card = visibleCards[visibleCards.length - 1];
+      } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+        card = visibleCards[visibleCards.length - 1];
+      } else {
+        card = visibleCards[0];
+      }
+
+      card.focus();
     });
 
     var projectCounter = projectDialog ? projectDialog.querySelector("[data-project-counter]") : null;

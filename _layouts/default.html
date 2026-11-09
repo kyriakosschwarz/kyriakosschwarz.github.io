@@ -42,6 +42,7 @@
               {% endif %}{% endfor %}
             </div>
             <p class="project-count" aria-live="polite" data-project-count>{{ project_total }} projects</p>
+            <p class="project-hint">Use arrow keys to browse · Enter to open</p>
             <div class="project-grid" data-project-grid>
               {% for section in ordered_content %}{% if section.projects %}
                 {%- assign section_slug = section.title | slugify -%}
