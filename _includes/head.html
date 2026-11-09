@@ -19,6 +19,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
+  {%- unless page.cv_only or page.projects_only -%}
+    {%- if site.about_profile_image -%}
+      <link rel="preload" as="image" href="{{ site.about_profile_image | relative_url }}" fetchpriority="high">
+    {%- endif -%}
+  {%- endunless -%}
+
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
   <link rel="shortcut icon" type="image/x-icon" href="{{ site.favicon | default: '/assets/favicon.ico' | relative_url }}">
 

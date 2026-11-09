@@ -47,10 +47,21 @@
     var cvTabs = Array.prototype.slice.call(cvPage.querySelectorAll("[data-cv-tab]"));
     var cvPanels = Array.prototype.slice.call(cvPage.querySelectorAll("[data-cv-panel]"));
     var cvTabsBar = cvPage.querySelector("[data-cv-tabs]");
+    var cvProgress = cvPage.querySelector("[data-cv-progress]");
+    var cvPrev = cvPage.querySelector("[data-cv-prev]");
+    var cvNext = cvPage.querySelector("[data-cv-next]");
+    var cvActive = 0;
 
     if (cvTabs.length && cvPanels.length) {
       var cvSelect = function (index, updateHash, userInitiated) {
         if (index < 0 || index >= cvTabs.length) return;
+
+        cvActive = index;
+
+        if (cvProgress) {
+          cvProgress.textContent =
+            ("0" + (index + 1)).slice(-2) + " / " + ("0" + cvTabs.length).slice(-2);
+        }
 
         cvTabs.forEach(function (tab, tabIndex) {
           var active = tabIndex === index;
@@ -107,6 +118,10 @@
         window.scrollTo(0, Math.max(0, initialPanelTop));
       }
 
+      var cvStep = function (delta) {
+        cvSelect((cvActive + delta + cvTabs.length) % cvTabs.length, true, true);
+      };
+
       cvTabs.forEach(function (tab, index) {
         tab.addEventListener("click", function () {
           cvSelect(index, true, true);
@@ -131,6 +146,43 @@
             cvTabs[next].focus();
           }
         });
+      });
+
+      if (cvPrev) {
+        cvPrev.addEventListener("click", function () {
+          cvStep(-1);
+        });
+      }
+
+      if (cvNext) {
+        cvNext.addEventListener("click", function () {
+          cvStep(1);
+        });
+      }
+
+      document.addEventListener("keydown", function (event) {
+        if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return;
+
+        var target = event.target;
+        var tagName = target && target.tagName ? target.tagName.toLowerCase() : "";
+
+        if (tagName === "input" || tagName === "textarea" || tagName === "select" ||
+            (target && target.isContentEditable)) {
+          return;
+        }
+
+        var delta = 0;
+
+        if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          delta = -1;
+        } else if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          delta = 1;
+        }
+
+        if (!delta) return;
+
+        event.preventDefault();
+        cvStep(delta);
       });
 
       window.addEventListener("hashchange", function () {

@@ -133,7 +133,7 @@
       {% if is_home_page %}
         <div class="hero-about">
           {%- if site.about_profile_image -%}
-            <span class="profile-img hero-profile" style="background-image: url({{ site.about_profile_image | relative_url }})"></span>
+            <img class="profile-img hero-profile" src="{{ site.about_profile_image | relative_url }}" alt="Portrait of {{ site.name | escape }}" width="400" height="400" loading="eager" fetchpriority="high" decoding="async">
           {%- endif -%}
           <div class="hero-about-text">
             <div class="nvim-window">
