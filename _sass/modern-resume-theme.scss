@@ -367,26 +367,6 @@
   content: none;
 }
 
-.cv-toolbar {
-  align-items: center;
-  display: flex;
-  gap: .75rem;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  position: relative;
-  z-index: 5;
-}
-
-
-.cv-progress {
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 1rem;
-  letter-spacing: .1em;
-  margin: 0;
-  text-align: center;
-}
-
 .cv-tabs {
   display: flex;
   flex-direction: column;
@@ -891,14 +871,6 @@
 
   .cv-panel-inner {
     padding: 1.2rem;
-  }
-
-  .cv-toolbar {
-    gap: .5rem;
-  }
-
-  .cv-progress {
-    font-size: .9rem;
   }
 }
 
@@ -1829,6 +1801,7 @@ a:focus {
   display: block;
   font-size: 18px;
   line-height: 1;
+  padding: 0;
 }
 
 .knight-icon {

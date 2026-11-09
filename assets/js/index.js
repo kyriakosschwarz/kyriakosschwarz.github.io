@@ -46,7 +46,6 @@
   if (cvPage) {
     var cvTabs = Array.prototype.slice.call(cvPage.querySelectorAll("[data-cv-jump]"));
     var cvPanels = Array.prototype.slice.call(cvPage.querySelectorAll("[data-cv-panel]"));
-    var cvProgress = cvPage.querySelector("[data-cv-progress]");
     var cvActive = 0;
     var cvScrollLock = 0;
 
@@ -67,10 +66,6 @@
           }
         });
 
-        if (cvProgress) {
-          cvProgress.textContent =
-            ("0" + (index + 1)).slice(-2) + " / " + ("0" + cvTabs.length).slice(-2);
-        }
       };
 
       var cvGoTo = function (index, updateHash) {
@@ -301,16 +296,14 @@
       if (!visibleCards.length) return false;
 
       var rects = visibleCards.map(function (item) {
-        var rect = item.getBoundingClientRect();
-
         return {
           card: item,
-          top: Math.round(rect.top),
-          left: Math.round(rect.left)
+          top: item.offsetTop,
+          left: item.offsetLeft
         };
       });
 
-      var currentTop = Math.round(card.getBoundingClientRect().top);
+      var currentTop = card.offsetTop;
       var row = rects.filter(function (item) {
         return Math.abs(item.top - currentTop) <= 2;
       }).sort(function (a, b) {
@@ -355,7 +348,7 @@
       if (rowIndex === -1 || nextRowIndex < 0 || nextRowIndex >= rows.length) return false;
 
       var nextRow = rects.filter(function (item) {
-        return item.top === rows[nextRowIndex];
+        return Math.abs(item.top - rows[nextRowIndex]) <= 2;
       }).sort(function (a, b) {
         return a.left - b.left;
       });
