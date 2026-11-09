@@ -47,6 +47,7 @@
     var cvTabs = Array.prototype.slice.call(cvPage.querySelectorAll("[data-cv-tab]"));
     var cvPanels = Array.prototype.slice.call(cvPage.querySelectorAll("[data-cv-panel]"));
     var cvTabsBar = cvPage.querySelector("[data-cv-tabs]");
+    var cvStack = cvPage.querySelector("[data-cv-stack]");
     var cvProgress = cvPage.querySelector("[data-cv-progress]");
     var cvPrev = cvPage.querySelector("[data-cv-prev]");
     var cvNext = cvPage.querySelector("[data-cv-next]");
@@ -70,9 +71,28 @@
           tab.tabIndex = active ? 0 : -1;
         });
 
+        var panelCount = cvPanels.length;
+
         cvPanels.forEach(function (panel, panelIndex) {
-          panel.classList.toggle("is-active", panelIndex === index);
+          var active = panelIndex === index;
+          var previous = panelIndex === (index - 1 + panelCount) % panelCount;
+          var next = panelIndex === (index + 1) % panelCount;
+
+          panel.classList.toggle("is-active", active);
+          panel.classList.toggle("is-prev", !active && previous);
+          panel.classList.toggle("is-next", !active && next);
+          panel.classList.toggle("is-hidden", !active && !previous && !next);
+          panel.setAttribute("aria-hidden", active ? "false" : "true");
+
+          if (active) {
+            panel.removeAttribute("inert");
+            panel.scrollTop = 0;
+          } else {
+            panel.setAttribute("inert", "");
+          }
         });
+
+        fitDeck();
 
         if (updateHash) {
           var anchor = cvTabs[index].getAttribute("data-cv-anchor");
@@ -98,6 +118,44 @@
       };
 
       cvPage.classList.add("is-enhanced");
+
+      if (cvStack) {
+        cvStack.classList.add("is-deck");
+      }
+
+      var fitDeck = function () {
+        if (!cvStack) return;
+
+        var panel = cvPanels[cvActive];
+        var inner = panel ? panel.querySelector(".cv-panel-inner") : null;
+
+        if (!inner) return;
+
+        var maxHeight = Math.max(360, Math.round(window.innerHeight * 0.72));
+        var height = Math.min(inner.offsetHeight + 2, maxHeight);
+
+        cvStack.style.height = height + "px";
+      };
+
+      if (window.ResizeObserver && cvStack) {
+        var cvResizeObserver = new window.ResizeObserver(function () {
+          fitDeck();
+        });
+
+        cvPanels.forEach(function (panel) {
+          var inner = panel.querySelector(".cv-panel-inner");
+
+          if (inner) {
+            cvResizeObserver.observe(inner);
+          }
+        });
+      }
+
+      window.addEventListener("resize", fitDeck);
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(fitDeck);
+      }
 
       var initialTab = 0;
       var initialHash = window.location.hash.replace(/^#/, "");
@@ -158,6 +216,63 @@
         cvNext.addEventListener("click", function () {
           cvStep(1);
         });
+      }
+
+      if (cvStack) {
+        var cvWheelLock = 0;
+        var cvTouchStart = null;
+
+        var cvAtBoundary = function (direction) {
+          var panel = cvPanels[cvActive];
+
+          if (!panel) return true;
+
+          if (direction > 0) {
+            return panel.scrollTop + panel.clientHeight >= panel.scrollHeight - 1;
+          }
+
+          return panel.scrollTop <= 0;
+        };
+
+        cvStack.addEventListener("wheel", function (event) {
+          var direction = event.deltaY > 0 ? 1 : event.deltaY < 0 ? -1 : 0;
+
+          if (!direction) return;
+
+          var now = Date.now();
+
+          if (now < cvWheelLock) {
+            event.preventDefault();
+            return;
+          }
+
+          if (!cvAtBoundary(direction)) return;
+
+          event.preventDefault();
+          cvWheelLock = now + 650;
+          cvStep(direction);
+        }, { passive: false });
+
+        cvStack.addEventListener("touchstart", function (event) {
+          if (event.touches.length === 1) {
+            cvTouchStart = event.touches[0].clientY;
+          }
+        }, { passive: true });
+
+        cvStack.addEventListener("touchend", function (event) {
+          if (cvTouchStart === null) return;
+
+          var delta = cvTouchStart - event.changedTouches[0].clientY;
+          cvTouchStart = null;
+
+          if (Math.abs(delta) < 60) return;
+
+          var direction = delta > 0 ? 1 : -1;
+
+          if (!cvAtBoundary(direction)) return;
+
+          cvStep(direction);
+        }, { passive: true });
       }
 
       document.addEventListener("keydown", function (event) {

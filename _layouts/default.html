@@ -115,22 +115,28 @@
                 <p class="cv-progress" aria-live="polite"><span data-cv-progress>01 / 09</span></p>
                 <button class="cv-step" type="button" data-cv-next aria-label="Next CV section">Next <span aria-hidden="true">→</span></button>
               </div>
-              <section class="cv-panel is-active" id="panel-about" role="tabpanel" aria-labelledby="tab-about" data-cv-panel>
-                <h3 id="about-me">About Me</h3>
-                <div class="row clearfix">
-                  <div class="col-md-12">
-                    {{ site.cv_content | strip | markdownify }}
+              <div class="cv-stack" data-cv-stack>
+                <section class="cv-panel is-active" id="panel-about" role="tabpanel" aria-labelledby="tab-about" data-cv-panel>
+                  <div class="cv-panel-inner">
+                    <h3 id="about-me">About Me</h3>
+                    <div class="row clearfix">
+                      <div class="col-md-12">
+                        {{ site.cv_content | strip | markdownify }}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </section>
-              {% for section in ordered_content %}{% unless section.projects %}
-                {%- assign section_slug = section.title | slugify -%}
-                <section class="cv-panel" id="panel-{{ section_slug }}" role="tabpanel" aria-labelledby="tab-{{ section_slug }}" data-cv-panel>
-                  <h3 id="{{ section_slug }}">{{ section.title }}</h3>
-                  {% include section-callout.html callout=section.callout cta_url=section.cta_url cta_label=section.cta_label %}
-                  {% include {{ section.layout | prepend: "section-" | append: ".html" }} content=section.content %}
                 </section>
-              {% endunless %}{% endfor %}
+                {% for section in ordered_content %}{% unless section.projects %}
+                  {%- assign section_slug = section.title | slugify -%}
+                  <section class="cv-panel" id="panel-{{ section_slug }}" role="tabpanel" aria-labelledby="tab-{{ section_slug }}" data-cv-panel>
+                    <div class="cv-panel-inner">
+                      <h3 id="{{ section_slug }}">{{ section.title }}</h3>
+                      {% include section-callout.html callout=section.callout cta_url=section.cta_url cta_label=section.cta_label %}
+                      {% include {{ section.layout | prepend: "section-" | append: ".html" }} content=section.content %}
+                    </div>
+                  </section>
+                {% endunless %}{% endfor %}
+              </div>
             </div>
           </div>
         {% endif %}
