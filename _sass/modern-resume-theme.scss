@@ -221,11 +221,14 @@
   white-space: nowrap;
 }
 
-.nvim-branch-label {
-  color: var(--muted);
-  font-size: .85em;
-  letter-spacing: .04em;
-  text-transform: uppercase;
+.nvim-branch-icon {
+  fill: none;
+  height: 1.15em;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+  width: 1.15em;
 }
 
 .nvim-file {
@@ -1479,16 +1482,16 @@ a:focus {
 }
 
 .hero-action-primary {
-  background: var(--button-bg);
-  border-color: var(--button-bg);
-  color: var(--button-ink);
+  background: #f6e3d8;
+  border-color: #f6e3d8;
+  color: #141414;
 }
 
 .hero-action-primary:hover,
 .hero-action-primary:focus {
-  background: var(--button-bg-hover);
-  border-color: var(--button-bg-hover);
-  color: var(--button-ink);
+  background: #efd0bf;
+  border-color: #efd0bf;
+  color: #141414;
 }
 
 .header-right {
