@@ -5,6 +5,8 @@
 
 <body class="{% if site.darkmode == true and site.darkmode != 'never' %}dark {% endif %}{% if page.projects_only %}projects-page{% endif %}">
 
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <script>
     try {
       if (localStorage.getItem('theme') === 'light') {
@@ -15,7 +17,7 @@
 
   {%- include header.html -%}
 
-  <main class="page-content" aria-label="Content">
+  <main class="page-content" id="main-content" tabindex="-1" aria-label="Content">
     <div class="wrapper">
 
       {%- if jekyll.environment == 'production' and site.gtm -%}
@@ -102,41 +104,39 @@
           </dialog>
         {% elsif page.cv_only == true %}
           <div class="container cv-page" data-cv>
-            <div class="cv-tabs" role="tablist" aria-label="CV sections" data-cv-tabs>
-              <button class="cv-tab is-active" type="button" role="tab" id="tab-about" aria-controls="panel-about" aria-selected="true" data-cv-tab data-cv-anchor="about-me" tabindex="0"><span class="cv-tab-index">00</span><span>About Me</span></button>
+            <nav class="cv-tabs" aria-label="CV sections" data-cv-tabs>
+              <a class="cv-tab is-active" href="#about-me" data-cv-jump="about-me" aria-current="true"><span class="cv-tab-index">00</span><span>About Me</span></a>
               {% for section in ordered_content %}{% unless section.projects %}
                 {%- assign section_slug = section.title | slugify -%}
-                <button class="cv-tab" type="button" role="tab" id="tab-{{ section_slug }}" aria-controls="panel-{{ section_slug }}" aria-selected="false" data-cv-tab data-cv-anchor="{{ section_slug }}" tabindex="-1"><span class="cv-tab-index">{{ forloop.index | prepend: '0' }}</span><span>{{ section.title }}</span></button>
+                <a class="cv-tab" href="#{{ section_slug }}" data-cv-jump="{{ section_slug }}"><span class="cv-tab-index">{{ forloop.index | prepend: '0' }}</span><span>{{ section.title }}</span></a>
               {% endunless %}{% endfor %}
-            </div>
+            </nav>
             <div class="cv-panels" data-cv-panels>
               <div class="cv-toolbar">
                 <button class="cv-step" type="button" data-cv-prev aria-label="Previous CV section"><span aria-hidden="true">←</span> Previous</button>
                 <p class="cv-progress" aria-live="polite"><span data-cv-progress>01 / 09</span></p>
                 <button class="cv-step" type="button" data-cv-next aria-label="Next CV section">Next <span aria-hidden="true">→</span></button>
               </div>
-              <div class="cv-stack" data-cv-stack>
-                <section class="cv-panel is-active" id="panel-about" role="tabpanel" aria-labelledby="tab-about" data-cv-panel>
-                  <div class="cv-panel-inner">
-                    <h3 id="about-me">About Me</h3>
-                    <div class="row clearfix">
-                      <div class="col-md-12">
-                        {{ site.cv_content | strip | markdownify }}
-                      </div>
+              <section class="cv-panel" id="panel-about" data-cv-panel>
+                <div class="cv-panel-inner">
+                  <h3 id="about-me">About Me</h3>
+                  <div class="row clearfix">
+                    <div class="col-md-12">
+                      {{ site.cv_content | strip | markdownify }}
                     </div>
                   </div>
+                </div>
+              </section>
+              {% for section in ordered_content %}{% unless section.projects %}
+                {%- assign section_slug = section.title | slugify -%}
+                <section class="cv-panel" id="panel-{{ section_slug }}" data-cv-panel>
+                  <div class="cv-panel-inner">
+                    <h3 id="{{ section_slug }}">{{ section.title }}</h3>
+                    {% include section-callout.html callout=section.callout cta_url=section.cta_url cta_label=section.cta_label %}
+                    {% include {{ section.layout | prepend: "section-" | append: ".html" }} content=section.content %}
+                  </div>
                 </section>
-                {% for section in ordered_content %}{% unless section.projects %}
-                  {%- assign section_slug = section.title | slugify -%}
-                  <section class="cv-panel" id="panel-{{ section_slug }}" role="tabpanel" aria-labelledby="tab-{{ section_slug }}" data-cv-panel>
-                    <div class="cv-panel-inner">
-                      <h3 id="{{ section_slug }}">{{ section.title }}</h3>
-                      {% include section-callout.html callout=section.callout cta_url=section.cta_url cta_label=section.cta_label %}
-                      {% include {{ section.layout | prepend: "section-" | append: ".html" }} content=section.content %}
-                    </div>
-                  </section>
-                {% endunless %}{% endfor %}
-              </div>
+              {% endunless %}{% endfor %}
             </div>
           </div>
         {% endif %}
@@ -147,6 +147,7 @@
   </main>
 
   <!-- {%- include footer.html -%} -->
+  {%- include keyboard-shortcuts.html -%}
   <script src="{{ '/assets/js/index.js' | relative_url }}"></script>
 </body>
 

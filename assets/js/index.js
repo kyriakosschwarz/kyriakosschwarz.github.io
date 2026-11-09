@@ -44,58 +44,46 @@
   var cvPage = document.querySelector("[data-cv]");
 
   if (cvPage) {
-    var cvTabs = Array.prototype.slice.call(cvPage.querySelectorAll("[data-cv-tab]"));
+    var cvTabs = Array.prototype.slice.call(cvPage.querySelectorAll("[data-cv-jump]"));
     var cvPanels = Array.prototype.slice.call(cvPage.querySelectorAll("[data-cv-panel]"));
-    var cvTabsBar = cvPage.querySelector("[data-cv-tabs]");
-    var cvStack = cvPage.querySelector("[data-cv-stack]");
     var cvProgress = cvPage.querySelector("[data-cv-progress]");
     var cvPrev = cvPage.querySelector("[data-cv-prev]");
     var cvNext = cvPage.querySelector("[data-cv-next]");
     var cvActive = 0;
+    var cvScrollLock = 0;
 
     if (cvTabs.length && cvPanels.length) {
-      var cvSelect = function (index, updateHash, userInitiated) {
+      var cvSetActive = function (index) {
         if (index < 0 || index >= cvTabs.length) return;
 
         cvActive = index;
+
+        cvTabs.forEach(function (tab, tabIndex) {
+          var active = tabIndex === index;
+          tab.classList.toggle("is-active", active);
+
+          if (active) {
+            tab.setAttribute("aria-current", "true");
+          } else {
+            tab.removeAttribute("aria-current");
+          }
+        });
 
         if (cvProgress) {
           cvProgress.textContent =
             ("0" + (index + 1)).slice(-2) + " / " + ("0" + cvTabs.length).slice(-2);
         }
+      };
 
-        cvTabs.forEach(function (tab, tabIndex) {
-          var active = tabIndex === index;
-          tab.classList.toggle("is-active", active);
-          tab.setAttribute("aria-selected", String(active));
-          tab.tabIndex = active ? 0 : -1;
-        });
+      var cvGoTo = function (index, updateHash) {
+        if (index < 0 || index >= cvPanels.length) return;
 
-        var panelCount = cvPanels.length;
-
-        cvPanels.forEach(function (panel, panelIndex) {
-          var active = panelIndex === index;
-          var previous = panelIndex === (index - 1 + panelCount) % panelCount;
-          var next = panelIndex === (index + 1) % panelCount;
-
-          panel.classList.toggle("is-active", active);
-          panel.classList.toggle("is-prev", !active && previous);
-          panel.classList.toggle("is-next", !active && next);
-          panel.classList.toggle("is-hidden", !active && !previous && !next);
-          panel.setAttribute("aria-hidden", active ? "false" : "true");
-
-          if (active) {
-            panel.removeAttribute("inert");
-            panel.scrollTop = 0;
-          } else {
-            panel.setAttribute("inert", "");
-          }
-        });
-
-        fitDeck();
+        cvSetActive(index);
+        cvScrollLock = Date.now() + 800;
+        cvPanels[index].scrollIntoView({ behavior: "smooth", block: "start" });
 
         if (updateHash) {
-          var anchor = cvTabs[index].getAttribute("data-cv-anchor");
+          var anchor = cvTabs[index].getAttribute("data-cv-jump");
 
           if (anchor) {
             try {
@@ -103,191 +91,97 @@
             } catch (e) {}
           }
         }
-
-        if (userInitiated && cvPanels[index]) {
-          var panelTop = cvPanels[index].getBoundingClientRect().top;
-
-          if (panelTop < 80 && cvPanels[index].scrollIntoView) {
-            cvPanels[index].scrollIntoView({ behavior: "smooth", block: "start" });
-          }
-        }
-
-        if (userInitiated && cvTabsBar && cvTabsBar.scrollWidth > cvTabsBar.clientWidth) {
-          cvTabs[index].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-        }
-      };
-
-      cvPage.classList.add("is-enhanced");
-
-      if (cvStack) {
-        cvStack.classList.add("is-deck");
-      }
-
-      var fitDeck = function () {
-        if (!cvStack) return;
-
-        var panel = cvPanels[cvActive];
-        var inner = panel ? panel.querySelector(".cv-panel-inner") : null;
-
-        if (!inner) return;
-
-        var maxHeight = Math.max(320, Math.round(window.innerHeight * 0.72));
-        cvStack.style.height = Math.min(inner.offsetHeight + 2, maxHeight) + "px";
-      };
-
-      window.addEventListener("resize", fitDeck);
-
-      if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(fitDeck);
-      }
-
-      var initialTab = 0;
-      var initialHash = window.location.hash.replace(/^#/, "");
-
-      if (initialHash) {
-        for (var cvIndex = 0; cvIndex < cvTabs.length; cvIndex++) {
-          if (cvTabs[cvIndex].getAttribute("data-cv-anchor") === initialHash) {
-            initialTab = cvIndex;
-            break;
-          }
-        }
-      }
-
-      cvSelect(initialTab, false, false);
-
-      if (initialHash && cvPanels[initialTab]) {
-        var initialPanelTop = cvPanels[initialTab].getBoundingClientRect().top + window.pageYOffset - 90;
-        window.scrollTo(0, Math.max(0, initialPanelTop));
-      }
-
-      var cvStep = function (delta) {
-        cvSelect((cvActive + delta + cvTabs.length) % cvTabs.length, true, true);
       };
 
       cvTabs.forEach(function (tab, index) {
-        tab.addEventListener("click", function () {
-          cvSelect(index, true, true);
-        });
-
-        tab.addEventListener("keydown", function (event) {
-          var next = null;
-
-          if (event.key === "ArrowDown" || event.key === "ArrowRight") {
-            next = (index + 1) % cvTabs.length;
-          } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
-            next = (index - 1 + cvTabs.length) % cvTabs.length;
-          } else if (event.key === "Home") {
-            next = 0;
-          } else if (event.key === "End") {
-            next = cvTabs.length - 1;
-          }
-
-          if (next !== null) {
-            event.preventDefault();
-            cvSelect(next, true, true);
-            cvTabs[next].focus();
-          }
+        tab.addEventListener("click", function (event) {
+          event.preventDefault();
+          cvGoTo(index, true);
         });
       });
 
       if (cvPrev) {
         cvPrev.addEventListener("click", function () {
-          cvStep(-1);
+          cvGoTo((cvActive - 1 + cvPanels.length) % cvPanels.length, true);
         });
       }
 
       if (cvNext) {
         cvNext.addEventListener("click", function () {
-          cvStep(1);
+          cvGoTo((cvActive + 1) % cvPanels.length, true);
         });
       }
 
-      if (cvStack) {
-        var cvWheelLock = 0;
-        var cvTouchStartY = null;
-        var cvTouchStartX = null;
-        var cvTouchLock = 0;
+      var cvSyncFromScroll = function () {
+        if (Date.now() < cvScrollLock) return;
 
-        var cvAtBoundary = function (direction) {
-          var panel = cvPanels[cvActive];
+        var offset = window.innerWidth <= 900 ? 110 : 160;
+        var active = 0;
 
-          if (!panel) return true;
-
-          if (direction > 0) {
-            return panel.scrollTop + panel.clientHeight >= panel.scrollHeight - 1;
+        for (var i = 0; i < cvPanels.length; i++) {
+          if (cvPanels[i].getBoundingClientRect().top - offset <= 0) {
+            active = i;
+          } else {
+            break;
           }
+        }
 
-          return panel.scrollTop <= 0;
-        };
+        if (active !== cvActive) {
+          cvSetActive(active);
+        }
+      };
 
-        cvStack.addEventListener("wheel", function (event) {
-          var direction = event.deltaY > 0 ? 1 : event.deltaY < 0 ? -1 : 0;
+      var cvTicking = false;
 
-          if (!direction) return;
+      window.addEventListener("scroll", function () {
+        if (cvTicking) return;
 
-          var now = Date.now();
+        cvTicking = true;
+        window.requestAnimationFrame(function () {
+          cvTicking = false;
+          cvSyncFromScroll();
+        });
+      }, { passive: true });
 
-          if (now < cvWheelLock) {
-            event.preventDefault();
-            return;
+      var initialHash = window.location.hash.replace(/^#/, "");
+
+      if (initialHash) {
+        for (var cvIndex = 0; cvIndex < cvTabs.length; cvIndex++) {
+          if (cvTabs[cvIndex].getAttribute("data-cv-jump") === initialHash) {
+            cvSetActive(cvIndex);
+            break;
           }
-
-          if (!cvAtBoundary(direction)) return;
-
-          event.preventDefault();
-          cvWheelLock = now + 350;
-          cvStep(direction);
-        }, { passive: false });
-
-        cvStack.addEventListener("touchstart", function (event) {
-          if (event.touches.length !== 1) {
-            cvTouchStartY = null;
-            return;
-          }
-
-          cvTouchStartY = event.touches[0].clientY;
-          cvTouchStartX = event.touches[0].clientX;
-        }, { passive: true });
-
-        cvStack.addEventListener("touchmove", function (event) {
-          if (cvTouchStartY === null) return;
-
-          var touch = event.touches[0];
-          var deltaY = cvTouchStartY - touch.clientY;
-          var deltaX = cvTouchStartX - touch.clientX;
-
-          if (Math.abs(deltaY) < 48 || Math.abs(deltaY) <= Math.abs(deltaX)) return;
-
-          var direction = deltaY > 0 ? 1 : -1;
-
-          if (!cvAtBoundary(direction)) return;
-
-          var now = Date.now();
-
-          if (now < cvTouchLock) {
-            event.preventDefault();
-            return;
-          }
-
-          event.preventDefault();
-          cvTouchLock = now + 350;
-          cvTouchStartY = null;
-          cvStep(direction);
-        }, { passive: false });
-
-        cvStack.addEventListener("touchend", function () {
-          cvTouchStartY = null;
-        }, { passive: true });
+        }
+      } else {
+        cvSetActive(0);
       }
 
       document.addEventListener("keydown", function (event) {
         if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return;
+        if (document.querySelector("dialog[open]")) return;
 
         var target = event.target;
         var tagName = target && target.tagName ? target.tagName.toLowerCase() : "";
 
         if (tagName === "input" || tagName === "textarea" || tagName === "select" ||
             (target && target.isContentEditable)) {
+          return;
+        }
+
+        if (event.key === "Home" || event.key === "End") {
+          event.preventDefault();
+          cvGoTo(event.key === "Home" ? 0 : cvPanels.length - 1, true);
+          return;
+        }
+
+        if (event.key >= "1" && event.key <= "9") {
+          var jumpIndex = Number(event.key) - 1;
+
+          if (jumpIndex < cvPanels.length) {
+            event.preventDefault();
+            cvGoTo(jumpIndex, true);
+          }
+
           return;
         }
 
@@ -302,18 +196,7 @@
         if (!delta) return;
 
         event.preventDefault();
-        cvStep(delta);
-      });
-
-      window.addEventListener("hashchange", function () {
-        var hash = window.location.hash.replace(/^#/, "");
-
-        for (var i = 0; i < cvTabs.length; i++) {
-          if (cvTabs[i].getAttribute("data-cv-anchor") === hash) {
-            cvSelect(i, false, false);
-            break;
-          }
-        }
+        cvGoTo((cvActive + delta + cvPanels.length) % cvPanels.length, true);
       });
     }
   }
@@ -432,6 +315,34 @@
       });
     });
 
+    projectCards.forEach(function (card) {
+      card.addEventListener("keydown", function (event) {
+        var visibleCards = projectCards.filter(function (item) {
+          return !item.hidden;
+        });
+        var index = visibleCards.indexOf(card);
+
+        if (index === -1) return;
+
+        var next = null;
+
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          next = (index + 1) % visibleCards.length;
+        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          next = (index - 1 + visibleCards.length) % visibleCards.length;
+        } else if (event.key === "Home") {
+          next = 0;
+        } else if (event.key === "End") {
+          next = visibleCards.length - 1;
+        }
+
+        if (next === null) return;
+
+        event.preventDefault();
+        visibleCards[next].focus();
+      });
+    });
+
     if (projectDialog && projectDialogContent) {
       var closeProjectDialog = function () {
         if (typeof projectDialog.close === "function" && projectDialog.open) {
@@ -492,4 +403,119 @@
       }
     }
   }
+
+  var helpDialog = document.getElementById("keyboard-help");
+  var helpOpenButton = document.querySelector("[data-keyboard-help]");
+  var helpCloseButton = document.querySelector("[data-keyboard-help-close]");
+
+  var cleanupKeyboardHelp = function () {
+    document.body.classList.remove("keyboard-help-open");
+
+    if (helpOpenButton) {
+      helpOpenButton.focus();
+    }
+  };
+
+  var openKeyboardHelp = function () {
+    if (!helpDialog) return;
+
+    document.body.classList.add("keyboard-help-open");
+
+    if (typeof helpDialog.showModal === "function") {
+      helpDialog.showModal();
+    } else {
+      helpDialog.setAttribute("open", "");
+    }
+
+    if (helpCloseButton) {
+      helpCloseButton.focus();
+    }
+  };
+
+  var closeKeyboardHelp = function () {
+    if (!helpDialog) return;
+
+    if (typeof helpDialog.close === "function" && helpDialog.open) {
+      helpDialog.close();
+    } else {
+      helpDialog.removeAttribute("open");
+      cleanupKeyboardHelp();
+    }
+  };
+
+  if (helpDialog) {
+    if (helpOpenButton) {
+      helpOpenButton.addEventListener("click", openKeyboardHelp);
+    }
+
+    if (helpCloseButton) {
+      helpCloseButton.addEventListener("click", closeKeyboardHelp);
+    }
+
+    helpDialog.addEventListener("click", function (event) {
+      if (event.target === helpDialog) {
+        closeKeyboardHelp();
+      }
+    });
+
+    helpDialog.addEventListener("close", cleanupKeyboardHelp);
+  }
+
+  var navShortcuts = {};
+  var navShortcutKeys = { h: "home", c: "cv", p: "projects" };
+
+  Object.keys(navShortcutKeys).forEach(function (key) {
+    var link = document.querySelector('[data-nav="' + navShortcutKeys[key] + '"]');
+
+    if (link) {
+      navShortcuts[key] = link.getAttribute("href");
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return;
+    if (event.repeat) return;
+
+    var target = event.target;
+    var tagName = target && target.tagName ? target.tagName.toLowerCase() : "";
+
+    if (tagName === "input" || tagName === "textarea" || tagName === "select" ||
+        (target && target.isContentEditable)) {
+      return;
+    }
+
+    var key = event.key.toLowerCase();
+    var openDialog = document.querySelector("dialog[open]");
+
+    if (openDialog) {
+      if (key === "?" && helpDialog && helpDialog.open) {
+        event.preventDefault();
+        closeKeyboardHelp();
+      }
+
+      return;
+    }
+
+    if (key === "?") {
+      event.preventDefault();
+      openKeyboardHelp();
+      return;
+    }
+
+    if (key === "t") {
+      var toggle = document.getElementById("theme-toggle");
+
+      if (toggle) {
+        event.preventDefault();
+        toggle.click();
+      }
+
+      return;
+    }
+
+    if (navShortcuts[key]) {
+      event.preventDefault();
+      window.location.href = navShortcuts[key];
+    }
+  });
 })();

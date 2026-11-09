@@ -5,10 +5,10 @@
 
 <div class="topbar">
   <div class="container topbar-inner">
-    <a class="topbar-logo{% if is_home_page %} is-active{% endif %}" href="{{ '/' | relative_url }}"{% if is_home_page %} aria-current="page"{% endif %}>kyri.ch</a>
+    <a class="topbar-logo{% if is_home_page %} is-active{% endif %}" data-nav="home" href="{{ '/' | relative_url }}"{% if is_home_page %} aria-current="page"{% endif %}>kyri.ch</a>
     <nav class="topbar-nav" aria-label="Primary">
-      <a class="topbar-link{% if is_cv_page %} is-active{% endif %}" href="{{ '/cv/' | relative_url }}"{% if is_cv_page %} aria-current="page"{% endif %}>CV</a>
-      <a class="topbar-link{% if is_projects_page %} is-active{% endif %}" href="{{ '/projects/' | relative_url }}"{% if is_projects_page %} aria-current="page"{% endif %}>Projects</a>
+      <a class="topbar-link{% if is_cv_page %} is-active{% endif %}" data-nav="cv" href="{{ '/cv/' | relative_url }}"{% if is_cv_page %} aria-current="page"{% endif %}>CV</a>
+      <a class="topbar-link{% if is_projects_page %} is-active{% endif %}" data-nav="projects" href="{{ '/projects/' | relative_url }}"{% if is_projects_page %} aria-current="page"{% endif %}>Projects</a>
       <div class="theme-toggle-wrap no-print">
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="true">
           <span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span>
