@@ -2196,7 +2196,7 @@ main:focus {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 50%;
-  bottom: 1.5rem;
+  bottom: 1.25rem;
   color: var(--muted);
   cursor: pointer;
   display: flex;
@@ -2205,8 +2205,8 @@ main:focus {
   height: 3.2rem;
   justify-content: center;
   padding: 0;
-  position: fixed;
-  right: 1.5rem;
+  position: absolute;
+  right: 3rem;
   width: 3.2rem;
   z-index: 30;
 }
@@ -2344,6 +2344,7 @@ body.keyboard-help-open {
   .keyboard-help-button {
     bottom: 1rem;
     height: 2.8rem;
+    position: fixed;
     right: 1rem;
     width: 2.8rem;
   }
