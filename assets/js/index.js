@@ -131,25 +131,9 @@
 
         if (!inner) return;
 
-        var maxHeight = Math.max(360, Math.round(window.innerHeight * 0.72));
-        var height = Math.min(inner.offsetHeight + 2, maxHeight);
-
-        cvStack.style.height = height + "px";
+        var maxHeight = Math.max(320, Math.round(window.innerHeight * 0.72));
+        cvStack.style.height = Math.min(inner.offsetHeight + 2, maxHeight) + "px";
       };
-
-      if (window.ResizeObserver && cvStack) {
-        var cvResizeObserver = new window.ResizeObserver(function () {
-          fitDeck();
-        });
-
-        cvPanels.forEach(function (panel) {
-          var inner = panel.querySelector(".cv-panel-inner");
-
-          if (inner) {
-            cvResizeObserver.observe(inner);
-          }
-        });
-      }
 
       window.addEventListener("resize", fitDeck);
 
@@ -220,7 +204,9 @@
 
       if (cvStack) {
         var cvWheelLock = 0;
-        var cvTouchStart = null;
+        var cvTouchStartY = null;
+        var cvTouchStartX = null;
+        var cvTouchLock = 0;
 
         var cvAtBoundary = function (direction) {
           var panel = cvPanels[cvActive];
@@ -249,29 +235,48 @@
           if (!cvAtBoundary(direction)) return;
 
           event.preventDefault();
-          cvWheelLock = now + 650;
+          cvWheelLock = now + 350;
           cvStep(direction);
         }, { passive: false });
 
         cvStack.addEventListener("touchstart", function (event) {
-          if (event.touches.length === 1) {
-            cvTouchStart = event.touches[0].clientY;
+          if (event.touches.length !== 1) {
+            cvTouchStartY = null;
+            return;
           }
+
+          cvTouchStartY = event.touches[0].clientY;
+          cvTouchStartX = event.touches[0].clientX;
         }, { passive: true });
 
-        cvStack.addEventListener("touchend", function (event) {
-          if (cvTouchStart === null) return;
+        cvStack.addEventListener("touchmove", function (event) {
+          if (cvTouchStartY === null) return;
 
-          var delta = cvTouchStart - event.changedTouches[0].clientY;
-          cvTouchStart = null;
+          var touch = event.touches[0];
+          var deltaY = cvTouchStartY - touch.clientY;
+          var deltaX = cvTouchStartX - touch.clientX;
 
-          if (Math.abs(delta) < 60) return;
+          if (Math.abs(deltaY) < 48 || Math.abs(deltaY) <= Math.abs(deltaX)) return;
 
-          var direction = delta > 0 ? 1 : -1;
+          var direction = deltaY > 0 ? 1 : -1;
 
           if (!cvAtBoundary(direction)) return;
 
+          var now = Date.now();
+
+          if (now < cvTouchLock) {
+            event.preventDefault();
+            return;
+          }
+
+          event.preventDefault();
+          cvTouchLock = now + 350;
+          cvTouchStartY = null;
           cvStep(direction);
+        }, { passive: false });
+
+        cvStack.addEventListener("touchend", function () {
+          cvTouchStartY = null;
         }, { passive: true });
       }
 

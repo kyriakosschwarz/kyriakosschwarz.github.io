@@ -509,51 +509,56 @@
 
 .cv-stack {
   position: relative;
-  transition: height .45s cubic-bezier(.22, .61, .36, 1);
-}
-
-.cv-stack.is-deck {
-  perspective: 1400px;
 }
 
 .cv-page.is-enhanced .cv-stack.is-deck .cv-panel {
   animation: none;
+  backface-visibility: hidden;
+  contain: layout paint;
   display: block;
   inset: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
   position: absolute;
+  scrollbar-color: var(--line) transparent;
   scrollbar-width: thin;
-  transition: transform .45s cubic-bezier(.22, .61, .36, 1), opacity .4s ease, box-shadow .4s ease;
+  transition: transform .32s cubic-bezier(.2, .7, .3, 1), opacity .26s ease;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cv-stack.is-deck .cv-panel.is-active,
+.cv-stack.is-deck .cv-panel.is-prev,
+.cv-stack.is-deck .cv-panel.is-next {
   will-change: transform, opacity;
 }
 
 .cv-stack.is-deck .cv-panel.is-active {
-  box-shadow: 0 1.6rem 3.2rem rgba(0, 0, 0, .14);
+  box-shadow: 0 1.4rem 2.8rem rgba(0, 0, 0, .14);
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(0) scale(1);
+  transform: translate3d(0, 0, 0) scale(1);
   z-index: 3;
 }
 
 .cv-stack.is-deck .cv-panel.is-prev {
-  opacity: .55;
+  opacity: .6;
   pointer-events: none;
-  transform: translateY(-2rem) scale(.95) rotateX(1.5deg);
+  transform: translate3d(0, -2rem, 0) scale(.95);
   z-index: 2;
 }
 
 .cv-stack.is-deck .cv-panel.is-next {
-  opacity: .55;
+  opacity: .6;
   pointer-events: none;
-  transform: translateY(2rem) scale(.95) rotateX(-1.5deg);
+  transform: translate3d(0, 2rem, 0) scale(.95);
   z-index: 2;
 }
 
 .cv-stack.is-deck .cv-panel.is-hidden {
+  content-visibility: hidden;
   opacity: 0;
   pointer-events: none;
-  transform: scale(.92);
+  transform: translate3d(0, 0, 0) scale(.93);
   z-index: 1;
 }
 
