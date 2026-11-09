@@ -11,7 +11,7 @@ puzzles_only: true
 </div>
 
 <div class="puzzle-frame">
-  <iframe src="https://lichess.org/training/frame?theme=blue&bg=system" title="Lichess puzzle of the day" loading="lazy" allowfullscreen></iframe>
+  <iframe src="https://lichess.org/training/frame?theme=blue&bg=system" title="Lichess puzzle of the day" loading="lazy" scrolling="no" allowfullscreen></iframe>
 </div>
 
 <p class="puzzle-link"><a href="https://lichess.org/training/daily" target="_blank" rel="noopener">Open on Lichess <span aria-hidden="true">→</span></a></p>
