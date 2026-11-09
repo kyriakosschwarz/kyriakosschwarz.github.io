@@ -487,16 +487,4 @@
       }
     }
   }
-
-  var clock = document.getElementById("nvim-clock");
-
-  if (clock) {
-    var updateClock = function () {
-      var now = new Date();
-      clock.textContent = ("0" + now.getHours()).slice(-2) + ":" + ("0" + now.getMinutes()).slice(-2);
-    };
-
-    updateClock();
-    window.setInterval(updateClock, 30000);
-  }
 })();

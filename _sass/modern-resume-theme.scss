@@ -43,316 +43,103 @@
   width: 100%;
 }
 
-.nvim-window {
+.intro-panel {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: .9rem;
-  box-shadow: 0 1.4rem 3rem rgba(0, 0, 0, .08);
-  font-family: var(--mono);
-  max-width: 640px;
-  overflow: hidden;
+  border-radius: 1rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
   width: 100%;
 }
 
-.dark .nvim-window {
-  box-shadow: 0 1.4rem 3rem rgba(0, 0, 0, .35);
-}
-
-.nvim-titlebar {
-  align-items: center;
-  background: var(--paper);
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  min-height: 2.6rem;
-  padding: 0 .9rem;
-  position: relative;
-}
-
-.nvim-dots {
-  display: flex;
-  gap: .4rem;
-}
-
-.nvim-dots i {
-  border-radius: 50%;
-  display: block;
-  height: .6rem;
-  width: .6rem;
-}
-
-.nvim-dots i:nth-child(1) {
-  background: #df6257;
-}
-
-.nvim-dots i:nth-child(2) {
-  background: #e0b04c;
-}
-
-.nvim-dots i:nth-child(3) {
-  background: #68ad6e;
-}
-
-.nvim-title {
-  color: var(--muted);
-  font-size: .8rem;
-  left: 50%;
-  letter-spacing: .02em;
-  max-width: 70%;
-  overflow: hidden;
-  position: absolute;
-  text-overflow: ellipsis;
-  transform: translateX(-50%);
-  white-space: nowrap;
-}
-
-.nvim-logo {
-  align-items: center;
-  background: var(--accent);
-  border-radius: .15rem;
-  color: var(--button-ink);
-  display: inline-flex;
-  font-size: .7rem;
-  font-weight: 600;
-  height: 1.2rem;
-  justify-content: center;
-  margin-right: .4rem;
-  width: 1.2rem;
-}
-
-.nvim-body {
-  padding: .85rem 0;
-}
-
-.nvim-line {
-  display: flex;
-  font-size: 1.5rem;
-}
-
-.nvim-line-current {
-  background: rgba(0, 0, 0, .035);
-}
-
-.dark .nvim-line-current {
-  background: rgba(255, 255, 255, .05);
-}
-
-.nvim-gutter {
-  color: var(--muted);
-  flex: 0 0 3rem;
-  line-height: 1.7;
-  padding-right: .8rem;
-  text-align: right;
-  user-select: none;
-}
-
-.nvim-line-current .nvim-gutter {
-  color: var(--accent);
-}
-
-.nvim-code {
+.intro-lead {
   color: var(--ink);
-  flex: 1 1 auto;
-  line-height: 1.7;
-  min-width: 0;
-  overflow-wrap: anywhere;
-  padding-right: 1rem;
-  white-space: pre-wrap;
+  font-family: var(--display);
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+  font-weight: 500;
+  letter-spacing: -.015em;
+  line-height: 1.25;
+  margin: 0;
+  text-align: left;
 }
 
-.nvim-code a {
-  border-bottom: 1px solid transparent;
-  color: var(--accent);
-  text-decoration: none;
-  transition: border-color .2s ease;
+.intro-copy {
+  color: var(--muted);
+  font-size: clamp(1.5rem, 2.4vw, 1.7rem);
+  line-height: 1.55;
+  margin: .45rem 0 0;
+  text-align: left;
 }
 
-.nvim-code a:hover,
-.nvim-code a:focus {
-  border-bottom-color: currentColor;
-}
-
-.nvim-cursor {
-  animation: nvim-blink 1s step-end infinite;
-  background: var(--accent);
-  display: inline-block;
-  height: 1.1em;
-  margin-left: .12em;
-  vertical-align: -.16em;
-  width: .55em;
-}
-
-@keyframes nvim-blink {
-  0%,
-  49% {
-    opacity: 1;
-  }
-
-  50%,
-  100% {
-    opacity: 0;
-  }
-}
-
-.nvim-statusline {
-  align-items: stretch;
-  background: var(--paper);
+.intro-actions {
+  align-items: center;
   border-top: 1px solid var(--line);
   display: flex;
-  font-size: .85rem;
-  min-height: 2.4rem;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
 }
 
-.nvim-mode {
-  align-items: center;
-  background: var(--accent);
-  clip-path: polygon(0 0, calc(100% - .55rem) 0, 100% 50%, calc(100% - .55rem) 100%, 0 100%);
-  color: var(--button-ink);
-  display: flex;
-  font-weight: 600;
-  padding: 0 1.1rem 0 .7rem;
-}
-
-.nvim-branch {
-  align-items: center;
-  color: var(--ink);
-  display: flex;
-  gap: .35rem;
-  padding: 0 .8rem;
-  white-space: nowrap;
-}
-
-.nvim-branch-icon {
-  fill: none;
-  height: 1.15em;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.5;
-  width: 1.15em;
-}
-
-.nvim-file {
-  align-items: center;
-  border-left: 1px solid var(--line);
-  color: var(--ink);
-  display: flex;
-  overflow: hidden;
-  padding: 0 .8rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.nvim-status-right {
-  align-items: stretch;
-  display: flex;
-  margin-left: auto;
-}
-
-.nvim-filetype {
-  align-items: center;
+.intro-actions-label {
   color: var(--muted);
-  display: flex;
-  padding: 0 .8rem;
-  white-space: nowrap;
+  font-family: var(--mono);
+  font-size: 1.05rem;
+  letter-spacing: .05em;
+  margin-right: auto;
+  text-transform: uppercase;
 }
 
-.nvim-position {
+.intro-button {
   align-items: center;
-  background: var(--line);
-  color: var(--ink);
-  display: flex;
-  font-weight: 600;
-  padding: 0 .7rem;
+  background: #f6e3d8;
+  border: 1px solid #f6e3d8;
+  border-radius: 999px;
+  color: #141414;
+  display: inline-flex;
+  font-family: var(--mono);
+  font-size: 1.2rem;
+  font-weight: 500;
+  gap: .45rem;
+  letter-spacing: .03em;
+  padding: .6rem 1rem;
+  text-decoration: none;
+  transition: background-color .18s ease, border-color .18s ease, transform .18s ease;
 }
 
-.nvim-clock {
-  align-items: center;
-  background: var(--line);
-  border-left: 1px solid var(--paper);
-  color: var(--ink);
-  display: flex;
-  font-variant-numeric: tabular-nums;
-  font-weight: 600;
-  padding: 0 .7rem;
+.intro-button:hover,
+.intro-button:focus-visible {
+  background: #efd0bf;
+  border-color: #efd0bf;
+  transform: translateY(-1px);
+}
+
+.intro-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.intro-button-arrow {
+  transition: transform .18s ease;
+}
+
+.intro-button:hover .intro-button-arrow,
+.intro-button:focus-visible .intro-button-arrow {
+  transform: translateX(.2rem);
 }
 
 @media screen and (max-width: 768px) {
-  .nvim-body {
-    padding: .7rem 0;
+  .intro-panel {
+    padding: 1.25rem;
   }
 
-  .nvim-line {
-    font-size: 1.4rem;
+  .intro-actions-label {
+    flex: 1 0 100%;
+    margin-right: 0;
   }
 
-  .nvim-gutter {
-    flex-basis: 2.5rem;
-    padding-right: .6rem;
-  }
-
-  .nvim-code {
-    padding-right: .8rem;
-  }
-
-  .nvim-statusline {
-    font-size: .8rem;
-    min-height: 2.2rem;
-  }
-
-  .nvim-titlebar {
-    min-height: 2.2rem;
-    padding: 0 .7rem;
-  }
-
-  .nvim-dots {
-    gap: .3rem;
-  }
-
-  .nvim-dots i {
-    height: .5rem;
-    width: .5rem;
-  }
-
-  .nvim-title {
-    font-size: .75rem;
-  }
-
-  .nvim-logo {
-    height: 1rem;
-    margin-right: .3rem;
-    width: 1rem;
-  }
-
-  .nvim-mode {
-    padding: 0 .95rem 0 .55rem;
-  }
-
-  .nvim-branch {
-    padding: 0 .6rem;
-  }
-
-  .nvim-file {
-    padding: 0 .6rem;
-  }
-
-  .nvim-filetype {
-    padding: 0 .6rem;
-  }
-
-  .nvim-position,
-  .nvim-clock {
-    padding: 0 .55rem;
-  }
-}
-
-@media screen and (max-width: 359px) {
-  .nvim-branch,
-  .nvim-filetype {
-    display: none;
-  }
-
-  .nvim-statusline {
-    font-size: .75rem;
+  .intro-button {
+    flex: 1 1 auto;
+    justify-content: space-between;
   }
 }
 
