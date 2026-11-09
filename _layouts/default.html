@@ -25,33 +25,109 @@
       {%- if site.version == 2 -%}
         {% assign ordered_content = site.content | sort: "order" %}
         {% if page.projects_only == true %}
-          {% for section in ordered_content %}
-            {% if section.projects == true %}
-              <div class="container {{ section.layout }}-container">
-                <h3 id="{{ section.title | slugify }}">{{ section.title }}</h3>
-                {% include section-callout.html callout=section.callout cta_url=section.cta_url cta_label=section.cta_label %}
-                {% include {{ section.layout | prepend: "section-" | append: ".html" }} content=section.content %}
-              </div>
-            {% endif %}
-          {% endfor %}
-        {% elsif page.cv_only == true %}
-          <div class="container cv-intro-container">
-            <h3 id="about-me">About Me</h3>
-            <div class="row clearfix">
-              <div class="col-md-12">
-                {{ site.cv_content | strip | markdownify }}
-              </div>
+          {%- assign project_total = 0 -%}
+          {%- for section in ordered_content -%}
+            {%- if section.projects -%}
+              {%- assign section_size = section.content | size -%}
+              {%- assign project_total = project_total | plus: section_size -%}
+            {%- endif -%}
+          {%- endfor -%}
+          <div class="container projects-hub" data-projects>
+            <div class="project-filters" role="group" aria-label="Filter projects by topic">
+              <button class="project-filter is-active" type="button" data-project-filter="all" aria-pressed="true">All <span class="project-filter-count">{{ project_total }}</span></button>
+              {% for section in ordered_content %}{% if section.projects %}
+                <button class="project-filter" type="button" data-project-filter="{{ section.title | slugify }}" aria-pressed="false">{{ section.title }} <span class="project-filter-count">{{ section.content | size }}</span></button>
+              {% endif %}{% endfor %}
+            </div>
+            <p class="project-count" aria-live="polite" data-project-count>{{ project_total }} projects</p>
+            <div class="project-grid" data-project-grid>
+              {% for section in ordered_content %}{% if section.projects %}
+                {%- assign section_slug = section.title | slugify -%}
+                {% for item in section.content %}
+                  {%- assign item_slug = item.title | slugify -%}
+                  {%- assign project_id = section_slug | append: "--" | append: item_slug -%}
+                  <button class="project-card" type="button" data-project-open="{{ project_id }}" data-project-category="{{ section_slug }}" aria-haspopup="dialog" aria-label="Open {{ item.title | escape }}">
+                    <span class="project-card-top">
+                      <span class="project-card-cat">{{ section.title }}</span>
+                      <span class="project-card-arrow" aria-hidden="true">↗</span>
+                    </span>
+                    <span class="project-card-title">{{ item.title }}</span>
+                    <span class="project-card-excerpt">{{ item.description | markdownify | strip_html | strip_newlines | truncatewords: 20 }}</span>
+                    {% if item.tags %}
+                    <span class="project-card-tags">
+                      {% for tag in item.tags %}<span class="project-card-tag">{{ tag }}</span>{% endfor %}
+                    </span>
+                    {% endif %}
+                  </button>
+                {% endfor %}
+              {% endif %}{% endfor %}
+            </div>
+
+            <div hidden>
+              {% for section in ordered_content %}{% if section.projects %}
+                {%- assign section_slug = section.title | slugify -%}
+                {% for item in section.content %}
+                  {%- assign item_slug = item.title | slugify -%}
+                  {%- assign project_id = section_slug | append: "--" | append: item_slug -%}
+                  <template id="project-detail-{{ project_id }}">
+                    <div class="project-detail">
+                      <p class="project-detail-cat">{{ section.title }}</p>
+                      <h2 id="project-dialog-title">{{ item.title }}</h2>
+                      {% if item.tags %}
+                      <div class="tag-list">{% for tag in item.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>
+                      {% endif %}
+                      <div class="project-detail-body">{{ item.description | strip | markdownify }}</div>
+                      {% if item.additional_links %}
+                      <div class="project-detail-links">
+                        {% for link in item.additional_links %}
+                        <a href="{{ link.url }}" target="_blank" rel="noopener">
+                          <i class="{{ link.icon }}" aria-hidden="true"></i>
+                          <span>{{ link.title }}</span>
+                        </a>
+                        {% endfor %}
+                      </div>
+                      {% endif %}
+                    </div>
+                  </template>
+                {% endfor %}
+              {% endif %}{% endfor %}
             </div>
           </div>
-          {% for section in ordered_content %}
-            {% unless section.projects == true %}
-              <div class="container {{ section.layout }}-container">
-                <h3 id="{{ section.title | slugify }}">{{ section.title }}</h3>
-                {% include section-callout.html callout=section.callout cta_url=section.cta_url cta_label=section.cta_label %}
-                {% include {{ section.layout | prepend: "section-" | append: ".html" }} content=section.content %}
-              </div>
-            {% endunless %}
-          {% endfor %}
+
+          <dialog class="project-dialog" id="project-dialog">
+            <div class="project-dialog-card">
+              <button class="project-dialog-close" type="button" data-project-close aria-label="Close project">×</button>
+              <div class="project-dialog-content" data-project-dialog-content></div>
+            </div>
+          </dialog>
+        {% elsif page.cv_only == true %}
+          <div class="container cv-page" data-cv>
+            <div class="cv-tabs" role="tablist" aria-label="CV sections" data-cv-tabs>
+              <button class="cv-tab is-active" type="button" role="tab" id="tab-about" aria-controls="panel-about" aria-selected="true" data-cv-tab data-cv-anchor="about-me" tabindex="0"><span class="cv-tab-index">00</span><span>About Me</span></button>
+              {% for section in ordered_content %}{% unless section.projects %}
+                {%- assign section_slug = section.title | slugify -%}
+                <button class="cv-tab" type="button" role="tab" id="tab-{{ section_slug }}" aria-controls="panel-{{ section_slug }}" aria-selected="false" data-cv-tab data-cv-anchor="{{ section_slug }}" tabindex="-1"><span class="cv-tab-index">{{ forloop.index | prepend: '0' }}</span><span>{{ section.title }}</span></button>
+              {% endunless %}{% endfor %}
+            </div>
+            <div class="cv-panels" data-cv-panels>
+              <section class="cv-panel is-active" id="panel-about" role="tabpanel" aria-labelledby="tab-about" data-cv-panel>
+                <h3 id="about-me">About Me</h3>
+                <div class="row clearfix">
+                  <div class="col-md-12">
+                    {{ site.cv_content | strip | markdownify }}
+                  </div>
+                </div>
+              </section>
+              {% for section in ordered_content %}{% unless section.projects %}
+                {%- assign section_slug = section.title | slugify -%}
+                <section class="cv-panel" id="panel-{{ section_slug }}" role="tabpanel" aria-labelledby="tab-{{ section_slug }}" data-cv-panel>
+                  <h3 id="{{ section_slug }}">{{ section.title }}</h3>
+                  {% include section-callout.html callout=section.callout cta_url=section.cta_url cta_label=section.cta_label %}
+                  {% include {{ section.layout | prepend: "section-" | append: ".html" }} content=section.content %}
+                </section>
+              {% endunless %}{% endfor %}
+            </div>
+          </div>
         {% endif %}
       {% else %}
         {%- include v1/default.html -%}

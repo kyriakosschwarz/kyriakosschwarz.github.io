@@ -40,6 +40,214 @@
     });
   }
 
+
+  var cvPage = document.querySelector("[data-cv]");
+
+  if (cvPage) {
+    var cvTabs = Array.prototype.slice.call(cvPage.querySelectorAll("[data-cv-tab]"));
+    var cvPanels = Array.prototype.slice.call(cvPage.querySelectorAll("[data-cv-panel]"));
+    var cvTabsBar = cvPage.querySelector("[data-cv-tabs]");
+
+    if (cvTabs.length && cvPanels.length) {
+      var cvSelect = function (index, updateHash, userInitiated) {
+        if (index < 0 || index >= cvTabs.length) return;
+
+        cvTabs.forEach(function (tab, tabIndex) {
+          var active = tabIndex === index;
+          tab.classList.toggle("is-active", active);
+          tab.setAttribute("aria-selected", String(active));
+          tab.tabIndex = active ? 0 : -1;
+        });
+
+        cvPanels.forEach(function (panel, panelIndex) {
+          panel.classList.toggle("is-active", panelIndex === index);
+        });
+
+        if (updateHash) {
+          var anchor = cvTabs[index].getAttribute("data-cv-anchor");
+
+          if (anchor) {
+            try {
+              window.history.replaceState(null, "", "#" + anchor);
+            } catch (e) {}
+          }
+        }
+
+        if (userInitiated && cvPanels[index]) {
+          var panelTop = cvPanels[index].getBoundingClientRect().top;
+
+          if (panelTop < 80 && cvPanels[index].scrollIntoView) {
+            cvPanels[index].scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+
+        if (userInitiated && cvTabsBar && cvTabsBar.scrollWidth > cvTabsBar.clientWidth) {
+          cvTabs[index].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        }
+      };
+
+      cvPage.classList.add("is-enhanced");
+
+      var initialTab = 0;
+      var initialHash = window.location.hash.replace(/^#/, "");
+
+      if (initialHash) {
+        for (var cvIndex = 0; cvIndex < cvTabs.length; cvIndex++) {
+          if (cvTabs[cvIndex].getAttribute("data-cv-anchor") === initialHash) {
+            initialTab = cvIndex;
+            break;
+          }
+        }
+      }
+
+      cvSelect(initialTab, false, false);
+
+      if (initialHash && cvPanels[initialTab]) {
+        var initialPanelTop = cvPanels[initialTab].getBoundingClientRect().top + window.pageYOffset - 90;
+        window.scrollTo(0, Math.max(0, initialPanelTop));
+      }
+
+      cvTabs.forEach(function (tab, index) {
+        tab.addEventListener("click", function () {
+          cvSelect(index, true, true);
+        });
+
+        tab.addEventListener("keydown", function (event) {
+          var next = null;
+
+          if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+            next = (index + 1) % cvTabs.length;
+          } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+            next = (index - 1 + cvTabs.length) % cvTabs.length;
+          } else if (event.key === "Home") {
+            next = 0;
+          } else if (event.key === "End") {
+            next = cvTabs.length - 1;
+          }
+
+          if (next !== null) {
+            event.preventDefault();
+            cvSelect(next, true, true);
+            cvTabs[next].focus();
+          }
+        });
+      });
+
+      window.addEventListener("hashchange", function () {
+        var hash = window.location.hash.replace(/^#/, "");
+
+        for (var i = 0; i < cvTabs.length; i++) {
+          if (cvTabs[i].getAttribute("data-cv-anchor") === hash) {
+            cvSelect(i, false, false);
+            break;
+          }
+        }
+      });
+    }
+  }
+
+  var projectsHub = document.querySelector("[data-projects]");
+
+  if (projectsHub) {
+    var projectFilters = Array.prototype.slice.call(projectsHub.querySelectorAll("[data-project-filter]"));
+    var projectCards = Array.prototype.slice.call(projectsHub.querySelectorAll("[data-project-open]"));
+    var projectCount = projectsHub.querySelector("[data-project-count]");
+    var projectDialog = document.getElementById("project-dialog");
+    var projectDialogContent = projectDialog ? projectDialog.querySelector("[data-project-dialog-content]") : null;
+    var projectTrigger = null;
+
+    var projectCleanup = function () {
+      document.body.classList.remove("dialog-open");
+
+      if (projectTrigger) {
+        projectTrigger.focus();
+        projectTrigger = null;
+      }
+
+      if (projectDialogContent) {
+        projectDialogContent.innerHTML = "";
+      }
+    };
+
+    var applyProjectFilter = function (filter) {
+      var shown = 0;
+
+      projectFilters.forEach(function (button) {
+        var active = button.getAttribute("data-project-filter") === filter;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+
+      projectCards.forEach(function (card) {
+        var show = filter === "all" || card.getAttribute("data-project-category") === filter;
+        card.hidden = !show;
+
+        if (show) shown++;
+      });
+
+      if (projectCount) {
+        projectCount.textContent = shown + (shown === 1 ? " project" : " projects");
+      }
+    };
+
+    projectFilters.forEach(function (button) {
+      button.addEventListener("click", function () {
+        applyProjectFilter(button.getAttribute("data-project-filter"));
+      });
+    });
+
+    if (projectDialog && projectDialogContent) {
+      var closeProjectDialog = function () {
+        if (typeof projectDialog.close === "function" && projectDialog.open) {
+          projectDialog.close();
+        } else {
+          projectDialog.removeAttribute("open");
+          projectCleanup();
+        }
+      };
+
+      projectCards.forEach(function (card) {
+        card.addEventListener("click", function () {
+          var id = card.getAttribute("data-project-open");
+          var template = document.getElementById("project-detail-" + id);
+
+          if (!template) return;
+
+          projectDialogContent.innerHTML = "";
+          projectDialogContent.appendChild(template.content.cloneNode(true));
+          projectTrigger = card;
+          document.body.classList.add("dialog-open");
+
+          if (typeof projectDialog.showModal === "function") {
+            projectDialog.showModal();
+          } else {
+            projectDialog.setAttribute("open", "");
+          }
+
+          var closeButton = projectDialog.querySelector("[data-project-close]");
+
+          if (closeButton) {
+            closeButton.focus();
+          }
+        });
+      });
+
+      projectDialog.addEventListener("click", function (event) {
+        if (event.target === projectDialog) {
+          closeProjectDialog();
+        }
+      });
+
+      projectDialog.addEventListener("close", projectCleanup);
+
+      var projectCloseButton = projectDialog.querySelector("[data-project-close]");
+
+      if (projectCloseButton) {
+        projectCloseButton.addEventListener("click", closeProjectDialog);
+      }
+    }
+  }
+
   var clock = document.getElementById("nvim-clock");
 
   if (clock) {
