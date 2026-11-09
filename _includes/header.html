@@ -1,7 +1,8 @@
 {%- assign is_projects_page = page.projects_only | default: false -%}
 {%- assign is_cv_page = page.cv_only | default: false -%}
+{%- assign is_puzzles_page = page.puzzles_only | default: false -%}
 {%- assign is_home_page = false -%}
-{%- unless is_projects_page or is_cv_page -%}{%- assign is_home_page = true -%}{%- endunless -%}
+{%- unless is_projects_page or is_cv_page or is_puzzles_page -%}{%- assign is_home_page = true -%}{%- endunless -%}
 
 <div class="topbar">
   <div class="container topbar-inner">
@@ -19,7 +20,7 @@
   </div>
 </div>
 
-<div class="container header-container{% if page.cv_only or page.projects_only %} header-container--compact{% endif %}">
+<div class="container header-container{% if page.cv_only or page.projects_only or page.puzzles_only %} header-container--compact{% endif %}">
 
 
   <div class="hero-grid">
@@ -106,6 +107,11 @@
             </a>
           </li>
         {%- endif -%}
+        <li>
+          <a href="{{ '/puzzles/' | relative_url }}" class="button button--sacnite button--round-l" data-nav="puzzles" aria-label="Chess puzzle of the day" title="Chess puzzle of the day">
+            <span class="knight-icon" aria-hidden="true"></span>
+          </a>
+        </li>
         {%- if site.youtube_username -%}
           <li>
             <a target="_blank" href="https://www.youtube.com/{{ site.youtube_username| cgi_escape | escape }}" class="button button--sacnite button--round-l">

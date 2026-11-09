@@ -96,9 +96,14 @@
             </div>
           </div>
 
-          <dialog class="project-dialog" id="project-dialog">
+          <dialog class="project-dialog" id="project-dialog" aria-labelledby="project-dialog-title">
             <div class="project-dialog-card">
-              <button class="project-dialog-close" type="button" data-project-close aria-label="Close project">×</button>
+              <div class="project-dialog-bar">
+                <button class="project-dialog-arrow" type="button" data-project-prev aria-label="Previous project">←</button>
+                <button class="project-dialog-arrow" type="button" data-project-next aria-label="Next project">→</button>
+                <span class="project-dialog-counter" data-project-counter aria-live="polite"></span>
+                <button class="project-dialog-close" type="button" data-project-close aria-label="Close project">×</button>
+              </div>
               <div class="project-dialog-content" data-project-dialog-content></div>
             </div>
           </dialog>
@@ -113,9 +118,7 @@
             </nav>
             <div class="cv-panels" data-cv-panels>
               <div class="cv-toolbar">
-                <button class="cv-step" type="button" data-cv-prev aria-label="Previous CV section"><span aria-hidden="true">←</span> Previous</button>
                 <p class="cv-progress" aria-live="polite"><span data-cv-progress>01 / 09</span></p>
-                <button class="cv-step" type="button" data-cv-next aria-label="Next CV section">Next <span aria-hidden="true">→</span></button>
               </div>
               <section class="cv-panel" id="panel-about" data-cv-panel>
                 <div class="cv-panel-inner">
@@ -138,6 +141,10 @@
                 </section>
               {% endunless %}{% endfor %}
             </div>
+          </div>
+        {% elsif page.puzzles_only == true %}
+          <div class="container puzzle-page">
+            {{ content }}
           </div>
         {% endif %}
       {% else %}

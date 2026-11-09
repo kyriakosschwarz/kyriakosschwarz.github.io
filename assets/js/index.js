@@ -47,8 +47,6 @@
     var cvTabs = Array.prototype.slice.call(cvPage.querySelectorAll("[data-cv-jump]"));
     var cvPanels = Array.prototype.slice.call(cvPage.querySelectorAll("[data-cv-panel]"));
     var cvProgress = cvPage.querySelector("[data-cv-progress]");
-    var cvPrev = cvPage.querySelector("[data-cv-prev]");
-    var cvNext = cvPage.querySelector("[data-cv-next]");
     var cvActive = 0;
     var cvScrollLock = 0;
 
@@ -100,17 +98,6 @@
         });
       });
 
-      if (cvPrev) {
-        cvPrev.addEventListener("click", function () {
-          cvGoTo((cvActive - 1 + cvPanels.length) % cvPanels.length, true);
-        });
-      }
-
-      if (cvNext) {
-        cvNext.addEventListener("click", function () {
-          cvGoTo((cvActive + 1) % cvPanels.length, true);
-        });
-      }
 
       var cvSyncFromScroll = function () {
         if (Date.now() < cvScrollLock) return;
@@ -210,19 +197,6 @@
     var projectDialog = document.getElementById("project-dialog");
     var projectDialogContent = projectDialog ? projectDialog.querySelector("[data-project-dialog-content]") : null;
     var projectTrigger = null;
-
-    var projectCleanup = function () {
-      document.body.classList.remove("dialog-open");
-
-      if (projectTrigger) {
-        projectTrigger.focus();
-        projectTrigger = null;
-      }
-
-      if (projectDialogContent) {
-        projectDialogContent.innerHTML = "";
-      }
-    };
 
     var applyProjectFilter = function (filter) {
       var shown = 0;
@@ -343,10 +317,106 @@
       });
     });
 
+    var projectCounter = projectDialog ? projectDialog.querySelector("[data-project-counter]") : null;
+    var projectPrevButton = projectDialog ? projectDialog.querySelector("[data-project-prev]") : null;
+    var projectNextButton = projectDialog ? projectDialog.querySelector("[data-project-next]") : null;
+    var projectVisibleCards = [];
+    var projectCurrentIndex = -1;
+
     if (projectDialog && projectDialogContent) {
+      var projectCleanup = function () {
+        document.body.classList.remove("dialog-open");
+
+        if (projectTrigger) {
+          projectTrigger.focus();
+          projectTrigger = null;
+        }
+
+        if (projectDialogContent) {
+          projectDialogContent.innerHTML = "";
+        }
+
+        projectVisibleCards = [];
+        projectCurrentIndex = -1;
+
+        if (window.location.hash.indexOf("#project-detail-") === 0) {
+          try {
+            window.history.replaceState(null, "", window.location.pathname + window.location.search);
+          } catch (e) {}
+        }
+      };
+
+      var renderProject = function (card) {
+        var id = card.getAttribute("data-project-open");
+        var template = document.getElementById("project-detail-" + id);
+
+        if (!template) return false;
+
+        projectDialogContent.innerHTML = "";
+        projectDialogContent.appendChild(template.content.cloneNode(true));
+
+        Array.prototype.forEach.call(projectDialogContent.querySelectorAll("img"), function (image) {
+          image.loading = "eager";
+          image.fetchPriority = "high";
+
+          if (image.decode) {
+            image.decode().catch(function () {});
+          }
+        });
+
+        if (projectCounter) {
+          projectCounter.textContent =
+            ("0" + (projectCurrentIndex + 1)).slice(-2) + " / " + ("0" + projectVisibleCards.length).slice(-2);
+        }
+
+        try {
+          window.history.replaceState(null, "", "#" + "project-detail-" + id);
+        } catch (e) {}
+
+        return true;
+      };
+
+      var openProject = function (card) {
+        projectVisibleCards = projectCards.filter(function (item) {
+          return !item.hidden;
+        });
+
+        var index = projectVisibleCards.indexOf(card);
+
+        if (index === -1) return;
+
+        projectCurrentIndex = index;
+        projectTrigger = card;
+
+        if (!renderProject(card)) return;
+
+        document.body.classList.add("dialog-open");
+
+        if (typeof projectDialog.showModal === "function") {
+          projectDialog.showModal();
+        } else {
+          projectDialog.setAttribute("open", "");
+        }
+
+        var closeButton = projectDialog.querySelector("[data-project-close]");
+
+        if (closeButton) {
+          closeButton.focus();
+        }
+      };
+
+      var navigateProject = function (delta) {
+        if (!projectVisibleCards.length) return;
+
+        projectCurrentIndex = (projectCurrentIndex + delta + projectVisibleCards.length) % projectVisibleCards.length;
+        projectTrigger = projectVisibleCards[projectCurrentIndex];
+        renderProject(projectVisibleCards[projectCurrentIndex]);
+      };
+
       var closeProjectDialog = function () {
         if (typeof projectDialog.close === "function" && projectDialog.open) {
           projectDialog.close();
+          projectCleanup();
         } else {
           projectDialog.removeAttribute("open");
           projectCleanup();
@@ -355,38 +425,57 @@
 
       projectCards.forEach(function (card) {
         card.addEventListener("click", function () {
-          var id = card.getAttribute("data-project-open");
-          var template = document.getElementById("project-detail-" + id);
-
-          if (!template) return;
-
-          projectDialogContent.innerHTML = "";
-          projectDialogContent.appendChild(template.content.cloneNode(true));
-          projectTrigger = card;
-          document.body.classList.add("dialog-open");
-
-          Array.prototype.forEach.call(projectDialogContent.querySelectorAll("img"), function (image) {
-            image.loading = "eager";
-            image.fetchPriority = "high";
-
-            if (image.decode) {
-              image.decode().catch(function () {});
-            }
-          });
-
-          if (typeof projectDialog.showModal === "function") {
-            projectDialog.showModal();
-          } else {
-            projectDialog.setAttribute("open", "");
-          }
-
-          var closeButton = projectDialog.querySelector("[data-project-close]");
-
-          if (closeButton) {
-            closeButton.focus();
-          }
+          openProject(card);
         });
       });
+
+      if (projectPrevButton) {
+        projectPrevButton.addEventListener("click", function () {
+          navigateProject(-1);
+        });
+      }
+
+      if (projectNextButton) {
+        projectNextButton.addEventListener("click", function () {
+          navigateProject(1);
+        });
+      }
+
+      projectDialog.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          navigateProject(-1);
+        } else if (event.key === "ArrowRight") {
+          event.preventDefault();
+          navigateProject(1);
+        }
+      });
+
+      var projectTouchStartX = null;
+      var projectTouchStartY = null;
+
+      projectDialog.addEventListener("touchstart", function (event) {
+        if (event.touches.length !== 1) {
+          projectTouchStartX = null;
+          return;
+        }
+
+        projectTouchStartX = event.touches[0].clientX;
+        projectTouchStartY = event.touches[0].clientY;
+      }, { passive: true });
+
+      projectDialog.addEventListener("touchend", function (event) {
+        if (projectTouchStartX === null) return;
+
+        var deltaX = projectTouchStartX - event.changedTouches[0].clientX;
+        var deltaY = projectTouchStartY - event.changedTouches[0].clientY;
+
+        projectTouchStartX = null;
+
+        if (Math.abs(deltaX) < 60 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+
+        navigateProject(deltaX > 0 ? 1 : -1);
+      }, { passive: true });
 
       projectDialog.addEventListener("click", function (event) {
         if (event.target === projectDialog) {
@@ -400,6 +489,18 @@
 
       if (projectCloseButton) {
         projectCloseButton.addEventListener("click", closeProjectDialog);
+      }
+
+      var initialProjectHash = window.location.hash.replace(/^#/, "");
+
+      if (initialProjectHash.indexOf("project-detail-") === 0) {
+        var initialProjectCard = projectCards.filter(function (card) {
+          return "project-detail-" + card.getAttribute("data-project-open") === initialProjectHash;
+        })[0];
+
+        if (initialProjectCard && !initialProjectCard.hidden) {
+          openProject(initialProjectCard);
+        }
       }
     }
   }
@@ -462,7 +563,7 @@
   }
 
   var navShortcuts = {};
-  var navShortcutKeys = { h: "home", c: "cv", p: "projects" };
+  var navShortcutKeys = { h: "home", c: "cv", p: "projects", k: "puzzles" };
 
   Object.keys(navShortcutKeys).forEach(function (key) {
     var link = document.querySelector('[data-nav="' + navShortcutKeys[key] + '"]');
