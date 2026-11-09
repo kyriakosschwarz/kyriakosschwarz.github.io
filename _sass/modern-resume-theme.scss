@@ -43,7 +43,7 @@
   width: 100%;
 }
 
-.terminal-box {
+.nvim-window {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: .9rem;
@@ -53,144 +53,69 @@
   width: 100%;
 }
 
-.terminal-header {
-  align-items: center;
-  background: var(--paper);
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  gap: .8rem;
-  padding: .55rem .9rem;
+.nvim-body {
+  padding: .85rem 0;
 }
 
-.terminal-dots {
-  display: flex;
-  gap: .35rem;
-}
-
-.terminal-dots i {
-  background: var(--muted);
-  border-radius: 50%;
-  display: block;
-  height: .5rem;
-  opacity: .55;
-  width: .5rem;
-}
-
-.terminal-dots i:first-child {
-  background: var(--accent);
-  opacity: .8;
-}
-
-.terminal-title {
-  color: var(--muted);
-  font-size: .8rem;
-  letter-spacing: .04em;
-}
-
-.terminal-body {
-  padding: 1rem 1.1rem;
-}
-
-.terminal-line {
-  align-items: center;
+.nvim-line {
   display: flex;
   font-size: 1.5rem;
-  gap: .6rem;
-  line-height: 1.5;
-  white-space: nowrap;
 }
 
-.terminal-line + .terminal-line {
-  margin-top: .35rem;
+.nvim-line-current {
+  background: rgba(0, 0, 0, .035);
 }
 
-.terminal-prompt {
+.dark .nvim-line-current {
+  background: rgba(255, 255, 255, .05);
+}
+
+.nvim-gutter {
+  color: var(--muted);
+  flex: 0 0 3rem;
+  line-height: 1.7;
+  padding-right: .8rem;
+  text-align: right;
+  user-select: none;
+}
+
+.nvim-line-current .nvim-gutter {
   color: var(--accent);
-  flex: 0 0 auto;
 }
 
-.terminal-typed {
-  animation: terminal-type 1.4s steps(var(--chars)) .4s forwards;
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 0;
+.nvim-code {
+  color: var(--ink);
+  flex: 1 1 auto;
+  line-height: 1.7;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding-right: 1rem;
+  white-space: pre-wrap;
 }
 
-.terminal-line-2 .terminal-typed {
-  animation-delay: 2.8s;
-  animation-duration: 2.1s;
-}
-
-.terminal-line-3 .terminal-typed {
-  animation-delay: 5.2s;
-  animation-duration: 1.8s;
-}
-
-.terminal-typed a {
+.nvim-code a {
   border-bottom: 1px solid transparent;
   color: var(--accent);
   text-decoration: none;
   transition: border-color .2s ease;
 }
 
-.terminal-typed a:hover,
-.terminal-typed a:focus {
+.nvim-code a:hover,
+.nvim-code a:focus {
   border-bottom-color: currentColor;
 }
 
-.terminal-cursor {
+.nvim-cursor {
+  animation: nvim-blink 1s step-end infinite;
   background: var(--accent);
   display: inline-block;
-  flex: 0 0 auto;
-  height: 1.2em;
+  height: 1.1em;
+  margin-left: .12em;
+  vertical-align: -.16em;
   width: .55em;
 }
 
-.terminal-line-1 .terminal-cursor {
-  animation: terminal-blink 1s step-end infinite, terminal-hide 0s 2.8s forwards;
-}
-
-.terminal-line-2 .terminal-cursor {
-  animation: terminal-blink 1s step-end infinite 2.8s forwards, terminal-hide 0s 5.2s forwards;
-  opacity: 0;
-}
-
-.terminal-line-3 .terminal-cursor {
-  animation: terminal-blink 1s step-end infinite 5.2s forwards;
-  opacity: 0;
-}
-
-.terminal-line-anim {
-  animation: terminal-appear 0s linear var(--line-delay, 0s) forwards;
-  opacity: 0;
-}
-
-.terminal-backslash {
-  color: var(--muted);
-}
-
-.terminal-line-cont .terminal-prompt {
-  color: var(--muted);
-}
-
-.terminal-cursor-dynamic {
-  opacity: 0;
-}
-
-@keyframes terminal-appear {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes terminal-type {
-  to {
-    width: calc(var(--chars) * 1ch);
-  }
-}
-
-@keyframes terminal-blink {
+@keyframes nvim-blink {
   0%,
   49% {
     opacity: 1;
@@ -202,47 +127,95 @@
   }
 }
 
-@keyframes terminal-hide {
-  to {
-    opacity: 0;
-  }
+.nvim-statusline {
+  align-items: stretch;
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  display: flex;
+  font-size: .85rem;
+  min-height: 2.4rem;
+}
+
+.nvim-mode {
+  align-items: center;
+  background: var(--accent);
+  color: var(--button-ink);
+  display: flex;
+  font-weight: 600;
+  padding: 0 .7rem;
+}
+
+.nvim-file {
+  align-items: center;
+  color: var(--ink);
+  display: flex;
+  overflow: hidden;
+  padding: 0 .8rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nvim-status-right {
+  align-items: stretch;
+  display: flex;
+  margin-left: auto;
+}
+
+.nvim-filetype {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  padding: 0 .8rem;
+  white-space: nowrap;
+}
+
+.nvim-position {
+  align-items: center;
+  background: var(--line);
+  color: var(--ink);
+  display: flex;
+  font-weight: 600;
+  padding: 0 .8rem;
 }
 
 @media screen and (max-width: 768px) {
-  .hero-about {
-    align-items: center;
-    flex-direction: column;
-    gap: 1rem;
+  .nvim-body {
+    padding: .7rem 0;
   }
 
-  .hero-about-text {
-    flex: 0 1 auto;
-    width: 100%;
+  .nvim-line {
+    font-size: 1.4rem;
   }
 
-  .terminal-body {
-    padding: .5rem .6rem;
+  .nvim-gutter {
+    flex-basis: 2.5rem;
+    padding-right: .6rem;
   }
 
-  .terminal-line {
-    font-size: clamp(.75rem, 2.8vw, 1.5rem);
-    gap: .3rem;
+  .nvim-code {
+    padding-right: .8rem;
   }
 
-  .terminal-enhanced .terminal-line {
-    font-size: 1.5rem;
+  .nvim-statusline {
+    font-size: .8rem;
+    min-height: 2.2rem;
   }
 
-  @media screen and (max-width: 359px) {
-    .terminal-line {
-      font-size: .75rem;
-    }
+  .nvim-mode {
+    padding: 0 .55rem;
   }
 
-  .terminal-title {
-    font-size: .7rem;
+  .nvim-file {
+    padding: 0 .6rem;
   }
 
+  .nvim-filetype {
+    padding: 0 .6rem;
+  }
+
+  .nvim-position {
+    padding: 0 .6rem;
+  }
 }
 
 .profile-img {

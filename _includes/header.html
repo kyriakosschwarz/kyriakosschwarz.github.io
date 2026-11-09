@@ -136,27 +136,28 @@
             <span class="profile-img hero-profile" style="background-image: url({{ site.about_profile_image | relative_url }})"></span>
           {%- endif -%}
           <div class="hero-about-text">
-            <div class="terminal-box">
-              <div class="terminal-header">
-                <span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="terminal-title">bash — ~/kyriakos</span>
+            <div class="nvim-window">
+              <div class="nvim-body">
+                <div class="nvim-line">
+                  <span class="nvim-gutter" aria-hidden="true">1</span>
+                  <span class="nvim-code">{{ site.about_terminal_lines[0] }}</span>
+                </div>
+                <div class="nvim-line">
+                  <span class="nvim-gutter" aria-hidden="true">2</span>
+                  <span class="nvim-code">{{ site.about_terminal_lines[1] }}</span>
+                </div>
+                <div class="nvim-line nvim-line-current">
+                  <span class="nvim-gutter" aria-hidden="true">3</span>
+                  <span class="nvim-code">Find out more about <a href="{{ '/cv/' | relative_url }}">me</a> and my <a href="{{ '/projects/' | relative_url }}">projects</a>.<span class="nvim-cursor" aria-hidden="true"></span></span>
+                </div>
               </div>
-              <div class="terminal-body">
-                <div class="terminal-line terminal-line-1">
-                  <span class="terminal-prompt">$</span>
-                  <span class="terminal-typed" style="--chars: {{ site.about_terminal_lines[0] | size }}">{{ site.about_terminal_lines[0] }}</span>
-                  <span class="terminal-cursor" aria-hidden="true"></span>
-                </div>
-                <div class="terminal-line terminal-line-2">
-                  <span class="terminal-prompt">$</span>
-                  <span class="terminal-typed" style="--chars: {{ site.about_terminal_lines[1] | size }}">{{ site.about_terminal_lines[1] }}</span>
-                  <span class="terminal-cursor" aria-hidden="true"></span>
-                </div>
-                <div class="terminal-line terminal-line-3">
-                  <span class="terminal-prompt">$</span>
-                  <span class="terminal-typed" style="--chars: 39">Find out more about <a href="{{ '/cv/' | relative_url }}">me</a> and my <a href="{{ '/projects/' | relative_url }}">projects</a>.</span>
-                  <span class="terminal-cursor" aria-hidden="true"></span>
-                </div>
+              <div class="nvim-statusline">
+                <span class="nvim-mode">N</span>
+                <span class="nvim-file">about.md</span>
+                <span class="nvim-status-right">
+                  <span class="nvim-filetype">markdown</span>
+                  <span class="nvim-position">3:39</span>
+                </span>
               </div>
             </div>
 
